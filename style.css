@@ -1,0 +1,298 @@
+/* =========================
+   1. RESET & BAZE
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* =========================
+   2. DESIGN SYSTEM (TOKENS)
+========================= */
+
+:root {
+  /* Culori principale (poți ajusta după identitatea ELOGY) */
+  --color-primary: #b3935d; /* Auriu cald / premium */
+  --color-primary-dark: #8c6f3e;
+  --color-secondary: #1f2933; /* Gri foarte închis */
+  --color-bg: #f5f5f5; /* Fundal deschis */
+  --color-white: #ffffff;
+  --color-text: #222222;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  /* Dimensiuni */
+  --container-width: 1200px;
+  --radius-lg: 14px;
+  --radius-sm: 6px;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  /* Timings */
+  --transition-fast: 0.2s ease-in-out;
+}
+
+/* =========================
+   3. LAYOUT GLOBAL
+========================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Linkuri */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Titluri */
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+/* =========================
+   4. HEADER
+========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  background: rgba(245, 245, 245, 0.96);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 16px;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: 16px;
+  color: var(--color-secondary);
+}
+
+/* Navigație */
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+
+.nav-menu a {
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-fast);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Butoane */
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* =========================
+   5. HERO SECTION
+========================= */
+
+#hero {
+  padding: 80px 0 60px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ece7df 40%, #f5f5f5 100%);
+}
+
+#hero .container {
+  max-width: 900px;
+}
+
+#hero h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+#hero p {
+  font-size: 16px;
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+/* =========================
+   6. SECTIUNEA SERVICII
+========================= */
+
+#servicii {
+  padding: 60px 0 50px;
+}
+
+#servicii h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.services-grid article {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 18px 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: all var(--transition-fast);
+}
+
+.services-grid article h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.services-grid article p {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.services-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   7. FOOTER
+========================= */
+
+footer {
+  padding: 24px 0 18px;
+  background-color: #121212;
+  color: #9ca3af;
+  font-size: 12px;
+  margin-top: 40px;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+footer a {
+  color: #d1d5db;
+}
+
+footer a:hover {
+  color: var(--color-primary);
+}
+
+/* =========================
+   8. RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  header .container {
+    flex-wrap: wrap;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  #hero {
+    padding: 60px 0 40px;
+  }
+
+  #hero h1 {
+    font-size: 26px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
