@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 
 <head>
     <!-- Setări de bază -->
@@ -11,13 +11,11 @@
     <meta name="description"
         content="ELOGY DESIGN oferă mochetă, perdele, draperii, accesorii și servicii complete de montaj pentru spații rezidențiale și comerciale.">
     <meta name="keywords" content="mochetă, perdele, draperii, accesorii, montaj, ELOGY DESIGN, amenajări interioare">
-
-    <!-- Autor  -->
     <meta name="author" content="ELOGY DESIGN">
 
     <!-- Link-uri către fișiere externe -->
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png" type="image/png">
 
     <!-- Canonical URL (pentru SEO, când ai domeniu propriu) -->
     <link rel="canonical" href="https://montaremocheta.ro/">
@@ -29,19 +27,88 @@
     <meta property="og:image" content="https://montaremocheta.ro/images/preview.jpg">
     <meta property="og:url" content="https://montaremocheta.ro/">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="ro_RO">
 
-    <!-- Favicon (pictograma din bara de tab) -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Fonturi și iconițe (exemplu cu Google Fonts) -->
+    <!-- Fonturi și iconițe -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Alte fișiere JS care trebuie încărcate în head -->
+    <!-- Alte fișiere JS -->
     <script src="main.js" defer></script>
 </head>
 
 <body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <a href="/" class="logo">ELOGY DESIGN</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#despre">Despre noi</a></li>
+                    <li><a href="#servicii">Servicii</a></li>
+                    <li><a href="#produse">Produse</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-primary">Solicită ofertă</a>
+        </div>
+    </header>
 
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="container">
+            <h1>Mochetă, perdele și draperii premium pentru orice spațiu</h1>
+            <p>Transformă-ți interiorul cu soluțiile elegante oferite de <strong>ELOGY DESIGN</strong> — consiliere,
+                montaj și finisaje profesionale.</p>
+            <a href="#servicii" class="btn-secondary">Vezi detalii</a>
+        </div>
+    </section>
+
+    <!-- SERVICII -->
+    <main>
+        <section id="servicii">
+            <div class="container">
+                <h2>Serviciile noastre</h2>
+                <div class="services-grid">
+                    <article>
+                        <h3>Consultanță &amp; design</h3>
+                        <p>Îți oferim recomandări personalizate pentru materiale, culori și texturi potrivite stilului
+                            tău.</p>
+                    </article>
+                    <article>
+                        <h3>Montaj profesional</h3>
+                        <p>Echipa noastră asigură montaj rapid, curat și precis pentru toate produsele oferite.</p>
+                    </article>
+                    <article>
+                        <h3>Produse la comandă</h3>
+                        <p>Realizăm perdele, draperii și mochetă la dimensiunile și specificațiile dorite.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contactează-ne</h2>
+            <p>Completează formularul de mai jos sau sună-ne pentru o ofertă personalizată.</p>
+            <form action="send.php" method="POST">
+                <input type="text" name="nume" placeholder="Nume complet" required>
+                <input type="email" name="email" placeholder="Adresa de email" required>
+                <textarea name="mesaj" placeholder="Mesajul tău" rows="5" required></textarea>
+                <button type="submit" class="btn-primary">Trimite mesajul</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ELOGY DESIGN. Toate drepturile rezervate.</p>
+            <p><a href="https://montaremocheta.ro">montaremocheta.ro</a></p>
+        </div>
+    </footer>
 </body>
+
 
 </html>
