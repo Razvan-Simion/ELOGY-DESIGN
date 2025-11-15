@@ -27,7 +27,7 @@ body {
 ========================= */
 
 :root {
-  /* Culori principale (poți ajusta după identitatea ELOGY) */
+  /* Culori principale */
   --color-primary: #b3935d; /* Auriu cald / premium */
   --color-primary-dark: #8c6f3e;
   --color-secondary: #1f2933; /* Gri foarte închis */
@@ -91,7 +91,7 @@ header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-header .container {
+header .container.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,14 +99,32 @@ header .container {
   padding: 14px 16px;
 }
 
-.logo {
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  font-size: 16px;
-  color: var(--color-secondary);
+/* Grupare stânga: hamburger + meniu text */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Navigație */
+/* Grupare dreapta: buton + iconițe */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo centru */
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 25px;
+  color: var(--color-secondary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Navigație stânga */
 
 .nav-menu {
   list-style: none;
@@ -135,43 +153,55 @@ header .container {
   width: 100%;
 }
 
-/* Butoane */
+/* Buton hamburger */
 
-.btn-primary,
-.btn-secondary {
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  white-space: nowrap;
+  color: #111111;
 }
 
+.menu-btn svg {
+  fill: currentColor;
+}
+
+/* Buton Contactează-ne */
+
 .btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  box-shadow: var(--shadow-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  font-size: 14px;
+  border-radius: 0;
+  border: 1px solid var(--color-secondary);
+  background: transparent;
+  color: var(--color-secondary);
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-secondary);
-  border: 1px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-primary);
+  background: var(--color-secondary);
   color: var(--color-white);
+}
+
+/* Iconițe dreapta */
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-link svg {
+  stroke: currentColor;
+  fill: none;
 }
 
 /* =========================
@@ -196,6 +226,27 @@ header .container {
   font-size: 16px;
   color: var(--color-muted);
   margin-bottom: 24px;
+}
+
+/* Buton secundar (hero) */
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  font-size: 14px;
+  transition: background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
 }
 
 /* =========================
@@ -274,14 +325,26 @@ footer a:hover {
 ========================= */
 
 @media (max-width: 900px) {
-  header .container {
-    flex-wrap: wrap;
+  header .container.header-inner {
+    justify-content: space-between;
   }
 
+  /* Meniul devine dropdown controlat de hamburger */
   .nav-menu {
-    flex-wrap: wrap;
+    position: absolute;
+    top: 60px;
+    left: 16px;
+    background: var(--color-white);
+    padding: 12px 16px;
+    flex-direction: column;
     gap: 10px;
-    justify-content: flex-start;
+    box-shadow: var(--shadow-soft);
+    border-radius: var(--radius-sm);
+    display: none; /* ascuns implicit */
+  }
+
+  .nav-menu.active {
+    display: flex; /* devine vizibil când JS adaugă .active */
   }
 
   #hero {

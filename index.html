@@ -29,27 +29,67 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ro_RO">
 
-    <!-- Fonturi și iconițe -->
+    <!-- Fonturi -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Alte fișiere JS -->
+    <!-- JS -->
     <script src="main.js" defer></script>
 </head>
 
 <body>
+
     <!-- HEADER -->
     <header>
-        <div class="container">
+        <div class="container header-inner">
+
+            <!-- STÂNGA: hamburger + meniu -->
+            <div class="header-left">
+                <button class="menu-btn" aria-label="Deschide meniul">
+                    <svg width="28" height="28" aria-hidden="true">
+                        <use href="images/icons.svg#icon-hamburger"></use>
+                    </svg>
+                </button>
+
+                <nav aria-label="Meniu principal">
+                    <ul class="nav-menu">
+                        <li><a href="#magazin-online">Magazin online</a></li>
+                        <li><a href="#showroom">Showroom</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- CENTRU: logo -->
             <a href="https://montaremocheta.ro/" class="logo">ELOGY DESIGN</a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#despre">Despre noi</a></li>
-                    <li><a href="#servicii">Servicii</a></li>
-                    <li><a href="#produse">Produse</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="#contact" class="btn-primary">Solicită ofertă</a>
+
+            <!-- DREAPTA: buton + iconițe -->
+            <div class="header-right">
+                <a href="#contact" class="btn-primary">Contactează-ne</a>
+
+                <a href="#" class="icon-link" aria-label="Căutare">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <use href="images/icons.svg#icon-search"></use>
+                    </svg>
+                </a>
+
+                <a href="#showroom" class="icon-link" aria-label="Găsește showroom">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <use href="images/icons.svg#icon-location"></use>
+                    </svg>
+                </a>
+
+                <a href="#" class="icon-link" aria-label="Contul meu">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <use href="images/icons.svg#icon-user"></use>
+                    </svg>
+                </a>
+
+                <a href="#" class="icon-link" aria-label="Coș / comenzi">
+                    <svg width="20" height="20" aria-hidden="true">
+                        <use href="images/icons.svg#icon-bag"></use>
+                    </svg>
+                </a>
+            </div>
+
         </div>
     </header>
 
@@ -85,6 +125,9 @@
                 </div>
             </div>
         </section>
+
+        <!-- (opțional) o secțiune #contact în viitor -->
+        <!-- <section id="contact">...</section> -->
     </main>
 
     <!-- FOOTER -->
@@ -94,6 +137,5 @@
         </div>
     </footer>
 </body>
-
 
 </html>
