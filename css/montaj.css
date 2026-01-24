@@ -1,0 +1,70 @@
+/* =========================================
+   Montaj page – page specific styles only
+   ========================================= */
+
+.montaj-hero__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.montaj-hero__title {
+  font-size: 32px;
+  font-weight: var(--fw-semi);
+  letter-spacing: -0.35px;
+}
+
+.montaj-hero__text {
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+.montaj-hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* grids */
+.montaj-reasons__grid,
+.montaj-details__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.montaj-what__grid,
+.montaj-expect__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* cards */
+.reason-card,
+.what-card,
+.detail-card,
+.expect-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+@media (min-width: 900px) {
+  .montaj-hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .montaj-hero__title {
+    font-size: 42px;
+  }
+
+  .montaj-reasons__grid,
+  .montaj-details__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .montaj-what__grid,
+  .montaj-expect__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

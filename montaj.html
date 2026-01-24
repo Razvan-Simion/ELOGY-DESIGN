@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <title>Montaj profesionist | ELOGY Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS pagină Montaj -->
+    <link rel="stylesheet" href="css/montaj.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+       HEADER (identic cu homepage)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <!-- Left -->
+            <div class="header__left">
+                <!-- Hamburger -->
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <!-- Visible left links -->
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="#" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <!-- Center logo -->
+            <div class="header__center">
+                <!-- Placeholder logo text; înlocuiești ulterior cu logo SVG/IMG -->
+                <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <!-- Right -->
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="#" aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <button class="icon-btn" type="button" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Coș">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer / Mobile menu (hamburger) -->
+        <!-- Conținut obligatoriu: Perdele & Draperii, Mochetă, Montaj, Accesorii -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="index.html">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+         HERO – Montaj
+         ========================================================= -->
+        <section class="montaj-hero section" data-animate>
+            <div class="container montaj-hero__inner">
+                <div class="montaj-hero__content">
+                    <h1 class="montaj-hero__title">Montaj profesionist, finisaje impecabile.</h1>
+                    <p class="montaj-hero__text">
+                        Detaliile fac diferența. Asigurăm instalare corectă pentru mochetă, perdele și draperii,
+                        astfel încât rezultatul final să arate premium și să reziste în timp.
+                    </p>
+
+                    <div class="montaj-hero__actions">
+                        <a href="#" class="btn btn--primary">Programează o discuție</a>
+                        <a href="#servicii" class="btn btn--secondary">Vezi serviciile</a>
+                    </div>
+                </div>
+
+                <div class="montaj-hero__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         De ce contează montajul
+         ========================================================= -->
+        <section class="montaj-reasons section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">De ce contează montajul</h2>
+                    <p class="section__subtitle">
+                        Materialele bune își arată valoarea atunci când sunt integrate corect în spațiul tău.
+                    </p>
+                </div>
+
+                <div class="montaj-reasons__grid">
+                    <article class="reason-card">
+                        <h3 class="reason-card__title">Aspect premium, fără improvizații</h3>
+                        <p class="reason-card__text">
+                            Linii curate, proporții corecte și prinderi discrete — diferența se vede imediat.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <h3 class="reason-card__title">Durabilitate în timp</h3>
+                        <p class="reason-card__text">
+                            Instalarea corectă înseamnă mai puține probleme și un rezultat care se păstrează bine.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <h3 class="reason-card__title">Siguranță și funcționalitate</h3>
+                        <p class="reason-card__text">
+                            Totul este fixat și aliniat corect, pentru utilizare confortabilă zi de zi.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <h3 class="reason-card__title">Respect pentru spațiul tău</h3>
+                        <p class="reason-card__text">
+                            Lucrăm ordonat și atent, pentru un proces cât mai simplu pentru tine.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         Ce montăm
+         ========================================================= -->
+        <section class="montaj-what section" id="servicii" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Ce montăm</h2>
+                    <p class="section__subtitle">
+                        Ne ocupăm de integrarea completă, cu atenție la detalii și finisaje.
+                    </p>
+                </div>
+
+                <div class="montaj-what__grid">
+                    <article class="what-card">
+                        <h3 class="what-card__title">Mochetă</h3>
+                        <p class="what-card__text">
+                            Soluții potrivite pentru locuințe și spații comerciale, instalate corect pentru un aspect
+                            uniform.
+                        </p>
+                    </article>
+
+                    <article class="what-card">
+                        <h3 class="what-card__title">Perdele</h3>
+                        <p class="what-card__text">
+                            Prinderi discrete, cădere elegantă și proporții corecte pentru ferestre.
+                        </p>
+                    </article>
+
+                    <article class="what-card">
+                        <h3 class="what-card__title">Draperii</h3>
+                        <p class="what-card__text">
+                            Sisteme potrivite, opacitate aleasă corect și finisaje care arată impecabil.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         Finisaje & detalii
+         ========================================================= -->
+        <section class="montaj-details section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Finisaje &amp; detalii</h2>
+                    <p class="section__subtitle">
+                        Partea invizibilă este cea care ține rezultatul în picioare.
+                    </p>
+                </div>
+
+                <div class="montaj-details__grid">
+                    <article class="detail-card">
+                        <h3>Măsurători și aliniere</h3>
+                        <p>Dimensiuni corecte și poziționare precisă înainte de orice instalare.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3>Sisteme de prindere</h3>
+                        <p>Șine, galerii, accesorii — alegem soluții potrivite stilului și funcției.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3>Tăieturi și îmbinări curate</h3>
+                        <p>Margini, colțuri și zone de trecere realizate fără compromis.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3>Cădere și proporții</h3>
+                        <p>Lungimi corecte, valuri echilibrate și aspect finisat.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3>Curățenie și predare</h3>
+                        <p>La final, spațiul rămâne ordonat și rezultatul gata de folosit.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         La ce să te aștepți
+         ========================================================= -->
+        <section class="montaj-expect section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">La ce să te aștepți</h2>
+                    <p class="section__subtitle">
+                        Un montaj bun înseamnă claritate, organizare și un rezultat predictibil.
+                    </p>
+                </div>
+
+                <div class="montaj-expect__grid">
+                    <article class="expect-card">
+                        <h3>Programare clară</h3>
+                        <p>Stabilim de la început data și intervalul, astfel încât să îți fie ușor să te organizezi.</p>
+                    </article>
+
+                    <article class="expect-card">
+                        <h3>Execuție atentă</h3>
+                        <p>Lucrăm cu grijă la detalii și la protejarea spațiului.</p>
+                    </article>
+
+                    <article class="expect-card">
+                        <h3>Verificare finală</h3>
+                        <p>Ne asigurăm că totul arată și funcționează corect înainte de predare.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         Showroom
+         ========================================================= -->
+        <section class="showroom section" data-animate>
+            <div class="container showroom__inner">
+                <div class="showroom__content">
+                    <h2 class="section__title">Preferi să discutăm în showroom?</h2>
+                    <p>
+                        Te așteptăm în showroom pentru a vedea materialele și pentru a stabili soluția potrivită
+                        proiectului tău.
+                    </p>
+                    <a href="#" class="btn btn--secondary">Programează o vizită</a>
+                </div>
+
+                <div class="showroom__media media media--gradient" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         FAQ – Montaj
+         ========================================================= -->
+        <section class="faq section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Întrebări frecvente</h2>
+                </div>
+
+                <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__q">Montajul este disponibil și separat de produse?</summary>
+                        <div class="faq__a">
+                            În unele cazuri, da. Cel mai bine este să discutăm proiectul pentru a confirma
+                            compatibilitatea și condițiile.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Cât durează un montaj?</summary>
+                        <div class="faq__a">
+                            Depinde de suprafață și complexitate. Stabilim estimarea după ce înțelegem proiectul și
+                            măsurătorile.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Aveți nevoie de măsurători înainte?</summary>
+                        <div class="faq__a">
+                            Da, măsurătorile corecte ajută la un rezultat impecabil. Le putem face noi sau putem valida
+                            informațiile existente.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Ce presupune montajul pentru perdele și draperii?</summary>
+                        <div class="faq__a">
+                            Alegerea sistemului potrivit, poziționare corectă, prinderi discrete și verificarea căderii
+                            și a proporțiilor.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Ce presupune montajul pentru pardoseli textile?</summary>
+                        <div class="faq__a">
+                            Pregătirea corectă a suprafeței, instalare uniformă și finisaje curate în zonele de trecere.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Cum protejați spațiul în timpul lucrării?</summary>
+                        <div class="faq__a">
+                            Lucrăm ordonat, protejăm zonele sensibile și lăsăm spațiul curat la final.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         CTA FINAL
+         ========================================================= -->
+        <section class="final-cta section" data-animate>
+            <div class="container final-cta__inner">
+                <h2 class="final-cta__title">Vrei un rezultat impecabil, până la ultimul detaliu?</h2>
+                <p class="final-cta__text">
+                    Spune-ne ce ai nevoie și îți recomandăm soluția potrivită pentru un montaj profesionist.
+                </p>
+                <a href="#" class="btn btn--primary">Programează o discuție</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+       FOOTER (identic cu homepage)
+       ========================================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
