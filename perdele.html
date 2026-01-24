@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perdele | ELOGY Design</title>
+
+    <!-- Font: identic cu homepage -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS global (de pe homepage) -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- CSS specific paginii Perdele (doar clase noi) -->
+    <link rel="stylesheet" href="css/perdele.css" />
+</head>
+
+<body>
+    <!-- =========================================================
+       1) HEADER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <div class="header__left">
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="index.html" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="index.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <div class="header__center">
+                <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="index.html" aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <button class="icon-btn" type="button" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Coș">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer identic -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="index.html">Montaj</a>
+                    <a class="drawer__link" href="index.html">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+        <!-- =========================================================
+         2) HERO – Perdele (obligatoriu)
+         ========================================================= -->
+        <section class="perdele-hero section" aria-label="Perdele - Introducere" data-animate>
+            <div class="container perdele-hero__inner">
+                <div class="perdele-hero__content">
+                    <h1 class="perdele-hero__title">Perdele care lasă lumina să respire.</h1>
+                    <p class="perdele-hero__text">
+                        Materiale atent selecționate și realizate pe comandă, pentru un interior aerisit și echilibrat.
+                        Te ajutăm să alegi transparența, căderea și finisajele potrivite spațiului tău.
+                    </p>
+
+                    <div class="perdele-hero__actions">
+                        <a class="btn btn--primary" href="index.html">Programează o discuție</a>
+                        <a class="btn btn--secondary" href="#optiuni">Vezi opțiunile</a>
+                    </div>
+                </div>
+
+                <!-- Placeholder vizual (gradient/pattern), pregătit pentru imagine + overlay -->
+                <div class="perdele-hero__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         3) Ce schimbă perdelele într-un spațiu (obligatoriu)
+         ========================================================= -->
+        <section class="impact section" aria-label="Ce schimbă perdelele într-un spațiu" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Ce schimbă perdelele într-un spațiu</h2>
+                    <p class="impact__subtitle">
+                        Nu sunt doar un detaliu decorativ — perdelele definesc lumina, proporțiile și atmosfera unei
+                        încăperi.
+                    </p>
+                </div>
+
+                <div class="impact__grid">
+                    <article class="impact-card">
+                        <div class="impact-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="impact-card__title">Lumină controlată, naturală</h3>
+                        <p class="impact-card__text">
+                            Filtrează lumina fără să o blocheze și creează un ambient plăcut pe tot parcursul zilei.
+                        </p>
+                    </article>
+
+                    <article class="impact-card">
+                        <div class="impact-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="impact-card__title">Spațiu mai aerisit</h3>
+                        <p class="impact-card__text">
+                            Adaugă lejeritate și echilibru vizual, fără să încarce interiorul.
+                        </p>
+                    </article>
+
+                    <article class="impact-card">
+                        <div class="impact-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="impact-card__title">Proporții corecte pentru ferestre</h3>
+                        <p class="impact-card__text">
+                            Lungimea, plisarea și căderea potrivită fac ferestrele să arate mai bine și mai „finisat”.
+                        </p>
+                    </article>
+
+                    <article class="impact-card">
+                        <div class="impact-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="impact-card__title">Un interior complet</h3>
+                        <p class="impact-card__text">
+                            Uneori, perdelele sunt elementul care leagă totul și dă senzația de „gata”.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         4) Tipuri de perdele (obligatoriu, fără proces)
+         ========================================================= -->
+        <section class="types section" id="optiuni" aria-label="Tipuri de perdele" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Tipuri de perdele</h2>
+                    <p class="types__subtitle">
+                        Alegerea potrivită ține de lumină, intimitate și stilul spațiului.
+                    </p>
+                </div>
+
+                <div class="types__grid">
+                    <article class="type-card">
+                        <div class="type-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="type-card__title">Transparent</h3>
+                        <p class="type-card__text">Pentru lumină maximă și o senzație de spațiu deschis.</p>
+                    </article>
+
+                    <article class="type-card">
+                        <div class="type-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="type-card__title">Semi-transparent</h3>
+                        <p class="type-card__text">Echilibru între lumină și intimitate, potrivit pentru majoritatea
+                            încăperilor.</p>
+                    </article>
+
+                    <article class="type-card">
+                        <div class="type-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="type-card__title">Decorativ</h3>
+                        <p class="type-card__text">Texturi și țesături cu personalitate, pentru un plus de rafinament.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         5) Perdele în funcție de spațiu (obligatoriu)
+         ========================================================= -->
+        <section class="by-space section" aria-label="Perdele în funcție de spațiu" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Perdele în funcție de spațiu</h2>
+                    <p class="by-space__subtitle">
+                        De la locuințe la spații comerciale, alegem perdele care funcționează bine în viața reală și
+                        arată impecabil.
+                    </p>
+                </div>
+
+                <div class="by-space__grid">
+                    <article class="chip">
+                        <h3 class="chip__title">Living</h3>
+                        <p class="chip__text">Creează o lumină plăcută și un aspect echilibrat pentru zona principală a
+                            casei.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Dormitor</h3>
+                        <p class="chip__text">Alege transparența potrivită și combină cu draperii pentru intimitate și
+                            confort.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Bucătărie &amp; dining</h3>
+                        <p class="chip__text">Soluții lejere, ușor de întreținut, care păstrează lumina și prospețimea
+                            spațiului.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Birou / home office</h3>
+                        <p class="chip__text">Lumina filtrată reduce reflexiile și ajută la un ambient calm și
+                            productiv.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Hoteluri</h3>
+                        <p class="chip__text">Materiale durabile și elegante, cu finisaje care susțin un standard
+                            premium.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Restaurante &amp; cafenele</h3>
+                        <p class="chip__text">Atmosferă caldă, lumină controlată și un aspect unitar, coerent cu brandul
+                            locației.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Saloane de evenimente</h3>
+                        <p class="chip__text">Drapaj și volum vizual, pentru decoruri adaptabile și impact estetic.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Spații comerciale / showroom-uri</h3>
+                        <p class="chip__text">Soluții care completează prezentarea produselor și definesc zonele fără
+                            rigiditate.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         6) Detalii care fac diferența (obligatoriu)
+         ========================================================= -->
+        <section class="details section" aria-label="Detalii care fac diferența" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Detalii care fac diferența</h2>
+                    <p class="details__subtitle">
+                        În perdele, diferența dintre „ok” și „premium” stă în finisaje.
+                    </p>
+                </div>
+
+                <div class="details__grid">
+                    <article class="details-card">
+                        <h3 class="details-card__title">Lungimea corectă</h3>
+                        <p class="details-card__text">O perdea bine proporționată schimbă imediat percepția unui spațiu.
+                        </p>
+                    </article>
+
+                    <article class="details-card">
+                        <h3 class="details-card__title">Plisare &amp; cădere</h3>
+                        <p class="details-card__text">Țesătura și modul de coasere influențează textura și eleganța.</p>
+                    </article>
+
+                    <article class="details-card">
+                        <h3 class="details-card__title">Sisteme de prindere</h3>
+                        <p class="details-card__text">Șine, galerii, wave, rejansă — alegem soluția potrivită pentru
+                            efectul dorit.</p>
+                    </article>
+
+                    <article class="details-card">
+                        <h3 class="details-card__title">Combinația cu draperii</h3>
+                        <p class="details-card__text">Împreună creează stratificare, control mai bun al luminii și un
+                            look complet.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         7) Showroom (scurt) (obligatoriu)
+         ========================================================= -->
+        <section class="showroom section" aria-label="Showroom" data-animate>
+            <div class="container showroom__inner">
+                <div class="showroom__content">
+                    <h2 class="section__title">Vezi materialele în showroom</h2>
+                    <p class="showroom__text">
+                        Unele decizii se iau mai ușor când vezi materialele în realitate. Te așteptăm în showroom pentru
+                        a compara texturi, transparențe și finisaje.
+                    </p>
+                    <a class="btn btn--secondary" href="index.html">Programează o vizită</a>
+                </div>
+
+                <div class="showroom__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         8) FAQ (obligatoriu, 6 întrebări)
+         ========================================================= -->
+        <section class="faq section" aria-label="Întrebări frecvente" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Întrebări frecvente</h2>
+                </div>
+
+                <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__q">Perdelele oferă intimitate?</summary>
+                        <div class="faq__a">
+                            Depinde de transparență. Perdelele semi-transparente oferă un echilibru bun între lumină și
+                            intimitate, iar pentru intimitate totală recomandăm combinația cu draperii.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Se văd din exterior seara?</summary>
+                        <div class="faq__a">
+                            Seara, când lumina este aprinsă în interior, perdelele foarte transparente pot lăsa siluete
+                            vizibile. Soluția este o transparență mai densă sau stratificarea cu draperii.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Pot fi spălate acasă?</summary>
+                        <div class="faq__a">
+                            Unele materiale permit spălare delicată, altele necesită curățare profesională. Îți
+                            recomandăm varianta potrivită în funcție de material și utilizare.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Cum aleg lungimea potrivită?</summary>
+                        <div class="faq__a">
+                            Lungimea se alege în funcție de stilul dorit (până la podea, ușor „puddle”, sau perfect
+                            tensionat) și de tipul de prindere. Recomandăm măsurare corectă înainte de execuție.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Ce tip de prindere arată cel mai premium?</summary>
+                        <div class="faq__a">
+                            Sistemele wave și șinele discrete oferă un aspect modern și curat, iar galeriile pot fi o
+                            alegere elegantă în interioare clasice. Alegerea ține de stilul spațiului.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Perdelele se îngălbenesc în timp?</summary>
+                        <div class="faq__a">
+                            Materialele de calitate, întreținute corect, își păstrează aspectul mai bine. Expunerea
+                            directă la soare și fumul pot influența în timp nuanța, de aceea alegerea țesăturii
+                            contează.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         9) CTA final (obligatoriu)
+         ========================================================= -->
+        <section class="final-cta section" aria-label="CTA final" data-animate>
+            <div class="container final-cta__inner">
+                <div class="final-cta__box">
+                    <h2 class="final-cta__title">Vrei perdele care se potrivesc perfect spațiului tău?</h2>
+                    <p class="final-cta__text">
+                        Spune-ne ce îți dorești, iar noi îți recomandăm opțiuni potrivite ca stil, transparență și
+                        finisaj.
+                    </p>
+                    <div class="final-cta__actions">
+                        <a class="btn btn--primary" href="index.html">Programează o discuție</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================================
+       10) FOOTER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS global (hamburger + fade-in) -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

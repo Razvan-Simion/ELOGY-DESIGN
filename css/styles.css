@@ -1,0 +1,729 @@
+/* =========================================
+   ELOGY Design - Base Styles
+   - Mobile-first
+   - BEM naming
+   - CSS variables for scalable theming
+   ========================================= */
+
+:root {
+  /* Header background near Chrome UI white */
+  --color-header-bg: #f8f9fa;
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-muted: rgba(17, 17, 17, 0.65);
+  --color-border: rgb(17, 17, 17);
+
+  /* CTA / hover uses black or near-black */
+  --color-cta: #000000f3;
+  --color-cta-hover: #000000dc;
+
+  /* Typography */
+  --font-family:
+    "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi: 600;
+
+  /* Sizing / spacing */
+  --container: 1120px;
+  --radius: 16px;
+  --radius-lg: 22px;
+
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 18px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 44px;
+  --space-8: 60px;
+
+  /* Gradients (placeholders) - reutilizabile peste imagini */
+  --grad-1:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0) 55%),
+    linear-gradient(135deg, #e9ecef, #f8f9fa);
+  --grad-2:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0) 60%),
+    linear-gradient(135deg, #f1f3f5, #ffffff);
+  --grad-3:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0) 58%),
+    linear-gradient(135deg, #e6e8eb, #f8f9fa);
+
+  /* Default overlay for images (poți schimba per element) */
+  --media-overlay: linear-gradient(
+    135deg,
+    rgba(17, 17, 17, 0.25),
+    rgba(17, 17, 17, 0) 60%
+  );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Generic section spacing */
+.section {
+  padding: var(--space-7) 0;
+}
+
+.section__head {
+  margin-bottom: var(--space-5);
+}
+
+.section__title {
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.2px;
+  margin: 0;
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+  .section__title {
+    font-size: 28px;
+  }
+}
+
+/* =========================================
+   Buttons (reusable)
+   ========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  border-radius: 999px;
+
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2px;
+
+  border: 1px solid transparent;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+  will-change: transform;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--color-cta);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background: var(--color-cta-hover);
+}
+
+.btn--secondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  border-color: rgba(17, 17, 17, 0.22);
+  background: rgba(17, 17, 17, 0.03);
+}
+
+/* Icon button */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.icon-btn:hover {
+  background: rgba(17, 17, 17, 0.04);
+  border-color: rgba(17, 17, 17, 0.1);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================
+   1) Header
+   ========================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-header-bg);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+.header__inner {
+  height: 72px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.header__left,
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.header__left {
+  justify-content: flex-start;
+}
+.header__right {
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.header__quicklinks {
+  display: none; /* mobile-first: ascunse */
+  gap: var(--space-4);
+}
+
+.header__link {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: rgba(17, 17, 17, 0.78);
+}
+
+.header__link:hover {
+  color: var(--color-text);
+}
+
+.header__logo {
+  font-weight: var(--fw-semi);
+  letter-spacing: 1.6px;
+  font-size: 18px;
+}
+
+.header__cta {
+  display: none;
+} /* mobile-first: păstrăm icon-urile, CTA apare pe ecrane mai mari */
+
+.header__icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .header__quicklinks {
+    display: inline-flex;
+  }
+  .header__cta {
+    display: inline-flex;
+  }
+}
+
+/* =========================================
+   Drawer (mobile menu)
+   ========================================= */
+.drawer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.drawer.is-open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.35);
+}
+
+.drawer__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: min(86vw, 360px);
+  background: #fff;
+  border-right: 1px solid rgba(17, 17, 17, 0.1);
+  transform: translateX(-102%);
+  transition: transform 220ms ease;
+  padding: var(--space-5);
+}
+
+.drawer.is-open .drawer__panel {
+  transform: translateX(0);
+}
+
+.drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.drawer__title {
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.2px;
+}
+
+.drawer__nav {
+  display: grid;
+  gap: 8px;
+}
+
+.drawer__link {
+  padding: 12px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  font-weight: var(--fw-medium);
+}
+
+.drawer__link:hover {
+  border-color: rgba(17, 17, 17, 0.18);
+  background: rgba(17, 17, 17, 0.03);
+}
+
+/* =========================================
+   Media placeholder + gradients
+   - .media--gradient: folosește un gradient placeholder
+   - .media--overlay: poate suprapune gradient peste o imagine pe care o adaugi ulterior
+   ========================================= */
+.media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+  position: relative;
+}
+
+.media__surface {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+}
+
+/* Placeholder gradients (fără imagini reale) */
+.media--gradient .media__surface {
+  background: var(--grad-1);
+}
+
+/* Variante per secțiune/card (opțional) */
+.card--perdele .media__surface {
+  background: var(--grad-2);
+}
+.card--draperii .media__surface {
+  background: var(--grad-3);
+}
+.card--montaj .media__surface {
+  background: var(--grad-2);
+}
+
+/* Overlay gradient peste o imagine pe care o pui tu ulterior:
+   Exemplu: adaugi în HTML:
+   style="background-image:url('...');"
+   și păstrezi .media--overlay
+*/
+.media--overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--media-overlay);
+  pointer-events: none;
+}
+
+/* Dacă pui imaginea pe .media (nu pe .media__surface) */
+.media.has-image {
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================================
+   2) Hero
+   ========================================= */
+.hero__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.hero__title {
+  margin: 0 0 var(--space-3);
+  font-size: 34px;
+  font-weight: var(--fw-semi);
+  letter-spacing: -0.4px;
+}
+
+.hero__subtitle {
+  margin: 0 0 var(--space-5);
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero__media .media__surface {
+  min-height: 260px;
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-7);
+  }
+  .hero__title {
+    font-size: 44px;
+  }
+  .hero__subtitle {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   3) Cards main
+   ========================================= */
+.cards__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(17, 17, 17, 0.16);
+}
+
+.card__media {
+  margin-bottom: var(--space-4);
+}
+.card__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.2px;
+}
+
+@media (min-width: 768px) {
+  .cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (min-width: 1100px) {
+  .cards__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =========================================
+   4) Audience
+   ========================================= */
+.audience__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pill {
+  padding: 14px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  background: rgba(17, 17, 17, 0.02);
+}
+
+@media (min-width: 768px) {
+  .audience__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* =========================================
+   5) Process
+   ========================================= */
+.process__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.step__num {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  display: grid;
+  place-items: center;
+  font-weight: var(--fw-semi);
+}
+
+.step__title {
+  margin: 0 0 6px;
+  font-weight: var(--fw-semi);
+}
+
+.step__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+@media (min-width: 900px) {
+  .process__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
+   6) Services
+   ========================================= */
+.services__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.service {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+  overflow: hidden;
+}
+
+.service__media .media__surface {
+  min-height: 200px;
+  border: none;
+}
+.service__content {
+  padding: var(--space-4);
+}
+
+.service__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+.service__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+@media (min-width: 900px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================
+   7) Showroom
+   ========================================= */
+.showroom__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.showroom__text {
+  margin: 10px 0 var(--space-4);
+  color: var(--color-muted);
+}
+
+.showroom__media .media__surface {
+  min-height: 260px;
+}
+
+@media (min-width: 900px) {
+  .showroom__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================
+   8) Final CTA
+   ========================================= */
+.final-cta__box {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(17, 17, 17, 0.04),
+    rgba(17, 17, 17, 0)
+  );
+  padding: var(--space-6);
+}
+
+.final-cta__title {
+  margin: 0 0 10px;
+  font-weight: var(--fw-semi);
+  font-size: 24px;
+}
+
+.final-cta__text {
+  margin: 0 0 var(--space-4);
+  color: var(--color-muted);
+}
+
+/* =========================================
+   9) Footer
+   ========================================= */
+.footer {
+  border-top: 1px solid rgba(17, 17, 17, 0.06);
+  background: #fff;
+  padding: var(--space-6) 0;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.footer__brand {
+  font-weight: var(--fw-semi);
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.footer__link {
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.footer__link:hover {
+  color: var(--color-text);
+}
+
+/* =========================================
+   Animation-ready hooks (simple fade-in)
+   - controlled via JS by adding .is-visible
+   ========================================= */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================
+   FAQ (global component)
+   ========================================= */
+.faq__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.faq__item {
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  overflow: hidden;
+}
+
+.faq__q {
+  cursor: pointer;
+  padding: 14px 16px;
+  font-weight: var(--fw-medium);
+  list-style: none;
+}
+
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.faq__a {
+  padding: 0 16px 16px;
+  color: var(--color-muted);
+}

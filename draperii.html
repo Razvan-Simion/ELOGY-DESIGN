@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Draperii | ELOGY Design</title>
+
+    <!-- Font: identic cu homepage -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS global (de pe homepage) -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- CSS specific paginii Draperii (doar clase noi) -->
+    <link rel="stylesheet" href="css/draperii.css" />
+</head>
+
+<body>
+    <!-- =========================================================
+       1) HEADER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <div class="header__left">
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="index.html" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="index.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <div class="header__center">
+                <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="index.html" aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <button class="icon-btn" type="button" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Coș">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer identic -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="index.html">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+        <!-- =========================================================
+         2) HERO – Draperii (obligatoriu)
+         ========================================================= -->
+        <section class="draperii-hero section" aria-label="Draperii - Introducere" data-animate>
+            <div class="container draperii-hero__inner">
+                <div class="draperii-hero__content">
+                    <h1 class="draperii-hero__title">Draperii care definesc atmosfera.</h1>
+                    <p class="draperii-hero__text">
+                        De la intimitate și umbrire până la un accent decorativ puternic. Draperii realizate pe comandă,
+                        cu materiale premium și finisaje impecabile.
+                    </p>
+
+                    <div class="draperii-hero__actions">
+                        <a class="btn btn--primary" href="index.html">Programează o discuție</a>
+                        <a class="btn btn--secondary" href="#optiuni">Vezi opțiunile</a>
+                    </div>
+                </div>
+
+                <!-- Placeholder vizual (gradient/pattern), pregătit pentru imagine + overlay -->
+                <div class="draperii-hero__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         3) De ce draperii (obligatoriu)
+         ========================================================= -->
+        <section class="reasons section" aria-label="De ce draperii" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">De ce draperii</h2>
+                    <p class="reasons__subtitle">
+                        Draperiile nu sunt doar funcționale — sunt elementul care dă profunzime și caracter spațiului.
+                    </p>
+                </div>
+
+                <div class="reasons__grid">
+                    <article class="reason-card">
+                        <div class="reason-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="reason-card__title">Intimitate, când ai nevoie</h3>
+                        <p class="reason-card__text">
+                            Creează un spațiu protejat și confortabil, fără compromisuri estetice.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <div class="reason-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="reason-card__title">Control real al luminii</h3>
+                        <p class="reason-card__text">
+                            De la umbrire ușoară la blackout, alegem soluția potrivită pentru fiecare încăpere.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <div class="reason-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="reason-card__title">Atmosferă de seară</h3>
+                        <p class="reason-card__text">
+                            Draperiile adaugă căldură vizuală și transformă spațiul într-un loc „cozy” și elegant.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <div class="reason-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="reason-card__title">Izolare fonică și termică (în funcție de material)</h3>
+                        <p class="reason-card__text">
+                            Unele țesături contribuie la confort acustic și termic, mai ales în spații mari sau foarte
+                            vitrate.
+                        </p>
+                    </article>
+
+                    <article class="reason-card">
+                        <div class="reason-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="reason-card__title">Un statement vizual</h3>
+                        <p class="reason-card__text">
+                            Textura, culoarea și căderea draperiilor pot deveni punctul de interes al unei camere.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         4) Opacitate & efect (obligatoriu)
+         ========================================================= -->
+        <section class="opacity section" id="optiuni" aria-label="Opacitate și efect" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Opacitate &amp; efect</h2>
+                    <p class="opacity__subtitle">
+                        Alegem opacitatea în funcție de lumină, orientarea ferestrelor și nivelul de intimitate dorit.
+                    </p>
+                </div>
+
+                <div class="opacity__grid">
+                    <article class="opacity-card">
+                        <div class="opacity-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="opacity-card__title">Dimout</h3>
+                        <p class="opacity-card__text">Reduce lumina și creează confort, păstrând o atmosferă plăcută.
+                        </p>
+                    </article>
+
+                    <article class="opacity-card">
+                        <div class="opacity-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="opacity-card__title">Blackout</h3>
+                        <p class="opacity-card__text">Blochează lumina semnificativ, ideal pentru dormitoare sau camere
+                            multimedia.</p>
+                    </article>
+
+                    <article class="opacity-card">
+                        <div class="opacity-card__media media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <h3 class="opacity-card__title">Decorative</h3>
+                        <p class="opacity-card__text">Accent estetic, cu control moderat al luminii; se combină excelent
+                            cu perdele.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         5) Draperii în funcție de spațiu (obligatoriu)
+         ========================================================= -->
+        <section class="by-space section" aria-label="Draperii în funcție de spațiu" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Draperii în funcție de spațiu</h2>
+                    <p class="by-space__subtitle">
+                        De la locuințe la spații comerciale, draperiile contribuie la intimitate, confort și identitate
+                        vizuală.
+                    </p>
+                </div>
+
+                <div class="by-space__grid">
+                    <article class="chip">
+                        <h3 class="chip__title">Dormitor</h3>
+                        <p class="chip__text">Blackout sau dimout pentru somn odihnitor și intimitate completă.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Living</h3>
+                        <p class="chip__text">Straturi elegante (perdea + draperie) pentru controlul luminii și un look
+                            complet.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Camere pentru copii</h3>
+                        <p class="chip__text">Materiale durabile și ușor de întreținut, cu opacitate potrivită
+                            programului de somn.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Home cinema / multimedia</h3>
+                        <p class="chip__text">Blackout pentru control maxim al luminii și atmosferă de cinema.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Hoteluri</h3>
+                        <p class="chip__text">Standard premium prin materiale rezistente, opacitate corectă și finisaje
+                            impecabile.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Restaurante &amp; lounge</h3>
+                        <p class="chip__text">Creează intimitate, separă zone și adaugă rafinament ambientului.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Saloane de evenimente</h3>
+                        <p class="chip__text">Volum, drapaj și impact decorativ pentru spații transformabile.</p>
+                    </article>
+
+                    <article class="chip">
+                        <h3 class="chip__title">Birouri / săli de întâlniri</h3>
+                        <p class="chip__text">Control al luminii pentru confort vizual și un aspect profesionist.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         6) Finisaje & detalii (obligatoriu)
+         ========================================================= -->
+        <section class="finishes section" aria-label="Finisaje și detalii" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Finisaje care se văd și se simt</h2>
+                    <p class="finishes__subtitle">
+                        Diferența dintre o draperie obișnuită și una premium stă în detalii.
+                    </p>
+                </div>
+
+                <div class="finishes__grid">
+                    <article class="finish-card">
+                        <h3 class="finish-card__title">Plisare &amp; cădere</h3>
+                        <p class="finish-card__text">Valurile bine proporționate și țesătura potrivită schimbă complet
+                            aspectul final.</p>
+                    </article>
+
+                    <article class="finish-card">
+                        <h3 class="finish-card__title">Sistem de prindere</h3>
+                        <p class="finish-card__text">Șine discrete, wave, galerii — alegem soluția potrivită stilului și
+                            efectului dorit.</p>
+                    </article>
+
+                    <article class="finish-card">
+                        <h3 class="finish-card__title">Cusături și tivuri curate</h3>
+                        <p class="finish-card__text">Finisaje precise, pentru un aspect elegant și durabil în timp.</p>
+                    </article>
+
+                    <article class="finish-card">
+                        <h3 class="finish-card__title">Stratificare inteligentă</h3>
+                        <p class="finish-card__text">Combinarea cu perdele creează profunzime, control și rafinament.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         7) Showroom (scurt) (obligatoriu)
+         ========================================================= -->
+        <section class="showroom section" aria-label="Showroom" data-animate>
+            <div class="container showroom__inner">
+                <div class="showroom__content">
+                    <h2 class="section__title">Vezi materialele în showroom</h2>
+                    <p class="showroom__text">
+                        Textura, greutatea și căderea contează. Te așteptăm în showroom să compari materiale, culori și
+                        opacități, apoi să alegi în siguranță.
+                    </p>
+                    <a class="btn btn--secondary" href="index.html">Programează o vizită</a>
+                </div>
+
+                <div class="showroom__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         8) FAQ (obligatoriu, 7 întrebări)
+         ========================================================= -->
+        <section class="faq section" aria-label="Întrebări frecvente" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Întrebări frecvente</h2>
+                </div>
+
+                <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__q">Ce înseamnă dimout vs. blackout?</summary>
+                        <div class="faq__a">
+                            Dimout reduce semnificativ lumina și oferă confort, în timp ce blackout blochează lumina
+                            mult mai puternic și este ideal pentru dormitoare sau camere multimedia.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Draperiile blackout întunecă 100%?</summary>
+                        <div class="faq__a">
+                            Depinde de material și de modul de montaj (șină, suprapuneri, distanțe). Pentru întunecare
+                            aproape totală, configurăm corect și prinderea.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Draperiile se decolorează la soare?</summary>
+                        <div class="faq__a">
+                            Expunerea directă poate influența în timp nuanța, de aceea recomandăm țesături potrivite
+                            orientării ferestrelor și întreținere corectă.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Cum aleg culoarea potrivită?</summary>
+                        <div class="faq__a">
+                            Ne uităm la lumină, pereți, pardoseală și mobilier. În general, tonurile neutre sunt
+                            versatile, iar accentul de culoare trebuie echilibrat cu restul interiorului.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Se pot combina draperiile cu perdele?</summary>
+                        <div class="faq__a">
+                            Da, este una dintre cele mai elegante soluții: oferă stratificare, control mai bun al
+                            luminii și un aspect complet.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Se pot folosi draperii în spații comerciale?</summary>
+                        <div class="faq__a">
+                            Da, draperiile sunt excelente pentru separarea zonelor, intimitate și atmosferă. Alegem
+                            materiale rezistente și ușor de întreținut.
+                        </div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Draperiile sunt greu de întreținut?</summary>
+                        <div class="faq__a">
+                            Nu, dacă alegem materialul potrivit. În funcție de țesătură, recomandăm curățare
+                            profesională sau întreținere delicată, pentru a păstra aspectul în timp.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         9) CTA final (obligatoriu)
+         ========================================================= -->
+        <section class="final-cta section" aria-label="CTA final" data-animate>
+            <div class="container final-cta__inner">
+                <div class="final-cta__box">
+                    <h2 class="final-cta__title">Vrei draperii care să arate impecabil și să funcționeze perfect?</h2>
+                    <p class="final-cta__text">
+                        Spune-ne ce îți dorești, iar noi îți recomandăm opțiuni potrivite ca opacitate, textură și
+                        finisaj.
+                    </p>
+                    <div class="final-cta__actions">
+                        <a class="btn btn--primary" href="index.html">Programează o discuție</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================================
+       10) FOOTER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS global (hamburger + fade-in) -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

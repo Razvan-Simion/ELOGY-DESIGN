@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mochetă | ELOGY Design</title>
+
+  <!-- Font: identic cu homepage -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS global (de pe homepage) -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- CSS specific paginii (minimal, fără să atingă stilul global) -->
+  <link rel="stylesheet" href="css/mocheta.css" />
+</head>
+
+<body>
+  <!-- =========================================================
+       1) HEADER (identic cu homepage, fără modificări)
+       ========================================================= -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <div class="header__left">
+        <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul" aria-controls="siteDrawer"
+          aria-expanded="false" data-drawer-open>
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="images/icons.svg#icon-menu"></use>
+          </svg>
+        </button>
+
+        <nav class="header__quicklinks" aria-label="Navigație rapidă">
+          <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+          <a class="header__link" href="#" aria-label="Showroom">Showroom</a>
+        </nav>
+      </div>
+
+      <div class="header__center">
+        <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+          ELOGY DESIGN
+        </a>
+      </div>
+
+      <div class="header__right">
+        <a class="btn btn--primary header__cta" href="#" aria-label="Contactează-ne">Contactează-ne</a>
+
+        <div class="header__icons" aria-label="Acțiuni rapide">
+          <button class="icon-btn" type="button" aria-label="Caută">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Locație">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-location"></use>
+            </svg>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Cont">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-user"></use>
+            </svg>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Coș">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-bag"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drawer identic -->
+    <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+      <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+      <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+        <div class="drawer__header">
+          <span class="drawer__title">Meniu</span>
+          <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="drawer__nav" aria-label="Navigație principală">
+          <a class="drawer__link" href="perdele.html">Perdele</a>
+          <a class="drawer__link" href="draperii.html">Draperii</a>
+          <a class="drawer__link" href="mocheta.html">Mochetă</a>
+          <a class="drawer__link" href="montaj.html">Montaj</a>
+          <a class="drawer__link" href="index.html">Accesorii</a>
+        </nav>
+      </div>
+    </aside>
+  </header>
+
+  <main id="main">
+    <!-- =========================================================
+         2) HERO secțiune Mochetă (obligatoriu)
+         ========================================================= -->
+    <section class="mocheta-hero section" aria-label="Mochetă - Introducere" data-animate>
+      <div class="container mocheta-hero__inner">
+        <div class="mocheta-hero__content">
+          <h1 class="mocheta-hero__title">Mochetă premium pentru confort și liniște în fiecare pas.</h1>
+          <p class="mocheta-hero__text">
+            Te ajutăm să alegi mocheta potrivită spațiului tău, apoi o livrăm și o integrăm impecabil în proiect, cu
+            atenție la
+            detalii și finisaje curate.
+          </p>
+
+          <div class="mocheta-hero__actions">
+            <a class="btn btn--primary" href="#">Programează o discuție</a>
+            <a class="btn btn--secondary" href="#">Vezi opțiunile</a>
+          </div>
+        </div>
+
+        <!-- Placeholder vizual (gradient), pregătit să primească imagine + overlay -->
+        <div class="mocheta-hero__media media media--gradient media--overlay" aria-hidden="true">
+          <div class="media__surface"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3) De ce mochetă (obligatoriu) - 4–5 carduri beneficii
+         ========================================================= -->
+    <section class="benefits section" aria-label="De ce mochetă" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">De ce mochetă</h2>
+        </div>
+
+        <div class="benefits__grid">
+          <article class="benefit">
+            <div class="benefit__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="benefit__title">Confort real, zi de zi</h3>
+            <p class="benefit__text">Mocheta oferă o senzație plăcută la fiecare pas și contribuie la un ambient cald
+              și primitor, ideal pentru spațiile în care petreci mult timp.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="benefit__title">Acustică mai bună</h3>
+            <p class="benefit__text">Reduce zgomotul ambiental și ecoul, creând un spațiu mai liniștit, mai ales în
+              apartamente sau locuințe cu suprafețe mari.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="benefit__title">Siguranță pentru familii</h3>
+            <p class="benefit__text">Suprafață antiderapantă și mai sigură pentru copii, oferind un plus de protecție în
+              zonele intens utilizate.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="benefit__title">Estetică coerentă</h3>
+            <p class="benefit__text">Disponibilă într-o varietate de texturi și nuanțe, mocheta ajută la definirea
+              stilului interior și la crearea unui
+              aspect unitar.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="benefit__title">Alegerea corectă contează</h3>
+            <p class="benefit__text">Tipul de fibră, densitatea și destinația sunt esențiale. De aceea, recomandăm doar
+              soluții adaptate modului tău real de
+              utilizare.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="benefit__title">Întreținere ușoară</h3>
+            <p class="benefit__text">Alegerea corectă a mochetei înseamnă și întreținere fără bătăi de cap. Recomandăm
+              soluții ușor de curățat și potrivite
+              stilului tău de viață, astfel încât mocheta să își păstreze aspectul în timp.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4) Unde se potrivește (obligatoriu)
+         ========================================================= -->
+    <section class="fit section" aria-label="Unde se potrivește" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Unde se potrivește</h2>
+        </div>
+
+        <div class="fit__grid">
+          <div class="fit-card">
+            <div class="fit-card__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="fit-card__title">Dormitoare &amp; dressing</h3>
+            <p class="benefit__text">Oferă confort termic și o senzație plăcută la mers, transformând aceste spații în
+              zone de relaxare autentică.</p>
+          </div>
+
+          <div class="fit-card">
+            <div class="fit-card__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="fit-card__title">Living / camere de joacă</h3>
+            <p class="benefit__text">Cu alegerea potrivită, mocheta rezistă foarte bine în zonele circulate, păstrând un
+              aspect îngrijit în timp.</p>
+          </div>
+
+          <div class="fit-card">
+            <div class="fit-card__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="fit-card__title">Holuri / zone de trafic</h3>
+            <p class="benefit__text">Oferă confort acustic și un aspect profesional, fiind ideală pentru spații în care
+              contează atmosfera și
+              funcționalitatea.</p>
+          </div>
+
+          <!-- opțional, prezentat discret -->
+          <div class="fit-card fit-card--subtle">
+            <div class="fit-card__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <h3 class="fit-card__title">Birouri / spații comerciale</h3>
+            <p class="benefit__text">Oferă confort termic și o senzație plăcută la mers, transformând aceste spații în
+              zone de relaxare autentică.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5) Cum alegem împreună (obligatoriu) - proces în 4 pași
+         ========================================================= -->
+    <section class="choose section" aria-label="Cum alegem împreună" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Cum alegem împreună</h2>
+        </div>
+
+        <ol class="choose__grid">
+          <li class="step">
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <h3 class="step__title">Discuție &amp; nevoi</h3>
+              <p class="step__text">Începem cu o discuție clară despre spațiu, stil de viață și așteptări, pentru a
+                înțelege exact ce tip de mochetă ți se
+                potrivește.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <h3 class="step__title">Mostre &amp; recomandare</h3>
+              <p class="step__text">Îți prezentăm mostre și opțiuni potrivite, explicând diferențele dintre materiale,
+                texturi și utilizări.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <h3 class="step__title">Măsurători</h3>
+              <p class="step__text">Asigurăm măsurători corecte, astfel încât mocheta să se potrivească perfect
+                spațiului tău.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <h3 class="step__title">Livrare &amp; montaj</h3>
+              <p class="step__text">Ne ocupăm de livrare și integrare cu atenție la detalii, pentru un rezultat final
+                curat și bine executat.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6) Servicii incluse / opționale (obligatoriu)
+         ========================================================= -->
+    <section class="included section" aria-label="Servicii incluse și opționale" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Servicii incluse / opționale</h2>
+        </div>
+
+        <div class="included__grid">
+          <article class="included-card">
+            <h3 class="included-card__title">Consultanță</h3>
+            <p class="included-card__text">Recomandări personalizate, adaptate spațiului și modului tău de utilizare.
+            </p>
+          </article>
+
+          <article class="included-card">
+            <h3 class="included-card__title">Mostre / prezentare showroom</h3>
+            <p class="included-card__text">Acces la mostre reale și consultanță direct în showroom, pentru decizii
+              informate.</p>
+          </article>
+
+          <article class="included-card">
+            <h3 class="included-card__title">Măsurători</h3>
+            <p class="included-card__text">Măsurători precise, realizate de echipa noastră, înainte de finalizarea
+              comenzii.</p>
+          </article>
+
+          <article class="included-card">
+            <h3 class="included-card__title">Montaj</h3>
+            <p class="included-card__text">Montaj realizat de echipe specializate, cu respect pentru spațiu și finisaje.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7) Showroom (obligatoriu)
+         ========================================================= -->
+    <section class="showroom section" aria-label="Showroom" data-animate>
+      <div class="container showroom__inner">
+        <div class="showroom__content">
+          <h2 class="section__title">Showroom</h2>
+          <p class="showroom__text">Te așteptăm în showroom pentru a vedea și compara mostrele de mochetă, a discuta
+            opțiunile potrivite și a primi
+            recomandări adaptate proiectului tău.</p>
+          <a class="btn btn--secondary" href="#">Programează o vizită</a>
+        </div>
+
+        <div class="showroom__media media media--gradient media--overlay" aria-hidden="true">
+          <div class="media__surface"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8) FAQ (obligatoriu) - minim 4–5 întrebări
+         - folosim <details> (fără JS), conținut placeholder
+         ========================================================= -->
+    <section class="faq section" aria-label="Întrebări frecvente" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">FAQ</h2>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__q">Ce tip de mochetă este potrivită pentru o familie cu copii?</summary>
+            <div class="faq__a">Recomandăm mochete rezistente, cu fibre ușor de întreținut și densitate ridicată, care
+              oferă confort și siguranță.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Mocheta este greu de întreținut?</summary>
+            <div class="faq__a">Nu, dacă este aleasă corect. Întreținerea regulată și curățarea potrivită tipului de
+              fibră mențin aspectul în timp.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Se poate monta mocheta în zone cu trafic intens?</summary>
+            <div class="faq__a">Da, există soluții special concepute pentru trafic intens, atât pentru locuințe, cât și
+              pentru spații comerciale.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Se poate folosi mochetă pentru trepte?</summary>
+            <div class="faq__a">Da, mocheta este o soluție foarte bună pentru trepte, oferind siguranță, confort și
+              reducerea zgomotului. Alegem tipuri
+              de mochetă potrivite pentru trafic intens și ne asigurăm că montajul este realizat corect, pentru un
+              aspect uniform și
+              durabil.
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Cât durează procesul de la alegere la finalizare?</summary>
+            <div class="faq__a">Durata depinde de tipul de mochetă ales și de complexitatea proiectului, dar toate
+              etapele sunt stabilite clar de la
+              început.</div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Pot vedea mostre înainte de a lua o decizie?</summary>
+            <div class="faq__a">Da, îți punem la dispoziție mostre în showroom sau în cadrul unei întâlniri dedicate.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         9) CTA final (obligatoriu)
+         ========================================================= -->
+    <section class="final-cta section" aria-label="CTA final" data-animate>
+      <div class="container final-cta__inner">
+        <div class="final-cta__box">
+          <h2 class="final-cta__title">Hai să alegem mocheta potrivită spațiului tău.</h2>
+          <div class="final-cta__actions">
+            <a class="btn btn--primary" href="#">Programează o discuție</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       10) FOOTER (identic cu homepage, fără modificări)
+       ========================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand">ELOGY DESIGN</span>
+      </div>
+
+      <div class="footer__right">
+        <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+          montaremocheta.ro
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS identic cu homepage (hamburger + fade-in) -->
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+/* =========================================
+   Mochetă page - additions only
+   (nu modifică stilul global)
+   ========================================= */
+
+/* HERO layout specific paginii */
+.mocheta-hero__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.mocheta-hero__title {
+  margin: 0 0 var(--space-3);
+  font-size: 32px;
+  font-weight: var(--fw-semi);
+  letter-spacing: -0.35px;
+}
+
+.mocheta-hero__text {
+  margin: 0 0 var(--space-5);
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.mocheta-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.mocheta-hero__media .media__surface {
+  min-height: 260px;
+}
+
+/* BENEFITS */
+.benefits__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.benefit {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.benefit__media {
+  margin-bottom: var(--space-4);
+}
+.benefit__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+.benefit__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* FIT */
+.fit__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.fit-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.fit-card__media {
+  margin-bottom: var(--space-4);
+}
+.fit-card__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+/* “discret” pentru birouri/spații comerciale */
+.fit-card--subtle {
+  background: rgba(17, 17, 17, 0.01);
+  border-color: rgba(17, 17, 17, 0.06);
+}
+
+/* “Cum alegem împreună” reusează .step din global; grid separat */
+.choose__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Included services */
+.included__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.included-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.included-card__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+.included-card__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (min-width: 900px) {
+  .mocheta-hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-7);
+  }
+
+  .mocheta-hero__title {
+    font-size: 42px;
+  }
+
+  .benefits__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .fit__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .choose__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .included__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

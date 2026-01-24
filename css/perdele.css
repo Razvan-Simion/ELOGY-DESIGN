@@ -1,0 +1,173 @@
+/* =========================================
+   Perdele page - additions only
+   (doar clase noi strict pentru această pagină)
+   ========================================= */
+
+/* HERO */
+.perdele-hero__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.perdele-hero__title {
+  margin: 0 0 var(--space-3);
+  font-size: 32px;
+  font-weight: var(--fw-semi);
+  letter-spacing: -0.35px;
+}
+
+.perdele-hero__text {
+  margin: 0 0 var(--space-5);
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.perdele-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.perdele-hero__media .media__surface {
+  min-height: 260px;
+}
+
+/* Section subtitles (noi, ca să nu atingem global) */
+.impact__subtitle,
+.types__subtitle,
+.by-space__subtitle,
+.details__subtitle {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  max-width: 70ch;
+}
+
+/* 3) Impact cards */
+.impact__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.impact-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.impact-card__media {
+  margin-bottom: var(--space-4);
+}
+.impact-card__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+.impact-card__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* 4) Types cards */
+.types__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.type-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.type-card__media {
+  margin-bottom: var(--space-4);
+}
+.type-card__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+.type-card__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* 5) By-space chips/cards */
+.by-space__grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.chip {
+  padding: 14px 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgba(17, 17, 17, 0.02);
+}
+
+.chip__title {
+  margin: 0 0 6px;
+  font-weight: var(--fw-semi);
+  font-size: 14px;
+}
+
+.chip__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* 6) Details cards */
+.details__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.details-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.details-card__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+.details-card__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (min-width: 900px) {
+  .perdele-hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-7);
+  }
+
+  .perdele-hero__title {
+    font-size: 42px;
+  }
+
+  .impact__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .types__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .by-space__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .details__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .by-space__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

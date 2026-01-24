@@ -1,149 +1,397 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ro">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELOGY DESIGN</title>
 
-    <title>ELOGY DESIGN | Mochetă, perdele, draperii &amp; montaj</title>
+  <!-- Font: Montserrat (predominant / exclusiv) -->
+  <!-- Dacă muți acest fișier, link-ul rămâne identic (extern). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- SEO -->
-    <meta name="description"
-        content="ELOGY DESIGN oferă mochetă, perdele, draperii, accesorii și servicii complete de montaj pentru spații rezidențiale și comerciale." />
-    <meta name="keywords" content="mochetă, perdele, draperii, accesorii, montaj, ELOGY DESIGN, amenajări interioare" />
-    <meta name="author" content="ELOGY DESIGN" />
-    <link rel="canonical" href="https://montaremocheta.ro/" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="ELOGY DESIGN | Mochetă, perdele și draperii de calitate" />
-    <meta property="og:description"
-        content="Descoperă colecțiile noastre de mochetă, perdele și draperii, cu servicii complete de consiliere și montaj." />
-    <meta property="og:image" content="https://montaremocheta.ro/images/preview.jpg" />
-    <meta property="og:url" content="https://montaremocheta.ro/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ro_RO" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="images/favicon.png" type="image/png" />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-
-    <!-- JS -->
-    <script src="main.js" defer></script>
+  <!-- CSS extern -->
+  <!-- Dacă index.html este în rădăcină, path-ul e corect: css/styles.css -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
+  <!-- =========================
+       1) HEADER (obligatoriu)
+       - logo centru
+       - stânga: hamburger + Magazin online + Showroom
+       - dreapta: CTA + icon-uri (sprite svg)
+       ========================= -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <!-- Left -->
+      <div class="header__left">
+        <!-- Hamburger -->
+        <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul" aria-controls="siteDrawer"
+          aria-expanded="false" data-drawer-open>
+          <svg class="icon" aria-hidden="true" focusable="false">
+            <use href="images/icons.svg#icon-menu"></use>
+          </svg>
+        </button>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container header-inner">
+        <!-- Visible left links -->
+        <nav class="header__quicklinks" aria-label="Navigație rapidă">
+          <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+          <a class="header__link" href="#" aria-label="Showroom">Showroom</a>
+        </nav>
+      </div>
 
-            <!-- STÂNGA: hamburger + meniu -->
-            <div class="header-left">
+      <!-- Center logo -->
+      <div class="header__center">
+        <!-- Placeholder logo text; înlocuiești ulterior cu logo SVG/IMG -->
+        <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+          ELOGY DESIGN
+        </a>
+      </div>
 
-                <!-- Hamburger -->
-                <button class="menu-btn" aria-label="Deschide meniul">
-                    <svg width="28" height="28" aria-hidden="true">
-                        <use href="./images/icons.svg#icon-hamburger" xlink:href="./images/icons.svg#icon-hamburger">
-                        </use>
-                    </svg>
-                </button>
+      <!-- Right -->
+      <div class="header__right">
+        <a class="btn btn--primary header__cta" href="#" aria-label="Contactează-ne">Contactează-ne</a>
 
-                <!-- Meniu text -->
-                <nav aria-label="Meniu principal">
-                    <ul class="nav-menu">
-                        <li><a href="#magazin-online">Magazin online</a></li>
-                        <li><a href="#showroom">Showroom</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-
-            <!-- LOGO CENTRAT -->
-            <a href="https://montaremocheta.ro/" class="logo">ELOGY DESIGN</a>
-
-            <!-- DREAPTA: buton + iconițe -->
-            <div class="header-right">
-
-                <a href="#contact" class="btn-primary">Contactează-ne</a>
-
-                <a href="#" class="icon-link" aria-label="Căutare">
-                    <svg width="20" height="20">
-                        <use href="./images/icons.svg#icon-search" xlink:href="./images/icons.svg#icon-search"></use>
-                    </svg>
-                </a>
-
-                <a href="#showroom" class="icon-link" aria-label="Găsește showroom">
-                    <svg width="20" height="20">
-                        <use href="./images/icons.svg#icon-location" xlink:href="./images/icons.svg#icon-location">
-                        </use>
-                    </svg>
-                </a>
-
-                <a href="#" class="icon-link" aria-label="Contul meu">
-                    <svg width="20" height="20">
-                        <use href="./images/icons.svg#icon-user" xlink:href="./images/icons.svg#icon-user"></use>
-                    </svg>
-                </a>
-
-                <a href="#" class="icon-link" aria-label="Coș">
-                    <svg width="20" height="20">
-                        <use href="./images/icons.svg#icon-bag" xlink:href="./images/icons.svg#icon-bag"></use>
-                    </svg>
-                </a>
-
-            </div>
-
+        <div class="header__icons" aria-label="Acțiuni rapide">
+          <button class="icon-btn" type="button" aria-label="Caută">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Locație">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-location"></use>
+            </svg>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Cont">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-user"></use>
+            </svg>
+          </button>
+          <button class="icon-btn" type="button" aria-label="Coș">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-bag"></use>
+            </svg>
+          </button>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <!-- HERO -->
-    <section id="hero">
-        <div class="container">
-            <h1>Mochetă, perdele și draperii premium pentru orice spațiu</h1>
-            <p>Transformă-ți interiorul cu soluțiile elegante oferite de <strong>ELOGY DESIGN</strong> — consiliere,
-                montaj și finisaje profesionale.</p>
-            <a href="#servicii" class="btn-secondary">Vezi detalii</a>
+    <!-- Drawer / Mobile menu (hamburger) -->
+    <!-- Conținut obligatoriu: Perdele & Draperii, Mochetă, Montaj, Accesorii -->
+    <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+      <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+      <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+        <div class="drawer__header">
+          <span class="drawer__title">Meniu</span>
+          <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use href="images/icons.svg#icon-close"></use>
+            </svg>
+          </button>
         </div>
+
+        <nav class="drawer__nav" aria-label="Navigație principală">
+          <a class="drawer__link" href="perdele.html">Perdele</a>
+          <a class="drawer__link" href="draperii.html">Draperii</a>
+          <a class="drawer__link" href="mocheta.html">Mochetă</a>
+          <a class="drawer__link" href="montaj.html">Montaj</a>
+          <a class="drawer__link" href="index.html">Accesorii</a>
+        </nav>
+      </div>
+    </aside>
+  </header>
+
+  <main id="main">
+    <!-- =========================
+         2) HERO (obligatoriu)
+         ========================= -->
+    <section class="hero section" aria-label="Introducere" data-animate>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">Dăm viață ferestrelor și pardoselilor.</h1>
+          <p class="hero__subtitle">
+            Mochetă, perdele și draperii premium pentru orice spațiu — consiliere, montaj și finisaje elegante.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#">Programează o discuție</a>
+            <a class="btn btn--secondary" href="#">Vezi serviciile</a>
+          </div>
+        </div>
+
+        <!-- Placeholder media / gradient (fără imagini reale) -->
+        <!-- Pregătit să pui ulterior o imagine: setezi background-image inline sau în CSS. -->
+        <div class="hero__media media media--gradient" aria-hidden="true">
+          <div class="media__surface"></div>
+        </div>
+      </div>
     </section>
 
-    <!-- SERVICII -->
-    <main>
-        <section id="servicii">
-            <div class="container">
-                <h2>Serviciile noastre</h2>
+    <!-- =========================
+         3) Secțiune Carduri principale (obligatoriu)
+         - Mochetă, Perdele, Draperii, Montaj
+         ========================= -->
+    <section class="cards section" aria-label="Categorii principale" data-animate>
+      <div class="container">
+        <div class="cards__grid">
+          <!-- Card component (placeholder) -->
 
-                <div class="services-grid">
-                    <article>
-                        <h3>Consultanță &amp; design</h3>
-                        <p>Îți oferim recomandări personalizate pentru materiale, culori și texturi potrivite stilului
-                            tău.</p>
-                    </article>
+          <article class="card card--mocheta">
+            <a href="mocheta.html" class="card__link" aria-label="Vezi detalii despre mocheta ELOGY DESIGN">
+              <div class="card__media media media--gradient">
+                <div class="media__surface"></div>
+              </div>
 
-                    <article>
-                        <h3>Montaj profesional</h3>
-                        <p>Echipa noastră asigură montaj rapid, curat și precis pentru toate produsele oferite.</p>
-                    </article>
+              <h3 class="card__title">Mochetă</h3>
+              <p>Soluții de mochetă premium, confortabile și ușor de întreținut, potrivite pentru fiecare spațiu al
+                casei tale.</p>
+            </a>
+          </article>
 
-                    <article>
-                        <h3>Produse la comandă</h3>
-                        <p>Realizăm perdele, draperii și mochetă la dimensiunile și specificațiile dorite.</p>
-                    </article>
-                </div>
+          <article class="card card--perdele">
+            <a href="perdele.html" class="card__link" aria-label="Vezi detalii despre perdele ELOGY DESIGN">
+              <div class="card__media media media--gradient">
+                <div class="media__surface"></div>
+              </div>
 
-            </div>
-        </section>
-    </main>
+              <h3 class="card__title">Perdele</h3>
+              <p>Perdele atent selecționate pentru un control eficient al luminii și o atmosferă plăcută în orice
+                încăpere.</p>
+            </a>
+          </article>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p><a href="https://montaremocheta.ro">&copy; 2025 ELOGY DESIGN. Toate drepturile rezervate.</a></p>
+
+          <article class="card card--draperii">
+            <a href="draperii.html" class="card__link" aria-label="Vezi detalii despre perdele ELOGY DESIGN">
+              <div class="card__media media media--gradient">
+                <div class="media__surface"></div>
+              </div>
+
+              <h3 class="card__title">Draperii</h3>
+              <p>Draperii elegante, realizate la comandă, pentru un interior sofisticat și funcțional.</p>
+            </a>
+          </article>
+
+
+          <article class="card card--montaj">
+            <a href="montaj.html" class="card__link" aria-label="Vezi detalii despre perdele ELOGY DESIGN">
+              <div class="card__media media media--gradient">
+                <div class="media__surface"></div>
+              </div>
+
+              <h3 class="card__title">Montaj</h3>
+              <p>Montaj executat cu precizie de echipe specializate, pentru un rezultat impecabil al finisajelor.</p>
+            </a>
+          </article>
+
         </div>
-    </footer>
+      </div>
+    </section>
 
+    <!-- =========================
+         4) Pentru cine este (obligatoriu)
+         - Locuințe noi, Renovări, Familii cu copii, Spații existente
+         ========================= -->
+    <section class="audience section" aria-label="Pentru cine este" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Pentru momente diferite, soluții potrivite</h2>
+        </div>
+
+        <div class="audience__grid">
+          <div class="pill">
+            <h4>Locuințe noi</h4>
+            <p>Când totul începe de la zero, te ajutăm să construiești un interior coerent, confortabil și durabil, fără
+              compromisuri
+              pe termen lung.</p>
+          </div>
+          <div class="pill">
+            <h4>Renovări</h4>
+            <p>Te ajutăm să transformi un spațiu vechi într-unul modern, confortabil și bine organizat.</p>
+          </div>
+          <div class="pill">
+            <h4>Familii active</h4>
+            <p>Materiale rezistente, ușor de întreținut și confortabile, alese pentru un stil de viață dinamic și
+              echilibrat.</p>
+          </div>
+          <div class="pill">
+            <h4>Un mic refresh</h4>
+            <p>Uneori, câteva alegeri inspirate sunt suficiente pentru a schimba atmosfera și a reda personalitatea unui
+              spațiu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         5) Cum lucrăm (obligatoriu) - proces în 4 pași
+         (fără texte inventate -> folosim placeholder clar)
+         ========================= -->
+    <section class="process section" aria-label="Cum lucrăm" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Un proces simplu, fără complicații</h2>
+          <h3>De la prima discuție până la rezultatul final, știm exact ce urmează.</h3>
+        </div>
+
+        <ol class="process__grid">
+          <li class="step">
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <h3 class="step__title">Discuția inițială</h3>
+              <p class="step__text">Începem cu o conversație relaxată despre spațiul tău, stilul dorit și nevoile reale.
+                Fără presiune, fără grabă.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <h3 class="step__title">Claritate și recomandări</h3>
+              <p class="step__text">Îți propunem soluții potrivite și îți explicăm opțiunile, astfel încât să poți lua
+                decizii informate.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <h3 class="step__title">Organizare și planificare</h3>
+              <p class="step__text">Stabilim pașii următori, termenele și detaliile, astfel încât totul să decurgă clar
+                și predictibil.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <h3 class="step__title">Rezultatul final</h3>
+              <p class="step__text">Ne ocupăm de implementare și ne asigurăm că rezultatul final este exact așa cum
+                ți-ai dorit.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =========================
+         6) Servicii (obligatoriu) - explicate, nu listă
+         (fără texte inventate -> placeholder clar)
+         ========================= -->
+    <section class="services section" aria-label="Servicii" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Servicii</h2>
+        </div>
+
+        <div class="services__grid">
+          <article class="service">
+            <div class="service__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <div class="service__content">
+              <h3 class="service__title">Consultanță personalizată</h3>
+              <p class="service__text">Recomandări adaptate spațiului tău, stilului de viață și preferințelor estetice.
+              </p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <div class="service__content">
+              <h3 class="service__title">Măsurători profesionale</h3>
+              <p class="service__text">Măsurători precise pentru un rezultat corect din prima.</p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <div class="service__content">
+              <h3 class="service__title">Produse realizate la comandă</h3>
+              <p class="service__text">Mocheta, perdele și draperii realizate pe dimensiuni exacte, cu finisaje atent
+                lucrate.
+              </p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service__media media media--gradient">
+              <div class="media__surface"></div>
+            </div>
+            <div class="service__content">
+              <h3 class="service__title">Montaj specializat</h3>
+              <p class="service__text">Montaj realizat de echipe cu experiență, cu atenție la detalii și respect pentru
+                spațiu.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         7) Showroom (obligatoriu)
+         (fără texte inventate -> placeholder clar)
+         ========================= -->
+    <section class="showroom section" aria-label="Showroom" data-animate>
+      <div class="container showroom__inner">
+        <div class="showroom__content">
+          <h2 class="section__title">Showroom</h2>
+          <p class="showroom__text">Vino să vezi și să atingi mostrele de materiale, să compari variantele și să discuți
+            direct cu consultanții noștri
+            pentru soluții personalizate.</p>
+          <a class="btn btn--secondary" href="#">Programează o vizită</a>
+        </div>
+
+        <!-- Placeholder media; pregătit pentru imagine + overlay gradient -->
+        <div class="showroom__media media media--gradient media--overlay" aria-hidden="true">
+          <div class="media__surface"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         8) CTA final (obligatoriu)
+         (fără texte inventate -> placeholder clar)
+         ========================= -->
+    <section class="final-cta section" aria-label="CTA final" data-animate>
+      <div class="container final-cta__inner">
+        <div class="final-cta__box">
+          <h2 class="final-cta__title">Hai să discutăm despre proiectul tău</h2>
+          <p class="final-cta__text">Spune-ne ce îți dorești și îți oferim soluții clare, adaptate nevoilor tale.</p>
+          <div class="final-cta__actions">
+            <a class="btn btn--primary" href="#">Programează o discuție</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       9) FOOTER (obligatoriu)
+       - link discret către montaremocheta.ro
+       ========================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand">ELOGY DESIGN</span>
+      </div>
+
+      <div class="footer__right">
+        <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+          montaremocheta.ro
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS extern -->
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>
