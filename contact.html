@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact | ELOGY Design</title>
+    <meta name="description" content="Spune-ne ce îți dorești, iar noi revenim cu recomandări clare și pașii următori.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS pagină Contact -->
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+       HEADER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <!-- Left -->
+            <div class="header__left">
+                <!-- Hamburger -->
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <!-- Visible left links -->
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <!-- Center logo -->
+            <div class="header__center">
+                <!-- Placeholder logo text; înlocuiești ulterior cu logo SVG/IMG -->
+                <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <!-- Right -->
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="contact.html"
+                    aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <button class="icon-btn" type="button" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Coș">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer / Mobile menu (hamburger) -->
+        <!-- Conținut obligatoriu: Perdele & Draperii, Mochetă, Montaj, Accesorii -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="accesorii.htm">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+
+        <!-- =========================================================
+         2) HERO – Contact
+         ========================================================= -->
+        <section class="contact-hero section" data-animate>
+            <div class="container contact-hero__inner">
+                <div class="contact-hero__content">
+                    <h1 class="contact-hero__title">Contact</h1>
+                    <p class="contact-hero__text">
+                        Spune-ne ce îți dorești, iar noi revenim cu recomandări clare și pașii următori.
+                    </p>
+
+
+                </div>
+
+                <div class="contact-hero__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         3) Secțiune principală – Formular de contact (2 coloane desktop)
+         ========================================================= -->
+        <section class="contact-main section" data-animate>
+            <div class="container contact-main__grid">
+
+                <!-- FORM -->
+                <div class="contact-form" id="contact-form">
+                    <h2 class="contact-form__title">Trimite-ne un mesaj</h2>
+
+                    <form class="form" action="https://formspree.io/f/XXXXXXX" method="POST" novalidate data-formspree>
+                        <!-- 9) Honeypot anti-spam -->
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <!-- 1) Nume și prenume -->
+                        <div class="form__field">
+                            <label class="form__label" for="name">Nume și prenume</label>
+                            <input class="form__input" id="name" name="name" type="text" required autocomplete="name">
+                        </div>
+
+                        <!-- 2) Telefon (obligatoriu) -->
+                        <div class="form__field">
+                            <label class="form__label" for="phone">Telefon</label>
+                            <input class="form__input" id="phone" name="phone" type="tel" required inputmode="tel"
+                                placeholder="07xx xxx xxx"
+                                pattern="^(\+40\s?7\d{2}\s?\d{3}\s?\d{3}|07\d{2}\s?\d{3}\s?\d{3})$" autocomplete="tel">
+                            <p class="form__hint">Format acceptat: 07xx xxx xxx sau +40 7xx xxx xxx</p>
+                        </div>
+
+                        <!-- 3) Email -->
+                        <div class="form__field">
+                            <label class="form__label" for="email">Email</label>
+                            <input class="form__input" id="email" name="_replyto" type="email" required
+                                autocomplete="email">
+                        </div>
+
+                        <!-- 4) Interes (select obligatoriu) -->
+                        <div class="form__field">
+                            <label class="form__label" for="interes">Interes</label>
+                            <select class="form__select" id="interes" name="interes" required>
+                                <option value="" selected disabled>Alege o opțiune</option>
+                                <option>Mochetă</option>
+                                <option>Perdele</option>
+                                <option>Draperii</option>
+                                <option>Montaj</option>
+                                <option>Accesorii</option>
+                                <option>Showroom</option>
+                                <option>Altceva</option>
+                            </select>
+                        </div>
+
+                        <!-- 5) Preferință de contact (opțional) -->
+                        <fieldset class="form__field form__field--radio">
+                            <legend class="form__label">Preferință de contact (opțional)</legend>
+                            <div class="form__radios">
+                                <label class="form__radio">
+                                    <input type="radio" name="preferinta_contact" value="Telefon">
+                                    <span>Telefon</span>
+                                </label>
+                                <label class="form__radio">
+                                    <input type="radio" name="preferinta_contact" value="Email">
+                                    <span>Email</span>
+                                </label>
+                                <label class="form__radio">
+                                    <input type="radio" name="preferinta_contact" value="WhatsApp">
+                                    <span>WhatsApp</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <!-- 6) Interval preferat (opțional) -->
+                        <div class="form__field">
+                            <label class="form__label" for="interval">Interval preferat (opțional)</label>
+                            <input class="form__input" id="interval" name="interval_preferat" type="text"
+                                placeholder="Ex: după ora 16:00">
+                        </div>
+
+                        <!-- 7) Mesaj -->
+                        <div class="form__field">
+                            <label class="form__label" for="message">Mesaj</label>
+                            <textarea class="form__textarea" id="message" name="message" required
+                                placeholder="Spune-ne pe scurt ce spațiu ai și ce efect îți dorești."
+                                rows="6"></textarea>
+                        </div>
+
+                        <!-- 8) GDPR (obligatoriu) -->
+                        <div class="form__field form__field--gdpr">
+                            <label class="form__checkbox">
+                                <input id="gdpr" type="checkbox" name="gdpr" required>
+                                <span>
+                                    „Sunt de acord să fiu contactat(ă) de ELOGY Design în legătură cu solicitarea mea.”
+                                    <a href="privacy.html">Confidețialitate</a>
+                                </span>
+                            </label>
+                        </div>
+
+                        <!-- Status messages -->
+                        <div class="form__status" role="status" aria-live="polite"></div>
+
+                        <!-- 10) Submit -->
+                        <div class="form__actions">
+                            <button class="btn btn--primary" type="submit" disabled data-submit>
+                                Trimite mesajul
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- INFO CONTACT -->
+                <aside class="contact-info" aria-label="Informații de contact">
+                    <h2 class="contact-info__title">Informații de contact</h2>
+
+                    <div class="contact-info__card">
+                        <div class="contact-info__row">
+                            <h3 class="contact-info__label">Email</h3>
+                            <p class="contact-info__value"><a href="mailto:office@elogy.ro">office@elogy.ro</a></p>
+                        </div>
+
+                        <div class="contact-info__row">
+                            <h3 class="contact-info__label">Telefon</h3>
+                            <p class="contact-info__value">
+                                <a href="tel:+40764615462">+40 764 615 462</a>
+                            </p>
+
+                        </div>
+
+                        <div class="contact-info__row">
+                            <h3 class="contact-info__label">Program</h3>
+                            <p class="contact-info__value">Luni–Sâmbătă: 9:00 - 21:00 / Duminică: Închis</p>
+                        </div>
+
+                        <div class="contact-info__row">
+                            <h3 class="contact-info__label">Adresă showroom</h3>
+                            <p class="contact-info__value">București, Sector 6, Prelungirea Ghencea 65B</p>
+                        </div>
+
+                        <div>
+                            <iframe style="border: 0;"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2850.055740674594!2d26.020435499999998!3d44.411501900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b2018e3be64ba3%3A0xd16c78374706b2e3!2sElogy%20Design!5e0!3m2!1sen!2sro!4v1763801059809!5m2!1sen!2sro"
+                                width="100%" height="350" allowfullscreen="allowfullscreen">
+                            </iframe>
+                        </div>
+
+                        <div class="contact-info__actions">
+                            <a class="btn btn--secondary" href="https://maps.app.goo.gl/cLZkWZWZfhnCZMJR6"
+                                target="_blank" rel="noopener noreferrer">
+                                Deschide în Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+         5) Ce urmează
+         ========================================================= -->
+        <section class="contact-next section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Ce urmează după ce trimiți mesajul</h2>
+                </div>
+
+                <ul class="contact-next__list">
+                    <li class="contact-next__item">Confirmăm solicitarea</li>
+                    <li class="contact-next__item">Revenim cu recomandări clare</li>
+                    <li class="contact-next__item">Stabilim următorii pași</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         6) FAQ Contact
+         ========================================================= -->
+        <section class="faq section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Întrebări frecvente</h2>
+                </div>
+
+                <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__q">În cât timp răspundeți?</summary>
+                        <div class="faq__a">De obicei răspundem în 1–2 zile lucrătoare.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Pot programa o vizită în showroom?</summary>
+                        <div class="faq__a">Da, selectează „Showroom” la interes și spune-ne intervalul dorit.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Pot trimite poze sau dimensiuni?</summary>
+                        <div class="faq__a">Da, le poți menționa în mesaj și îți spunem cum să le trimiți rapid.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Telefonul este obligatoriu?</summary>
+                        <div class="faq__a">Da, pentru a putea reveni rapid cu detalii legate de solicitarea ta.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         7) CTA final (scurt)
+         ========================================================= -->
+        <section class="final-cta section" data-animate>
+            <div class="container final-cta__inner">
+                <h2 class="final-cta__title">Ai un proiect în minte?</h2>
+                <p class="final-cta__text">Trimite-ne câteva detalii și revenim rapid.</p>
+                <a class="btn btn--primary" href="#contact-form">Trimite mesajul</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+       FOOTER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/contact.js" defer></script>
+</body>
+
+</html>
