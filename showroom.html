@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <title>Showroom | ELOGY Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS pagină Showroom -->
+    <link rel="stylesheet" href="css/showroom.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+       HEADER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <!-- Left -->
+            <div class="header__left">
+                <!-- Hamburger -->
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <!-- Visible left links -->
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <!-- Center logo -->
+            <div class="header__center">
+                <!-- Placeholder logo text; înlocuiești ulterior cu logo SVG/IMG -->
+                <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <!-- Right -->
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="#" aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <button class="icon-btn" type="button" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" type="button" aria-label="Coș">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer / Mobile menu (hamburger) -->
+        <!-- Conținut obligatoriu: Perdele & Draperii, Mochetă, Montaj, Accesorii -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="accesorii.htm">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+
+        <!-- =========================================================
+         1) HERO
+         ========================================================= -->
+        <section class="showroom-hero section" data-animate>
+            <div class="container showroom-hero__inner">
+                <div class="showroom-hero__content">
+                    <h1 class="showroom-hero__title">Vezi materialele în showroom</h1>
+                    <p class="showroom-hero__text">
+                        Textura, transparența și nuanța se aleg mai bine în realitate. Te așteptăm să compari mostre și
+                        să primești recomandări clare, fără grabă.
+                    </p>
+
+                    <div class="showroom-hero__actions">
+                        <a class="btn btn--primary" href="contact.html">Programează o vizită</a>
+                        <a class="btn btn--secondary" href="#program">Vezi programul</a>
+                    </div>
+                </div>
+
+                <!-- MEDIA SLOT A -->
+                <div class="showroom-hero__media media media--gradient media--overlay" aria-hidden="true">
+                    <!-- TODO: adaugă imagine/video showroom (wide) -->
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         2) Ce găsești în showroom
+         ========================================================= -->
+        <section class="showroom-what section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Ce găsești în showroom</h2>
+                    <p class="section__subtitle">Mostre reale, comparații rapide și recomandări potrivite spațiului tău.
+                    </p>
+                </div>
+
+                <div class="showroom-what__grid">
+                    <article class="what-card">
+                        <h3 class="what-card__title">Mostre reale</h3>
+                        <p class="what-card__text">Mochetă, perdele, draperii și accesorii — vezi și compară materiale
+                            înainte de decizie.</p>
+                    </article>
+
+                    <article class="what-card">
+                        <h3 class="what-card__title">Comparații rapide</h3>
+                        <p class="what-card__text">Texturi, transparențe și opacități, în lumină reală, fără
+                            presupuneri.</p>
+                    </article>
+
+                    <article class="what-card">
+                        <h3 class="what-card__title">Recomandări pe loc</h3>
+                        <p class="what-card__text">Discutăm opțiuni potrivite, cu explicații clare, fără presiune.</p>
+                    </article>
+
+                    <article class="what-card">
+                        <h3 class="what-card__title">Soluții complete</h3>
+                        <p class="what-card__text">Gândim împreună combinații coerente: textile + accesorii + finisaj.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- MEDIA SLOT B (galerie) -->
+                <div class="showroom-gallery" aria-label="Galerie showroom">
+                    <!-- TODO: adaugă poze showroom (mostre, detalii, zone) -->
+                    <div class="showroom-gallery__grid">
+                        <div class="showroom-gallery__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-gallery__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-gallery__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-gallery__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-gallery__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-gallery__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         3) Cum decurge o vizită
+         ========================================================= -->
+        <section class="showroom-visit section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Cum decurge o vizită</h2>
+                    <p class="section__subtitle">Simplu, relaxat și orientat spre decizii bune.</p>
+                </div>
+
+                <ol class="showroom-steps" aria-label="Pași vizită">
+                    <li class="showroom-step">
+                        <h3 class="showroom-step__title">Spune-ne ce spațiu ai</h3>
+                        <p class="showroom-step__text">Poți veni cu poze, dimensiuni sau o schiță simplă — ajută la
+                            recomandări mai precise.</p>
+                    </li>
+                    <li class="showroom-step">
+                        <h3 class="showroom-step__title">Testăm opțiuni pe mostre</h3>
+                        <p class="showroom-step__text">Comparăm transparențe, texturi și opacități până găsim direcția
+                            potrivită.</p>
+                    </li>
+                    <li class="showroom-step">
+                        <h3 class="showroom-step__title">Pleci cu o direcție clară</h3>
+                        <p class="showroom-step__text">Primești recomandări și pașii următori, astfel încât decizia să
+                            fie ușoară.</p>
+                    </li>
+                </ol>
+
+                <!-- MEDIA SLOT D (opțional) -->
+                <div class="showroom-thumbs" aria-label="Thumbnails vizită">
+                    <!-- TODO: adaugă thumbnails pentru vizită -->
+                    <div class="showroom-thumbs__grid">
+                        <div class="showroom-thumbs__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-thumbs__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="showroom-thumbs__item media media--gradient" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         4) Program & locație
+         ========================================================= -->
+        <section class="showroom-program section" id="program" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Program &amp; locație</h2>
+                </div>
+
+                <div class="showroom-program__card">
+                    <div class="showroom-program__row">
+                        <h3 class="showroom-program__label">Program</h3>
+                        <p class="showroom-program__value">Luni–Sâmbătă: 9:00 - 21:00 / Duminică: Închis</p>
+                    </div>
+                    <div class="showroom-program__row">
+                        <h3 class="showroom-program__label">Adresă</h3>
+                        <p class="showroom-program__value">București, Sector 6, Prelungirea Ghencea 65B</p>
+                    </div>
+                    <div class="showroom-program__row">
+                        <h3 class="showroom-program__label">Parcare / repere</h3>
+                        <p class="showroom-program__value">Magazinul este vizibil din Prelungirea Ghencea. Parcare în
+                            fața magazinului</p>
+                    </div>
+
+                    <div class="showroom-program__actions">
+                        <a class="btn btn--secondary" href="https://maps.app.goo.gl/cLZkWZWZfhnCZMJR6" target="_blank"
+                            rel="noopener noreferrer">
+                            Deschide în Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         5) Programare (CTA)
+         ========================================================= -->
+        <section class="showroom-book section" data-animate>
+            <div class="container showroom-book__inner">
+                <div class="showroom-book__box">
+                    <h2 class="showroom-book__title">Programează o vizită</h2>
+                    <p class="showroom-book__text">Spune-ne ce te interesează și stabilim o vizită potrivită programului
+                        tău.</p>
+                    <a class="btn btn--primary" href="contact.html">Programează o vizită</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         6) Tur virtual / video
+         ========================================================= -->
+        <section class="showroom-virtual section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Tur virtual</h2>
+                    <p class="section__subtitle">În curând: tur virtual al showroom-ului și clipuri scurte cu
+                        materialele disponibile.</p>
+                </div>
+
+                <!-- TODO: înlocuiește cu embed YouTube/Vimeo/Matterport/Street View; prefer lazy-load -->
+                <div class="showroom-embed media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+
+                <div class="showroom-virtual__actions">
+                    <a class="btn btn--secondary" href="#" aria-disabled="true">Vezi turul</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         7) FAQ
+         ========================================================= -->
+        <section class="faq section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Întrebări frecvente</h2>
+                </div>
+
+                <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__q">E nevoie de programare?</summary>
+                        <div class="faq__a">Recomandăm programare pentru a-ți acorda timp și atenție, însă ne poți scrie
+                            și pentru o vizită rapidă.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Cât durează o vizită?</summary>
+                        <div class="faq__a">De obicei între 20 și 45 de minute, în funcție de câte opțiuni vrei să
+                            compari.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">E ok să vin cu poze sau schițe?</summary>
+                        <div class="faq__a">Da — ajută mult. Cu câteva poze și dimensiuni, recomandările devin mai
+                            precise.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Pot vedea mostre pentru mochetă, perdele și draperii?</summary>
+                        <div class="faq__a">Da, avem mostre pentru toate categoriile și te ajutăm să le compari în
+                            funcție de spațiul tău.</div>
+                    </details>
+
+                    <details class="faq__item">
+                        <summary class="faq__q">Pot veni doar pentru inspirație?</summary>
+                        <div class="faq__a">Sigur. Uneori e suficient să vezi materialele și să îți faci o idee clară
+                            despre stil.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         8) CTA FINAL
+         ========================================================= -->
+        <section class="final-cta section" data-animate>
+            <div class="container final-cta__inner">
+                <h2 class="final-cta__title">Hai să alegem pe mostre reale</h2>
+                <p class="final-cta__text">O vizită în showroom te ajută să iei decizii mai bune, mai repede.</p>
+                <a class="btn btn--primary" href="contact.html">Programează o vizită</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+       FOOTER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

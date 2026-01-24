@@ -1,0 +1,176 @@
+/* =========================================
+   Showroom page – page specific styles only
+   ========================================= */
+
+/* HERO */
+.showroom-hero__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.showroom-hero__title {
+  font-size: 32px;
+  font-weight: var(--fw-semi);
+  letter-spacing: -0.35px;
+}
+
+.showroom-hero__text {
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+.showroom-hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Cards grids */
+.showroom-what__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.what-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+/* Gallery (MEDIA SLOT B) */
+.showroom-gallery {
+  margin-top: var(--space-6);
+}
+
+.showroom-gallery__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(2, 1fr); /* mobile: 2 col */
+}
+
+.showroom-gallery__item .media__surface {
+  min-height: 150px;
+}
+
+/* Steps */
+.showroom-steps {
+  display: grid;
+  gap: var(--space-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.showroom-step {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.showroom-step__title {
+  margin: 0 0 8px;
+  font-weight: var(--fw-semi);
+}
+
+.showroom-step__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* Thumbnails (MEDIA SLOT D) */
+.showroom-thumbs {
+  margin-top: var(--space-6);
+}
+
+.showroom-thumbs__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.showroom-thumbs__item .media__surface {
+  min-height: 110px;
+}
+
+/* Program card */
+.showroom-program__card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+.showroom-program__row + .showroom-program__row {
+  margin-top: var(--space-4);
+}
+
+.showroom-program__label {
+  margin: 0 0 6px;
+  font-weight: var(--fw-semi);
+  font-size: 14px;
+}
+
+.showroom-program__value {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.showroom-program__actions {
+  margin-top: var(--space-5);
+}
+
+/* Booking CTA */
+.showroom-book__box {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+}
+
+/* Virtual embed placeholder (16:9) */
+.showroom-embed {
+  margin-top: var(--space-4);
+}
+
+.showroom-embed .media__surface {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-height: 220px;
+}
+
+.showroom-virtual__actions {
+  margin-top: var(--space-4);
+}
+
+/* Disabled link styling (keep subtle) */
+.showroom-virtual__actions [aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .showroom-hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .showroom-hero__title {
+    font-size: 42px;
+  }
+
+  .showroom-what__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .showroom-gallery__grid {
+    grid-template-columns: repeat(3, 1fr); /* desktop: 3 col */
+  }
+
+  .showroom-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
