@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <title>Căutare | ELOGY Design</title>
+    <meta name="description"
+        content="Găsește rapid informații despre mochetă, perdele, draperii, accesorii, showroom sau montaj.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS pagină Search -->
+    <link rel="stylesheet" href="css/search.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+       HEADER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <!-- Left -->
+            <div class="header__left">
+                <!-- Hamburger -->
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <!-- Visible left links -->
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <!-- Center logo -->
+            <div class="header__center">
+                <!-- Placeholder logo text; înlocuiești ulterior cu logo SVG/IMG -->
+                <a class="header__logo" href="index.html" aria-label="ELOGY Design">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <!-- Right -->
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="contact.html"
+                    aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+
+                    <!-- Căutare (ex: pagină dedicată sau anchor) -->
+                    <a href="search.html" class="icon-btn" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </a>
+
+                    <!-- Locație / Showroom -->
+                    <a href="showroom.html" class="icon-btn" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </a>
+
+                    <!-- Cont (viitor) -->
+                    <a href="#" class="icon-btn" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </a>
+
+                    <!-- Coș (viitor shop) -->
+                    <a href="#" class="icon-btn" aria-label="Coș">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Drawer / Mobile menu (hamburger) -->
+        <!-- Conținut obligatoriu: Perdele & Draperii, Mochetă, Montaj, Accesorii -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="accesorii.html">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+
+        <!-- =========================================================
+         HERO – Căutare
+         ========================================================= -->
+        <section class="search-hero section" data-animate>
+            <div class="container search-hero__inner">
+                <div class="search-hero__content">
+                    <h1 class="search-hero__title">Căutare</h1>
+                    <p class="search-hero__text">
+                        Găsește rapid informații despre mochetă, perdele, draperii, accesorii, showroom sau montaj.
+                    </p>
+                </div>
+
+                <div class="search-hero__media media media--gradient media--overlay" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+         Bara de căutare (componentă principală)
+         ========================================================= -->
+        <section class="search-bar section" data-animate>
+            <div class="container">
+
+                <div class="search-bar__box">
+                    <label class="search-bar__label" for="searchInput">Caută</label>
+
+                    <div class="search-bar__row" role="search">
+                        <input id="searchInput" class="search-bar__input" type="search"
+                            placeholder="Caută: mochetă, blackout, wave, showroom..." autocomplete="off"
+                            aria-describedby="searchHelp searchCount">
+                        <button class="btn btn--secondary search-bar__clear" type="button" id="clearBtn">
+                            Șterge
+                        </button>
+                    </div>
+
+                    <p class="search-bar__help" id="searchHelp">
+                        Vezi rezultatele pe măsură ce tastezi. Poți căuta și fără diacritice (ex: “mocheta” găsește
+                        “mochetă”).
+                    </p>
+
+                    <div class="search-chips" aria-label="Sugestii rapide">
+                        <button class="search-chip" type="button" data-term="Mochetă">Mochetă</button>
+                        <button class="search-chip" type="button" data-term="Perdele">Perdele</button>
+                        <button class="search-chip" type="button" data-term="Draperii">Draperii</button>
+                        <button class="search-chip" type="button" data-term="Montaj">Montaj</button>
+                        <button class="search-chip" type="button" data-term="Accesorii">Accesorii</button>
+                        <button class="search-chip" type="button" data-term="Showroom">Showroom</button>
+                        <button class="search-chip" type="button" data-term="Contact">Contact</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+         Rezultate (ASCUNSE complet când input e gol)
+         ========================================================= -->
+        <section class="search-results section" data-animate>
+            <div class="container">
+
+                <!-- WRAP: ascuns când input-ul e gol -->
+                <div id="resultsWrap" hidden>
+                    <p class="search-results__count" id="searchCount" aria-live="polite"></p>
+
+                    <div class="search-results__list" id="resultsList" aria-label="Rezultate căutare"></div>
+
+                    <!-- Empty state -->
+                    <div class="search-empty" id="emptyState" hidden>
+                        <h2 class="search-empty__title">Nu am găsit rezultate.</h2>
+                        <p class="search-empty__text">
+                            Încearcă un termen mai general (ex: “mochetă”, “wave”, “blackout”) sau folosește sugestiile
+                            rapide de mai sus.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================================
+         Căutări populare (fallback)
+         ========================================================= -->
+        <section class="search-popular section" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Căutări populare</h2>
+                </div>
+
+                <div class="search-popular__chips" aria-label="Căutări populare">
+                    <button class="search-chip" type="button" data-term="Mochetă">Mochetă</button>
+                    <button class="search-chip" type="button" data-term="Blackout">Blackout</button>
+                    <button class="search-chip" type="button" data-term="Wave">Wave</button>
+                    <button class="search-chip" type="button" data-term="Showroom">Showroom</button>
+                    <button class="search-chip" type="button" data-term="Montaj">Montaj</button>
+                    <button class="search-chip" type="button" data-term="Accesorii">Accesorii</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+       FOOTER (identic cu homepage, fără modificări)
+       ========================================================= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/main.js" defer></script>
+    <script src="js/search.js" defer></script>
+</body>
+
+</html>

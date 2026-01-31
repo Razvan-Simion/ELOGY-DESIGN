@@ -24,12 +24,6 @@
   margin-top: var(--space-3);
 }
 
-.contact-hero__link {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 /* Main two-column layout */
 .contact-main__grid {
   display: grid;

@@ -56,27 +56,37 @@
                     aria-label="Contactează-ne">Contactează-ne</a>
 
                 <div class="header__icons" aria-label="Acțiuni rapide">
-                    <button class="icon-btn" type="button" aria-label="Caută">
+
+                    <!-- Căutare (ex: pagină dedicată sau anchor) -->
+                    <a href="search.html" class="icon-btn" aria-label="Caută">
                         <svg class="icon" aria-hidden="true" focusable="false">
                             <use href="images/icons.svg#icon-search"></use>
                         </svg>
-                    </button>
-                    <button class="icon-btn" type="button" aria-label="Locație">
+                    </a>
+
+                    <!-- Locație / Showroom -->
+                    <a href="showroom.html" class="icon-btn" aria-label="Locație">
                         <svg class="icon" aria-hidden="true" focusable="false">
                             <use href="images/icons.svg#icon-location"></use>
                         </svg>
-                    </button>
-                    <button class="icon-btn" type="button" aria-label="Cont">
+                    </a>
+
+                    <!-- Cont (viitor) -->
+                    <a href="#" class="icon-btn" aria-label="Cont">
                         <svg class="icon" aria-hidden="true" focusable="false">
                             <use href="images/icons.svg#icon-user"></use>
                         </svg>
-                    </button>
-                    <button class="icon-btn" type="button" aria-label="Coș">
+                    </a>
+
+                    <!-- Coș (viitor shop) -->
+                    <a href="#" class="icon-btn" aria-label="Coș">
                         <svg class="icon" aria-hidden="true" focusable="false">
                             <use href="images/icons.svg#icon-bag"></use>
                         </svg>
-                    </button>
+                    </a>
+
                 </div>
+
             </div>
         </div>
 
@@ -100,7 +110,7 @@
                     <a class="drawer__link" href="draperii.html">Draperii</a>
                     <a class="drawer__link" href="mocheta.html">Mochetă</a>
                     <a class="drawer__link" href="montaj.html">Montaj</a>
-                    <a class="drawer__link" href="accesorii.htm">Accesorii</a>
+                    <a class="drawer__link" href="accesorii.html">Accesorii</a>
                 </nav>
             </div>
         </aside>
@@ -122,9 +132,7 @@
 
                 </div>
 
-                <div class="contact-hero__media media media--gradient media--overlay" aria-hidden="true">
-                    <div class="media__surface"></div>
-                </div>
+
             </div>
         </section>
 
@@ -138,20 +146,20 @@
                 <div class="contact-form" id="contact-form">
                     <h2 class="contact-form__title">Trimite-ne un mesaj</h2>
 
-                    <form class="form" action="https://formspree.io/f/XXXXXXX" method="POST" novalidate data-formspree>
+                    <form class="form" action="https://formspree.io/f/xzdgklbp" method="POST" novalidate data-formspree>
                         <!-- 9) Honeypot anti-spam -->
                         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
                         <!-- 1) Nume și prenume -->
                         <div class="form__field">
                             <label class="form__label" for="name">Nume și prenume</label>
-                            <input class="form__input" id="name" name="name" type="text" required autocomplete="name">
+                            <input class="form__input" id="name" name="Nume" type="text" required autocomplete="Nume">
                         </div>
 
                         <!-- 2) Telefon (obligatoriu) -->
                         <div class="form__field">
                             <label class="form__label" for="phone">Telefon</label>
-                            <input class="form__input" id="phone" name="phone" type="tel" required inputmode="tel"
+                            <input class="form__input" id="phone" name="Telefon" type="tel" required inputmode="tel"
                                 placeholder="07xx xxx xxx"
                                 pattern="^(\+40\s?7\d{2}\s?\d{3}\s?\d{3}|07\d{2}\s?\d{3}\s?\d{3})$" autocomplete="tel">
                             <p class="form__hint">Format acceptat: 07xx xxx xxx sau +40 7xx xxx xxx</p>
@@ -160,14 +168,14 @@
                         <!-- 3) Email -->
                         <div class="form__field">
                             <label class="form__label" for="email">Email</label>
-                            <input class="form__input" id="email" name="_replyto" type="email" required
+                            <input class="form__input" id="email" name="Răspunde" type="email" required
                                 autocomplete="email">
                         </div>
 
                         <!-- 4) Interes (select obligatoriu) -->
                         <div class="form__field">
                             <label class="form__label" for="interes">Interes</label>
-                            <select class="form__select" id="interes" name="interes" required>
+                            <select class="form__select" id="interes" name="Interes" required>
                                 <option value="" selected disabled>Alege o opțiune</option>
                                 <option>Mochetă</option>
                                 <option>Perdele</option>
@@ -184,15 +192,15 @@
                             <legend class="form__label">Preferință de contact (opțional)</legend>
                             <div class="form__radios">
                                 <label class="form__radio">
-                                    <input type="radio" name="preferinta_contact" value="Telefon">
+                                    <input type="radio" name="Preferință" value="Telefon">
                                     <span>Telefon</span>
                                 </label>
                                 <label class="form__radio">
-                                    <input type="radio" name="preferinta_contact" value="Email">
+                                    <input type="radio" name="Preferință" value="Email">
                                     <span>Email</span>
                                 </label>
                                 <label class="form__radio">
-                                    <input type="radio" name="preferinta_contact" value="WhatsApp">
+                                    <input type="radio" name="Preferință" value="WhatsApp">
                                     <span>WhatsApp</span>
                                 </label>
                             </div>
@@ -201,14 +209,14 @@
                         <!-- 6) Interval preferat (opțional) -->
                         <div class="form__field">
                             <label class="form__label" for="interval">Interval preferat (opțional)</label>
-                            <input class="form__input" id="interval" name="interval_preferat" type="text"
+                            <input class="form__input" id="interval" name="Interval" type="text"
                                 placeholder="Ex: după ora 16:00">
                         </div>
 
                         <!-- 7) Mesaj -->
                         <div class="form__field">
                             <label class="form__label" for="message">Mesaj</label>
-                            <textarea class="form__textarea" id="message" name="message" required
+                            <textarea class="form__textarea" id="message" name="Mesaj" required
                                 placeholder="Spune-ne pe scurt ce spațiu ai și ce efect îți dorești."
                                 rows="6"></textarea>
                         </div>
@@ -216,7 +224,7 @@
                         <!-- 8) GDPR (obligatoriu) -->
                         <div class="form__field form__field--gdpr">
                             <label class="form__checkbox">
-                                <input id="gdpr" type="checkbox" name="gdpr" required>
+                                <input id="gdpr" type="checkbox" name="GDPR" required>
                                 <span>
                                     „Sunt de acord să fiu contactat(ă) de ELOGY Design în legătură cu solicitarea mea.”
                                     <a href="privacy.html">Confidețialitate</a>
