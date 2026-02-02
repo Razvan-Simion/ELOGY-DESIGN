@@ -32,7 +32,7 @@
         </button>
 
         <nav class="header__quicklinks" aria-label="Navigație rapidă">
-          <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+          <a class="header__link" href="magazin.html" aria-label="Magazin online">Magazin online</a>
           <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
         </nav>
       </div>
@@ -70,12 +70,14 @@
             </svg>
           </a>
 
-          <!-- Coș (viitor shop) -->
-          <a href="#" class="icon-btn" aria-label="Coș">
+          <!-- Coș -->
+          <a href="cos.html" class="icon-btn icon-btn--cart" aria-label="Coș" data-cart-link>
             <svg class="icon" aria-hidden="true" focusable="false">
               <use href="images/icons.svg#icon-bag"></use>
             </svg>
+            <span class="cart-badge" data-cart-badge hidden>0</span>
           </a>
+
 
         </div>
 
@@ -123,7 +125,7 @@
 
           <div class="mocheta-hero__actions">
             <a class="btn btn--primary" href="contact.html">Programează o discuție</a>
-            <a class="btn btn--secondary" href="#tipuridemocheta">Vezi opțiunile</a>
+            <a class="btn btn--secondary" href="#catalog">Vezi catalogul</a>
           </div>
         </div>
 
@@ -204,6 +206,87 @@
         </div>
       </div>
     </section>
+
+    <!-- =========================================================
+     CATALOG MOCHEȚĂ (NOU) – integrat în pagină
+     - Tabs + filtru destinație + grid produse
+     - Configuratorul/drawer vine la pasul 3
+     ========================================================= -->
+    <section class="catalog section" id="catalog" aria-label="Catalog mochetă" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Catalog mochetă</h2>
+          <p class="catalog__intro">
+            Selectezi produsul, îl configurezi, îl adaugi în coș și trimiți o cerere de ofertă. Prețurile sunt
+            estimative și
+            se confirmă după verificare.
+          </p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="catalog-tabs" role="tablist" aria-label="Tip produs">
+          <button class="catalog-tabs__btn is-active" type="button" role="tab" aria-selected="true"
+            data-catalog-tab="all">
+            Toate
+          </button>
+          <button class="catalog-tabs__btn" type="button" role="tab" aria-selected="false" data-catalog-tab="rola">
+            Rolă
+          </button>
+          <button class="catalog-tabs__btn" type="button" role="tab" aria-selected="false" data-catalog-tab="traversa">
+            Traverse
+          </button>
+        </div>
+
+        <!-- Destination chips (single-select) -->
+        <div class="catalog-filters" aria-label="Filtru destinație">
+          <div class="catalog-filters__label">Destinație:</div>
+          <div class="catalog-filters__chips" role="radiogroup" aria-label="Destinație">
+            <button class="catalog-chip is-active" type="button" role="radio" aria-checked="true"
+              data-catalog-destination="all">
+              Toate
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="domestic">
+              Trafic domestic
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="intens">
+              Trafic intens
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="horeca">
+              HoReCa / evenimente
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="exterior">
+              Exterior
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="birouri">
+              Birouri
+            </button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <p class="catalog__meta" data-catalog-meta></p>
+
+        <div class="catalog__grid" data-catalog-grid></div>
+
+        <div class="catalog__empty" data-catalog-empty hidden>
+          <p class="catalog__empty-title">Nu există produse pentru selecția curentă.</p>
+          <p class="catalog__empty-text">Încearcă „Toate” sau schimbă destinația.</p>
+        </div>
+
+
+        <noscript>
+          <p class="catalog__noscript">
+            Pentru a vedea catalogul și filtrele, activează JavaScript în browser.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
 
     <!-- =========================================================
          4) Unde se potrivește (obligatoriu)
@@ -449,8 +532,112 @@
     </div>
   </footer>
 
-  <!-- JS identic cu homepage (hamburger + fade-in) -->
+  <!-- =========================================================
+     PRODUCT DRAWER (NOU) – Mochetă (scoped, fără conflict cu menu drawer)
+     ========================================================= -->
+  <div class="pdrawer" data-product-drawer hidden>
+    <div class="pdrawer__backdrop" data-product-drawer-close aria-hidden="true"></div>
+
+    <aside class="pdrawer__panel" role="dialog" aria-modal="true" aria-label="Configurare produs" tabindex="-1"
+      data-product-drawer-panel>
+      <header class="pdrawer__head">
+        <div class="pdrawer__head-text">
+          <p class="pdrawer__eyebrow" data-product-drawer-type></p>
+          <h3 class="pdrawer__title" data-product-drawer-title>Produs</h3>
+        </div>
+
+        <button class="pdrawer__close" type="button" data-product-drawer-close aria-label="Închide">
+          ✕
+        </button>
+      </header>
+
+      <div class="pdrawer__body">
+        <div class="pdrawer__media media media--gradient media--grad-1" aria-hidden="true">
+          <div class="media__surface"></div>
+        </div>
+
+        <p class="pdrawer__desc" data-product-drawer-desc></p>
+
+        <section class="pdrawer__section" aria-label="Configurare">
+          <h4 class="pdrawer__section-title">Configurare</h4>
+          <div class="pdrawer__fields" data-product-drawer-fields></div>
+        </section>
+
+        <section class="pdrawer__section" aria-label="Montaj">
+          <h4 class="pdrawer__section-title">Montaj</h4>
+
+          <label class="check">
+            <input class="check__input" type="checkbox" data-product-montaj-toggle />
+            <span class="check__box" aria-hidden="true"></span>
+            <span class="check__label">
+              Doresc montaj (estimare după vizionare și măsurători)
+            </span>
+          </label>
+
+          <div class="pdrawer__montaj" data-product-montaj-fields hidden>
+            <div class="field">
+              <label class="field__label" for="montaj-suprafata">Tip suprafață</label>
+              <select class="field__control" id="montaj-suprafata" data-product-montaj-surface>
+                <option value="">Alege…</option>
+                <option value="plan">Plan</option>
+                <option value="scari">Scări</option>
+                <option value="ambele">Ambele</option>
+                <option value="nu-stiu">Nu știu</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="montaj-pardoseala">Tip pardoseală</label>
+              <select class="field__control" id="montaj-pardoseala" data-product-montaj-floor>
+                <option value="">Alege…</option>
+                <option value="sapa">Șapă</option>
+                <option value="gresie">Gresie</option>
+                <option value="parchet">Parchet</option>
+                <option value="dusumea">Dușumea</option>
+                <option value="altul">Altul</option>
+                <option value="nu-stiu">Nu știu</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="montaj-observatii">Observații (opțional)</label>
+              <textarea class="field__control field__control--textarea" id="montaj-observatii" rows="3"
+                data-product-montaj-notes></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="pdrawer__foot">
+        <div class="pdrawer__totals">
+          <p class="pdrawer__price" data-product-drawer-price>—</p>
+          <p class="pdrawer__sub" data-product-drawer-sub></p>
+        </div>
+
+        <button class="btn btn--primary pdrawer__cta" type="button" data-product-add-to-cart disabled>
+          Adaugă în coș
+        </button>
+
+        <p class="pdrawer__note">
+          Prețurile sunt estimative și se confirmă după verificare.
+        </p>
+      </footer>
+    </aside>
+  </div>
+
+
+  <!-- JS  -->
   <script src="js/main.js" defer></script>
+  <script src="js/utils/money.js" defer></script>
+  <script src="js/data/mocheta.products.js" defer></script>
+  <script src="js/catalog/mocheta.catalog.js" defer></script>
+  <script src="js/drawer/mocheta.drawer.js" defer></script>
+  <script src="js/store/storage.js" defer></script>
+  <script src="js/store/cart.store.js" defer></script>
+  <script src="js/cart/cart.badge.js" defer></script>
+
+
+
 </body>
 
 </html>

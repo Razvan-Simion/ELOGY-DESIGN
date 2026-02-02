@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coș | ELOGY Design</title>
+
+    <!-- Font: identic cu restul site-ului -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/cos.css" />
+</head>
+
+<body>
+    <!-- =========================================================
+       HEADER (identic ca structură)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <div class="header__left">
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="magazin.html" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <div class="header__center">
+                <a class="header__logo" href="index.html" aria-label="ELOGY DESIGN">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="contact.html"
+                    aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <a href="search.html" class="icon-btn" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </a>
+
+                    <a href="showroom.html" class="icon-btn" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="icon-btn" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </a>
+
+                    <!-- Coș -->
+                    <a href="cos.html" class="icon-btn icon-btn--cart" aria-label="Coș" data-cart-link>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                        <span class="cart-badge" data-cart-badge hidden>0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer meniu (existent în proiect) -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="accesorii.html">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+        <!-- =========================================================
+         COȘ – conținut
+         ========================================================= -->
+        <section class="cart-page section" aria-label="Coș" data-animate>
+            <div class="container">
+                <div class="cart-page__head">
+                    <h1 class="cart-page__title">Coș</h1>
+                    <p class="cart-page__lead">
+                        Selectezi produsele, apoi trimiți o cerere de ofertă.
+                    </p>
+                </div>
+
+                <!-- Empty state -->
+                <div class="cart-empty" data-cart-empty hidden>
+                    <p class="cart-empty__title">Coșul tău este gol.</p>
+                    <a class="btn btn--primary" href="magazin.html">Înapoi la produse</a>
+
+                    <div class="cart-empty__links" aria-label="Link-uri rapide">
+                        <a class="cart-empty__link" href="mocheta.html">Mochetă</a>
+                        <a class="cart-empty__link" href="perdele.html">Perdele</a>
+                        <a class="cart-empty__link" href="draperii.html">Draperii</a>
+                        <a class="cart-empty__link" href="accesorii.html">Accesorii</a>
+                    </div>
+                </div>
+
+                <!-- Grid: listă + formular -->
+                <div class="cart-page__grid" data-cart-grid>
+                    <!-- LEFT: items -->
+                    <section class="cart-box" aria-label="Produse selectate">
+                        <div class="cart-box__head">
+                            <h2 class="cart-box__title">Produse</h2>
+                            <p class="cart-box__meta" data-cart-meta>—</p>
+                        </div>
+
+                        <ul class="cart-list" data-cart-list></ul>
+
+                        <div class="cart-summary" aria-label="Sumar">
+                            <div class="cart-summary__row">
+                                <span class="cart-summary__label">Total estimativ produse</span>
+                                <span class="cart-summary__value" data-cart-subtotal>—</span>
+                            </div>
+                            <p class="cart-summary__note">
+                                Prețurile sunt estimative pentru produsele calculabile și se confirmă după verificare.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- RIGHT: request form -->
+                    <section class="request-box" aria-label="Cerere ofertă">
+                        <h2 class="request-box__title">Cerere ofertă</h2>
+
+                        <!-- Fulfillment -->
+                        <div class="fulfillment" aria-label="Ridicare / livrare">
+                            <p class="fulfillment__label">Ridicare / livrare</p>
+
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="fulfillment" value="pickup" checked
+                                    data-fulfillment="pickup">
+                                <span class="radio__dot" aria-hidden="true"></span>
+                                <span class="radio__text">Ridicare din showroom (gratuit)</span>
+                            </label>
+
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="fulfillment" value="delivery"
+                                    data-fulfillment="delivery">
+                                <span class="radio__dot" aria-hidden="true"></span>
+                                <span class="radio__text">Livrare</span>
+                            </label>
+
+                            <div class="delivery" data-delivery-fields hidden>
+                                <div class="field">
+                                    <label class="field__label" for="adr-strada">Stradă</label>
+                                    <input class="field__control" id="adr-strada" type="text"
+                                        autocomplete="street-address" data-adr-strada>
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="adr-nr">Nr.</label>
+                                    <input class="field__control" id="adr-nr" type="text" autocomplete="address-line2"
+                                        data-adr-nr>
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="adr-localitate">Localitate</label>
+                                    <input class="field__control" id="adr-localitate" type="text"
+                                        autocomplete="address-level2" data-adr-localitate>
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="adr-judet">Județ</label>
+                                    <input class="field__control" id="adr-judet" type="text"
+                                        autocomplete="address-level1" data-adr-judet>
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="adr-cp">Cod poștal (opțional)</label>
+                                    <input class="field__control" id="adr-cp" type="text" inputmode="numeric"
+                                        autocomplete="postal-code" data-adr-cp>
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="adr-obs">Observații livrare (opțional)</label>
+                                    <textarea class="field__control field__control--textarea" id="adr-obs" rows="3"
+                                        data-adr-obs></textarea>
+                                </div>
+
+                                <p class="delivery__note">Costul livrării se confirmă după verificare.</p>
+                            </div>
+                        </div>
+
+                        <!-- Formspree -->
+                        <form class="request-form" action="https://formspree.io/f/xzdgklbp" method="POST" novalidate
+                            data-cart-form>
+                            <!-- Honeypot -->
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                            <!-- Hidden: payload human readable -->
+                            <textarea name="Detalii coș" data-cart-payload hidden></textarea>
+
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label class="field__label" for="rq-name">Nume</label>
+                                    <input class="field__control" id="rq-name" name="Nume" type="text" required
+                                        autocomplete="name">
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="rq-phone">Telefon</label>
+                                    <input class="field__control" id="rq-phone" name="Telefon" type="tel" required
+                                        inputmode="tel" placeholder="07xx xxx xxx"
+                                        pattern="^(\+40\s?7\d{2}\s?\d{3}\s?\d{3}|07\d{2}\s?\d{3}\s?\d{3})$"
+                                        autocomplete="tel">
+                                    <p class="field__hint">Format acceptat: 07xx xxx xxx sau +40 7xx xxx xxx</p>
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="rq-email">Email</label>
+                                    <input class="field__control" id="rq-email" name="Răspunde" type="email" required
+                                        autocomplete="email">
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="rq-msg">Mesaj (opțional)</label>
+                                    <textarea class="field__control field__control--textarea" id="rq-msg" name="Mesaj"
+                                        rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <button class="btn btn--primary request-form__btn" type="submit" data-cart-submit>
+                                Trimite cererea
+                            </button>
+
+                            <p class="request-form__note">
+                                Vei primi confirmarea și pașii următori după verificare.
+                            </p>
+                        </form>
+                    </section>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =========================================================
+         PRODUCT DRAWER (Accesorii editare) – scoped
+         ========================================================= -->
+    <div class="pdrawer" data-product-drawer hidden>
+        <div class="pdrawer__backdrop" data-product-drawer-close aria-hidden="true"></div>
+
+        <aside class="pdrawer__panel" role="dialog" aria-modal="true" aria-label="Configurare produs" tabindex="-1"
+            data-product-drawer-panel>
+            <header class="pdrawer__head">
+                <div class="pdrawer__head-text">
+                    <p class="pdrawer__eyebrow" data-product-drawer-type></p>
+                    <h3 class="pdrawer__title" data-product-drawer-title>Produs</h3>
+                </div>
+
+                <button class="pdrawer__close" type="button" data-product-drawer-close aria-label="Închide">✕</button>
+            </header>
+
+            <div class="pdrawer__body">
+                <div class="pdrawer__media media media--gradient media--grad-1" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+
+                <p class="pdrawer__desc" data-product-drawer-desc></p>
+
+                <section class="pdrawer__section" aria-label="Configurare">
+                    <h4 class="pdrawer__section-title">Configurare</h4>
+                    <div class="pdrawer__fields" data-product-drawer-fields></div>
+                </section>
+            </div>
+
+            <footer class="pdrawer__foot">
+                <div class="pdrawer__totals">
+                    <p class="pdrawer__price" data-product-drawer-price>—</p>
+                    <p class="pdrawer__sub" data-product-drawer-sub></p>
+                </div>
+
+                <button class="btn btn--primary pdrawer__cta" type="button" data-product-add-to-cart disabled>
+                    Actualizează
+                </button>
+
+                <p class="pdrawer__note">Prețurile sunt estimative și se confirmă după verificare.</p>
+            </footer>
+        </aside>
+    </div>
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+
+    <script src="js/store/storage.js" defer></script>
+    <script src="js/store/cart.store.js" defer></script>
+    <script src="js/utils/money.js" defer></script>
+
+    <script src="js/cart/cart.badge.js" defer></script>
+    <script src="js/cart/cart.page.js" defer></script>
+
+    <!-- pentru editare accesorii -->
+    <script src="js/data/accesorii.products.js" defer></script>
+    <script src="js/drawer/accesorii.drawer.js" defer></script>
+
+</body>
+
+</html>

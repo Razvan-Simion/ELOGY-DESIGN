@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Magazin online | ELOGY Design</title>
+
+    <!-- Font: identic cu restul site-ului -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/magazin.css" />
+</head>
+
+<body>
+    <!-- =========================================================
+       HEADER (identic ca structură)
+       ========================================================= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <div class="header__left">
+                <button class="icon-btn header__hamburger" type="button" aria-label="Deschide meniul"
+                    aria-controls="siteDrawer" aria-expanded="false" data-drawer-open>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="images/icons.svg#icon-menu"></use>
+                    </svg>
+                </button>
+
+                <nav class="header__quicklinks" aria-label="Navigație rapidă">
+                    <a class="header__link" href="magazin.html" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
+                </nav>
+            </div>
+
+            <div class="header__center">
+                <a class="header__logo" href="index.html" aria-label="ELOGY DESIGN">
+                    ELOGY DESIGN
+                </a>
+            </div>
+
+            <div class="header__right">
+                <a class="btn btn--primary header__cta" href="contact.html"
+                    aria-label="Contactează-ne">Contactează-ne</a>
+
+                <div class="header__icons" aria-label="Acțiuni rapide">
+                    <a href="search.html" class="icon-btn" aria-label="Caută">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-search"></use>
+                        </svg>
+                    </a>
+
+                    <a href="showroom.html" class="icon-btn" aria-label="Locație">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-location"></use>
+                        </svg>
+                    </a>
+
+                    <a href="#" class="icon-btn" aria-label="Cont">
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-user"></use>
+                        </svg>
+                    </a>
+
+                    <!-- Coș -->
+                    <a href="cos.html" class="icon-btn icon-btn--cart" aria-label="Coș" data-cart-link>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-bag"></use>
+                        </svg>
+                        <span class="cart-badge" data-cart-badge hidden>0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drawer meniu (existent în proiect) -->
+        <aside class="drawer" id="siteDrawer" aria-hidden="true" data-drawer>
+            <div class="drawer__backdrop" data-drawer-close aria-hidden="true"></div>
+
+            <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Meniu">
+                <div class="drawer__header">
+                    <span class="drawer__title">Meniu</span>
+                    <button class="icon-btn" type="button" aria-label="Închide meniul" data-drawer-close>
+                        <svg class="icon" aria-hidden="true" focusable="false">
+                            <use href="images/icons.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <nav class="drawer__nav" aria-label="Navigație principală">
+                    <a class="drawer__link" href="perdele.html">Perdele</a>
+                    <a class="drawer__link" href="draperii.html">Draperii</a>
+                    <a class="drawer__link" href="mocheta.html">Mochetă</a>
+                    <a class="drawer__link" href="montaj.html">Montaj</a>
+                    <a class="drawer__link" href="accesorii.html">Accesorii</a>
+                </nav>
+            </div>
+        </aside>
+    </header>
+
+    <main id="main">
+        <!-- HERO -->
+        <section class="shop-hub section" aria-label="Magazin online" data-animate>
+            <div class="container">
+                <div class="shop-hub__hero">
+                    <div class="shop-hub__hero-copy">
+                        <h1 class="shop-hub__title">Magazin online (cerere ofertă)</h1>
+                        <p class="shop-hub__lead">
+                            Alegi produsul, îl configurezi, îl adaugi în coș și trimiți o cerere. Confirmăm
+                            disponibilitatea, măsurătorile și costurile înainte de ofertă finală.
+                        </p>
+
+                        <div class="shop-hub__actions">
+                            <a class="btn btn--primary" href="cos.html">Vezi coșul</a>
+                        </div>
+
+                        <ul class="shop-hub__steps" aria-label="Cum funcționează">
+                            <li class="shop-hub__step">
+                                <span class="shop-hub__step-no">1</span>
+                                <span class="shop-hub__step-text">Selectezi produsul și configurația potrivită.</span>
+                            </li>
+                            <li class="shop-hub__step">
+                                <span class="shop-hub__step-no">2</span>
+                                <span class="shop-hub__step-text">Adaugi în coș (fără plată).</span>
+                            </li>
+                            <li class="shop-hub__step">
+                                <span class="shop-hub__step-no">3</span>
+                                <span class="shop-hub__step-text">Trimiți cererea și revenim cu confirmare.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-hub__hero-media media media--gradient" aria-hidden="true">
+                        <div class="media__surface"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="shop-hub section" aria-label="Categorii">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Categorii</h2>
+                    <p class="shop-hub__muted">Produsele noastre</p>
+                </div>
+
+                <div class="shop-hub__grid">
+                    <a class="shop-hub-card" href="mocheta.html#catalog" aria-label="Catalog mochetă">
+                        <div class="shop-hub-card__media media media--gradient media--grad-1" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="shop-hub-card__body">
+                            <h3 class="shop-hub-card__title">Mochetă</h3>
+                            <p class="shop-hub-card__text">Rolă (lățime fixă 4 m) și traverse (metru liniar).</p>
+                            <span class="shop-hub-card__cta">Deschide catalogul</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-hub-card" href="perdele.html" aria-label="Perdele">
+                        <div class="shop-hub-card__media media media--gradient media--grad-2" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="shop-hub-card__body">
+                            <h3 class="shop-hub-card__title">Perdele</h3>
+                            <p class="shop-hub-card__text">Alege stilul și trimite cererea (în curând catalog integrat).
+                            </p>
+                            <span class="shop-hub-card__cta">Deschide catalogul</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-hub-card" href="draperii.html" aria-label="Draperii">
+                        <div class="shop-hub-card__media media media--gradient media--grad-3" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="shop-hub-card__body">
+                            <h3 class="shop-hub-card__title">Draperii</h3>
+                            <p class="shop-hub-card__text">Texturi premium, recomandări personalizate (catalog integrat
+                                ulterior).</p>
+                            <span class="shop-hub-card__cta">Deschide catalogul</span>
+                        </div>
+                    </a>
+
+                    <a class="shop-hub-card" href="accesorii.html#catalog-accesorii" aria-label="Accesorii">
+                        <div class="shop-hub-card__media media media--gradient media--grad-1" aria-hidden="true">
+                            <div class="media__surface"></div>
+                        </div>
+                        <div class="shop-hub-card__body">
+                            <h3 class="shop-hub-card__title">Accesorii</h3>
+                            <p class="shop-hub-card__text">Detalii care completează proiectul (catalog integrat
+                                ulterior).</p>
+                            <span class="shop-hub-card__cta">Deschide catalogul</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <span class="footer__brand">ELOGY DESIGN</span>
+            </div>
+
+            <div class="footer__right">
+                <a class="footer__link" href="https://montaremocheta.ro" target="_blank" rel="noopener">
+                    montaremocheta.ro
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Cart (badge) -->
+    <script src="js/store/storage.js" defer></script>
+    <script src="js/store/cart.store.js" defer></script>
+    <script src="js/cart/cart.badge.js" defer></script>
+</body>
+
+</html>

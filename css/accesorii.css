@@ -71,3 +71,347 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* =========================================
+   Catalog Mochetă (NOU) – page specific
+   ========================================= */
+
+.catalog__intro {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+  max-width: 70ch;
+  font-size: 14px;
+}
+
+.catalog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 var(--space-4);
+}
+
+.catalog-tabs__btn {
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: rgba(17, 17, 17, 0.02);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.catalog-tabs__btn:hover {
+  border-color: rgba(17, 17, 17, 0.22);
+}
+
+.catalog-tabs__btn.is-active {
+  background: rgba(17, 17, 17, 0.06);
+  border-color: rgba(17, 17, 17, 0.28);
+}
+
+.catalog-filters {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.catalog-filters__label {
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.catalog-filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.catalog-chip {
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: rgba(17, 17, 17, 0.02);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.catalog-chip:hover {
+  border-color: rgba(17, 17, 17, 0.22);
+}
+
+.catalog-chip.is-active {
+  background: rgba(17, 17, 17, 0.06);
+  border-color: rgba(17, 17, 17, 0.28);
+}
+
+.catalog__meta {
+  margin: 0 0 var(--space-4);
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.catalog__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.catalog-card {
+  text-align: left;
+  width: 100%;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.catalog-card:hover {
+  border-color: rgba(17, 17, 17, 0.18);
+}
+
+.catalog-card:active {
+  transform: translateY(1px);
+}
+
+.catalog-card__top {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.catalog-card__media .media__surface {
+  min-height: 160px;
+}
+
+.catalog-card__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+.catalog-card__desc {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.catalog-card__line {
+  margin: 0;
+  color: rgba(17, 17, 17, 0.78);
+  font-size: 13px;
+}
+
+.catalog-card__price {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+.catalog-card__price-sub {
+  margin: 4px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.catalog__empty {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(17, 17, 17, 0.18);
+  background: rgba(17, 17, 17, 0.02);
+}
+
+.catalog__empty-title {
+  margin: 0 0 6px;
+  font-weight: var(--fw-semi);
+}
+
+.catalog__empty-text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.catalog__noscript {
+  margin-top: var(--space-4);
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+@media (min-width: 900px) {
+  .catalog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .catalog-card__media .media__surface {
+    min-height: 180px;
+  }
+}
+
+/* Variants local pentru catalog media (fără să atingem global) */
+.media--grad-1 {
+  background: var(--grad-1);
+}
+.media--grad-2 {
+  background: var(--grad-2);
+}
+.media--grad-3 {
+  background: var(--grad-3);
+}
+
+/* =========================================
+   Product Drawer – Mochetă (Pasul 3)
+   - scoped: NU afectează drawer-ul de meniu
+   ========================================= */
+
+.pdrawer[hidden] {
+  display: none;
+}
+
+.pdrawer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.pdrawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.42);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.pdrawer__panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(92vw, 440px);
+  background: #fff;
+  border-left: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: -24px 0 80px rgba(17, 17, 17, 0.18);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  outline: none;
+  z-index: 1;
+}
+
+.pdrawer__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.pdrawer__eyebrow {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.pdrawer__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+.pdrawer__close {
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: rgba(17, 17, 17, 0.02);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.pdrawer__body {
+  padding: var(--space-4);
+  overflow: auto;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.pdrawer__media .media__surface {
+  min-height: 170px;
+}
+
+.pdrawer__desc {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.pdrawer__section {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.pdrawer__section-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: var(--fw-semi);
+}
+
+.pdrawer__fields {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.pdrawer__montaj {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.pdrawer__foot {
+  padding: var(--space-4);
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.pdrawer__totals {
+  display: grid;
+  gap: 4px;
+}
+
+.pdrawer__price {
+  margin: 0;
+  font-weight: var(--fw-semi);
+  font-size: 16px;
+}
+
+.pdrawer__sub {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.pdrawer__cta[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.pdrawer__note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+@media (min-width: 900px) {
+  .pdrawer__media .media__surface {
+    min-height: 190px;
+  }
+}

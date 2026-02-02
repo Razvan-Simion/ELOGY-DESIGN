@@ -36,7 +36,7 @@
 
                 <!-- Visible left links -->
                 <nav class="header__quicklinks" aria-label="Navigație rapidă">
-                    <a class="header__link" href="#" aria-label="Magazin online">Magazin online</a>
+                    <a class="header__link" href="magazin.html" aria-label="Magazin online">Magazin online</a>
                     <a class="header__link" href="showroom.html" aria-label="Showroom">Showroom</a>
                 </nav>
             </div>
@@ -77,12 +77,14 @@
                         </svg>
                     </a>
 
-                    <!-- Coș (viitor shop) -->
-                    <a href="#" class="icon-btn" aria-label="Coș">
+                    <!-- Coș -->
+                    <a href="cos.html" class="icon-btn icon-btn--cart" aria-label="Coș" data-cart-link>
                         <svg class="icon" aria-hidden="true" focusable="false">
                             <use href="images/icons.svg#icon-bag"></use>
                         </svg>
+                        <span class="cart-badge" data-cart-badge hidden>0</span>
                     </a>
+
 
                 </div>
 
@@ -407,6 +409,9 @@
     </footer>
 
     <script src="js/main.js" defer></script>
+    <script src="js/store/storage.js" defer></script>
+    <script src="js/store/cart.store.js" defer></script>
+    <script src="js/cart/cart.badge.js" defer></script>
 </body>
 
 </html>

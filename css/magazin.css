@@ -1,0 +1,147 @@
+/* =========================================
+   Magazin hub (magazin.html) – page styles
+   ========================================= */
+
+.shop-hub__hero {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.shop-hub__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+  font-size: 30px;
+}
+
+.shop-hub__lead {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+  max-width: 70ch;
+  font-size: 14px;
+}
+
+.shop-hub__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.shop-hub__steps {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.shop-hub__step {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.shop-hub__step-no {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  background: rgba(17, 17, 17, 0.03);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.shop-hub__step-text {
+  color: rgba(17, 17, 17, 0.82);
+  font-size: 13px;
+}
+
+.shop-hub__hero-media .media__surface {
+  min-height: 240px;
+}
+
+.shop-hub__muted {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+  max-width: 70ch;
+  font-size: 14px;
+}
+
+.shop-hub__grid {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.shop-hub-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+  overflow: hidden;
+  display: grid;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.shop-hub-card:hover {
+  border-color: rgba(17, 17, 17, 0.18);
+}
+
+.shop-hub-card:active {
+  transform: translateY(1px);
+}
+
+.shop-hub-card__media .media__surface {
+  min-height: 160px;
+}
+
+.shop-hub-card__body {
+  padding: var(--space-4);
+  display: grid;
+  gap: 8px;
+}
+
+.shop-hub-card__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+  font-size: 16px;
+}
+
+.shop-hub-card__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.45;
+  max-width: 60ch;
+}
+
+.shop-hub-card__cta {
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.82);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 900px) {
+  .shop-hub__hero {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .shop-hub__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .shop-hub-card__media .media__surface {
+    min-height: 150px;
+  }
+}
