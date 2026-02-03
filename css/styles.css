@@ -161,6 +161,39 @@ a {
   background: rgba(17, 17, 17, 0.03);
 }
 
+/* =========================================
+   Fields (global) – form controls
+   ========================================= */
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field__label {
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.field__hint {
+  margin: -4px 0 0;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.field__control {
+  width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font: inherit;
+  background: #fff;
+}
+
+.field__control--textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
 /* Icon button */
 .icon-btn {
   width: 40px;
