@@ -171,3 +171,330 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+/* =========================================
+   Media grad variants (drawer)
+   ========================================= */
+.media--grad-1 {
+  background: var(--grad-1);
+}
+.media--grad-2 {
+  background: var(--grad-2);
+}
+.media--grad-3 {
+  background: var(--grad-3);
+}
+
+/* =========================================
+   Product Drawer – scoped (same as accesorii)
+   ========================================= */
+.pdrawer[hidden] {
+  display: none;
+}
+
+.pdrawer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.pdrawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.42);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.pdrawer__panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: min(92vw, 440px);
+  background: #fff;
+  border-left: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: -24px 0 80px rgba(17, 17, 17, 0.18);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  outline: none;
+  z-index: 1;
+}
+
+.pdrawer__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.pdrawer__eyebrow {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.pdrawer__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+.pdrawer__close {
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: rgba(17, 17, 17, 0.02);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.pdrawer__body {
+  padding: var(--space-4);
+  overflow: auto;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.pdrawer__media .media__surface {
+  min-height: 210px;
+}
+
+/* Mobil: mai multă înălțime ca să nu pară tăiată */
+@media (max-width: 600px) {
+  .pdrawer__media .media__surface {
+    min-height: 0;
+  }
+}
+
+.pdrawer__desc {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.pdrawer__section {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.pdrawer__section-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: var(--fw-semi);
+}
+
+.pdrawer__fields {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.pdrawer__foot {
+  padding: var(--space-4);
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.pdrawer__totals {
+  display: grid;
+  gap: 4px;
+}
+
+.pdrawer__price {
+  margin: 0;
+  font-weight: var(--fw-semi);
+  font-size: 16px;
+}
+
+.pdrawer__sub {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.pdrawer__cta[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.pdrawer__note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+@media (min-width: 900px) {
+  .pdrawer__media .media__surface {
+    min-height: 190px;
+  }
+}
+/* =========================================
+   Catalog (same pattern as accesorii/mocheta)
+   ========================================= */
+
+.catalog__intro {
+  margin: 10px 0 0;
+  color: var(--color-muted);
+  max-width: 70ch;
+  font-size: 14px;
+}
+
+.catalog__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.catalog-card {
+  text-align: left;
+  width: 100%;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: #fff;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.catalog-card:hover {
+  border-color: rgba(17, 17, 17, 0.18);
+}
+
+.catalog-card:active {
+  transform: translateY(1px);
+}
+
+.catalog-card__top {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.catalog-card__media .media__surface {
+  min-height: 160px;
+}
+
+.catalog-card__badge {
+  margin: 0 0 6px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgba(17, 17, 17, 0.02);
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.78);
+}
+
+.catalog-card__title {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+.catalog-card__desc {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.catalog-card__price {
+  margin: 0;
+  font-weight: var(--fw-semi);
+}
+
+.catalog-card__meta {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.catalog-card__foot {
+  display: grid;
+  gap: 6px;
+}
+
+/* IMPORTANT: asta lipsea — layout pe desktop */
+@media (min-width: 900px) {
+  .catalog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .catalog-card__media .media__surface {
+    min-height: 180px;
+  }
+}
+
+/* =========================
+   Drawer media on backdrop (desktop)
+   ========================= */
+
+/* Desktop: facem backdrop-ul container pentru card, centrat în zona rămasă (stânga panelului) */
+@media (min-width: 980px) {
+  /* Backdrop = zonă blur din stânga */
+  .pdrawer__backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* rezervăm loc pentru panel-ul din dreapta */
+    padding-right: min(40vw, 380px);
+  }
+
+  /* Card-ul din blur: folosește aproape tot spațiul disponibil */
+  /* Desktop blur: “hero” landscape mare, responsive (fără ch, fără width fix) */
+  .pdrawer__backdrop-media .pdrawer__media {
+    /* umple cât mai mult din zona din stânga (blur), dar rămâne “pro” */
+    width: min(calc(100vw - min(92vw, 440px) - 64px), 920px);
+    max-width: calc(100% - 64px);
+
+    aspect-ratio: 16 / 10;
+    max-height: 82vh;
+
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  /* copilul doar umple containerul; imaginea e pe .pdrawer__media (background) */
+  .pdrawer__backdrop-media .pdrawer__media .media__surface {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background: transparent;
+  }
+
+  /* Galerie centrată sub imagine */
+  .pdrawer__backdrop-media .pdrawer__gallery {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: min(80px);
+  }
+
+  .pdrawer__backdrop-media .pdrawer__thumbs {
+    justify-content: center;
+  }
+
+  /* pe desktop ascundem media+gallery din panel (rămâne doar în blur) */
+  .pdrawer__panel .pdrawer__media,
+  .pdrawer__panel .pdrawer__gallery {
+    display: none;
+  }
+}
+/* pe mobil nu folosim zona blur pentru media */
+@media (max-width: 979px) {
+  .pdrawer__backdrop-media {
+    display: none;
+  }
+}

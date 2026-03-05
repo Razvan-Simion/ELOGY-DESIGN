@@ -362,7 +362,7 @@
   gap: var(--space-4);
 }
 
-.pdrawer__media .media__surface {
+.pdrawer__media {
   min-height: 170px;
 }
 
@@ -431,11 +431,6 @@
   font-size: 12px;
 }
 
-@media (min-width: 900px) {
-  .pdrawer__media .media__surface {
-    min-height: 190px;
-  }
-}
 .cart-item__actions {
   display: flex;
   gap: 10px;

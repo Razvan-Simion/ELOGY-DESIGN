@@ -25,6 +25,13 @@
     if (!Number.isFinite(v)) return 0;
     return Math.round(v * 100) / 100;
   }
+  // Lungime: clamp strict (min 0.5, step 0.01, fallback 0.5)
+  function normalizeLengthM(v) {
+    let n = Number(v);
+    if (!Number.isFinite(n)) n = 0.5;
+    if (n < 0.5) n = 0.5;
+    return Math.round(n * 100) / 100;
+  }
 
   // --- DOM refs (SCOPED)
   const drawer = () => qs("[data-product-drawer]");
@@ -45,6 +52,8 @@
 
   let currentProduct = null;
   let lastFocus = null;
+  let editingLineId = null;
+
 
   const cfg = {
     lengthM: 0.5,
@@ -79,11 +88,12 @@
   function isRola(p) { return p && p.subtype === "rola"; }
   function isTraversa(p) { return p && p.subtype === "traversa"; }
 
-  function setMontajVisibility(isOn) {
-    const box = montajFields();
-    if (!box) return;
-    box.hidden = !isOn;
-  }
+ function setMontajVisibility(on) {
+  const box = montajFields();
+  if (!box) return;
+  box.hidden = !on;
+}
+
 
   function readMontajFromUI() {
     cfg.montageRequested = !!(montajToggle() && montajToggle().checked);
@@ -93,13 +103,14 @@
   }
 
   function calcRola(p, lengthM) {
-    const safeLen = Math.max(0, clampNum(lengthM));
+    const safeLen = normalizeLengthM(lengthM);
     const widthM = 4;
     const areaMp = round2(widthM * safeLen);
     const unitPrice = clampNum(p.pricePerSqm);
     const total = round2(areaMp * unitPrice);
     return { unitLabel: "mp", unitPrice, quantity: areaMp, total, meta: { widthM, lengthM: safeLen, areaMp } };
   }
+
 
   function findTraversePrice(byWidth, widthCm) {
     if (!Array.isArray(byWidth)) return null;
@@ -111,7 +122,7 @@
   }
 
   function calcTraversa(p, widthCm, lengthM) {
-    const safeLen = Math.max(0, clampNum(lengthM));
+    const safeLen = normalizeLengthM(lengthM);
     const pricePerMl = findTraversePrice(p.byWidth, widthCm) || 0;
     const total = round2(safeLen * pricePerMl);
     return { unitLabel: "ml", unitPrice: pricePerMl, quantity: safeLen, total, meta: { widthCm: Number(widthCm) || null, lengthM: safeLen } };
@@ -169,17 +180,34 @@
     }
   }
 
-  function setFields(p) {
-    const wrap = fieldsWrap();
-    if (!wrap) return;
+function setFields(p) {
+  const wrap = fieldsWrap();
+  if (!wrap) return;
 
+  // Reset only on ADD mode
+  if (!editingLineId) {
     cfg.lengthM = 0.5;
     cfg.widthCm = null;
     if (isTraversa(p) && Array.isArray(p.byWidth) && p.byWidth.length) cfg.widthCm = p.byWidth[0].widthCm;
-
-    wrap.innerHTML = isRola(p) ? buildRolaFields() : isTraversa(p) ? buildTraversaFields(p) : "";
-    bindFieldEvents(p);
+  } else {
+    // In edit mode, ensure traversa width has a fallback if missing
+    if (isTraversa(p) && (cfg.widthCm == null) && Array.isArray(p.byWidth) && p.byWidth.length) {
+      cfg.widthCm = p.byWidth[0].widthCm;
+    }
   }
+
+  wrap.innerHTML = isRola(p) ? buildRolaFields() : isTraversa(p) ? buildTraversaFields(p) : "";
+  bindFieldEvents(p);
+
+// apply montage UI from cfg (especially for edit mode)
+if (montajToggle()) montajToggle().checked = !!cfg.montageRequested;
+if (montajSurface()) montajSurface().value = cfg.montageSurface || "";
+if (montajFloor()) montajFloor().value = cfg.montageFloor || "";
+if (montajNotes()) montajNotes().value = cfg.montageNotes || "";
+setMontajVisibility(!!cfg.montageRequested);
+
+}
+
 
   function bindFieldEvents(p) {
     const rolaLen = qs("[data-rola-length]", panel());
@@ -188,13 +216,31 @@
 
     const onUpdate = () => updateTotals(p);
 
-    if (rolaLen) rolaLen.addEventListener("input", () => { cfg.lengthM = clampNum(rolaLen.value); onUpdate(); });
-    if (trvLen) trvLen.addEventListener("input", () => { cfg.lengthM = clampNum(trvLen.value); onUpdate(); });
+    if (rolaLen) {
+      rolaLen.addEventListener("input", () => { cfg.lengthM = clampNum(rolaLen.value); onUpdate(); });
+      rolaLen.addEventListener("blur", () => {
+        const v = normalizeLengthM(rolaLen.value);
+        cfg.lengthM = v;
+        rolaLen.value = v.toFixed(2);
+        onUpdate();
+      });
+    }
+
+    if (trvLen) {
+      trvLen.addEventListener("input", () => { cfg.lengthM = clampNum(trvLen.value); onUpdate(); });
+      trvLen.addEventListener("blur", () => {
+        const v = normalizeLengthM(trvLen.value);
+        cfg.lengthM = v;
+        trvLen.value = v.toFixed(2);
+        onUpdate();
+      });
+    }
+
     if (trvWidth) trvWidth.addEventListener("change", () => { cfg.widthCm = trvWidth.value ? Number(trvWidth.value) : null; onUpdate(); });
   }
 
   function isValid(p) {
-    const okLen = clampNum(cfg.lengthM) >= 0.5;
+    const okLen = normalizeLengthM(cfg.lengthM) >= 0.5;
     if (isRola(p)) return okLen;
     if (isTraversa(p)) {
       const okWidth = cfg.widthCm != null && Number.isFinite(Number(cfg.widthCm));
@@ -266,25 +312,71 @@
     };
   }
 
+function setActionMode() {
+  const btn = addBtn();
+  if (!btn) return;
+  btn.textContent = editingLineId ? "Actualizează" : "Adaugă în coș";
+}
+
+function loadEditState(lineId, product) {
+  editingLineId = lineId || null;
+  currentProduct = product;
+
+  // defaults
+  cfg.lengthM = 0.5;
+  cfg.widthCm = null;
+  cfg.montageRequested = false;
+  cfg.montageSurface = "";
+  cfg.montageFloor = "";
+  cfg.montageNotes = "";
+
+  const store = NS.cartStore;
+  if (!editingLineId || !store || typeof store.getState !== "function") return;
+
+  const st = store.getState();
+  const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === editingLineId) : null;
+  if (!it || it.category !== "mocheta" || it.productId !== product.id) return;
+
+  // config prefill
+  if (it.config && it.config.type === "rola") {
+    cfg.lengthM = (typeof it.config.lengthM === "number") ? it.config.lengthM : 0.5;
+  }
+
+  if (it.config && it.config.type === "traversa") {
+    cfg.lengthM = (typeof it.config.lengthM === "number") ? it.config.lengthM : 0.5;
+    cfg.widthCm = (typeof it.config.widthCm === "number") ? it.config.widthCm : null;
+  }
+
+  // montage prefill
+  if (it.montage && it.montage.requested) {
+    cfg.montageRequested = true;
+    cfg.montageSurface = it.montage.surfaceType || "";
+    cfg.montageFloor = it.montage.floorType || "";
+    cfg.montageNotes = it.montage.notes || "";
+  }
+}
+
+
   function bindGlobalEvents() {
-    window.addEventListener("elogy:productselect", (e) => {
-      const p = e.detail && e.detail.product;
-      if (!p) return;
+window.addEventListener("elogy:productselect", (e) => {
+  const p = e.detail && e.detail.product;
+  if (!p) return;
 
-      currentProduct = p;
+  // ignore events that are not for mocheta
+  if (p.category && p.category !== "mocheta") return;
+  if (!isRola(p) && !isTraversa(p)) return;
 
-      // reset montage controls
-      if (montajToggle()) montajToggle().checked = false;
-      if (montajSurface()) montajSurface().value = "";
-      if (montajFloor()) montajFloor().value = "";
-      if (montajNotes()) montajNotes().value = "";
-      setMontajVisibility(false);
+  const lineId = e.detail && e.detail.lineId ? String(e.detail.lineId) : null;
 
-      setHeader(p);
-      setFields(p);
-      updateTotals(p);
-      openDrawer();
-    });
+  loadEditState(lineId, p);
+
+  setHeader(p);
+  setFields(p);
+  setActionMode();
+  updateTotals(p);
+  openDrawer();
+});
+
 
     qsa("[data-product-drawer-close]").forEach((btn) => btn.addEventListener("click", closeDrawer));
 
@@ -295,31 +387,69 @@
     });
 
     if (montajToggle()) {
-      montajToggle().addEventListener("change", () => setMontajVisibility(montajToggle().checked));
+  montajToggle().addEventListener("change", () => {
+    cfg.montageRequested = !!montajToggle().checked;
+    setMontajVisibility(cfg.montageRequested);
+
+    // dacă debifează, curățăm câmpurile (recomandat)
+    if (!cfg.montageRequested) {
+      cfg.montageSurface = "";
+      cfg.montageFloor = "";
+      cfg.montageNotes = "";
+
+      if (montajSurface()) montajSurface().value = "";
+      if (montajFloor()) montajFloor().value = "";
+      if (montajNotes()) montajNotes().value = "";
     }
 
-    if (addBtn()) {
-      addBtn().addEventListener("click", () => {
-        if (!currentProduct || !isValid(currentProduct)) return;
+    if (currentProduct) updateTotals(currentProduct);
 
-        const store = NS.cartStore;
-        if (!store || typeof store.addItem !== "function") {
-          console.warn("[ELOGY] cartStore missing. Pasul 1 trebuie încărcat.");
-          return;
-        }
+  });
+}
 
-        store.addItem(buildCartItem(currentProduct));
 
-        addBtn().textContent = "Adăugat";
-        addBtn().disabled = true;
+if (addBtn()) {
+  addBtn().addEventListener("click", () => {
+    if (!currentProduct || !isValid(currentProduct)) return;
 
-        setTimeout(() => {
-          addBtn().textContent = "Adaugă în coș";
-          updateTotals(currentProduct);
-          closeDrawer();
-        }, 550);
-      });
+    const store = NS.cartStore;
+    if (!store || typeof store.addItem !== "function") {
+      console.warn("[ELOGY] cartStore missing. Pasul 1 trebuie încărcat.");
+      return;
     }
+
+    const item = buildCartItem(currentProduct);
+
+    // EDIT mode -> update existing line
+    if (editingLineId && typeof store.updateItem === "function") {
+      store.updateItem(editingLineId, item);
+
+      addBtn().textContent = "Actualizat";
+      addBtn().disabled = true;
+
+      setTimeout(() => {
+        setActionMode();
+        updateTotals(currentProduct);
+        closeDrawer();
+      }, 550);
+
+      return;
+    }
+
+    // ADD mode
+    store.addItem(item);
+
+    addBtn().textContent = "Adăugat";
+    addBtn().disabled = true;
+
+    setTimeout(() => {
+      setActionMode();
+      updateTotals(currentProduct);
+      closeDrawer();
+    }, 550);
+  });
+}
+
   }
 
   function init() {

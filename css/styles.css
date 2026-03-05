@@ -63,6 +63,11 @@
   box-sizing: border-box;
 }
 
+/* Ensure native [hidden] always hides, even if component CSS sets display */
+[hidden] {
+  display: none !important;
+}
+
 html,
 body {
   height: 100%;
@@ -389,6 +394,10 @@ a {
 /* Placeholder gradients (fără imagini reale) */
 .media--gradient .media__surface {
   background: var(--grad-1);
+}
+/* Dacă avem imagine reală pe container, nu mai vrem gradientul placeholder peste ea */
+.media--gradient.has-image .media__surface {
+  background: transparent;
 }
 
 /* Variante per secțiune/card (opțional) */
@@ -795,4 +804,159 @@ a {
 
   /* ca badge-ul să arate “integrat” pe header */
   border: 2px solid var(--color-header-bg);
+}
+/* =========================================
+   Catalog pagination (global)
+   ========================================= */
+
+.catalog-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: var(--space-4);
+}
+
+.catalog-pager__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pager__btn {
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: rgba(17, 17, 17, 0.02);
+  color: rgba(17, 17, 17, 0.85);
+  border-radius: 999px;
+  height: 38px;
+  padding: 0 14px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+  font-size: 13px;
+}
+
+.pager__btn:hover {
+  border-color: rgba(17, 17, 17, 0.22);
+  background: rgba(17, 17, 17, 0.04);
+}
+
+.pager__btn:active {
+  transform: translateY(1px);
+}
+
+.pager__btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pager__page {
+  min-width: 38px;
+  padding: 0 12px;
+}
+
+.pager__page.is-active {
+  background: rgba(17, 17, 17, 0.9);
+  color: #fff;
+  border-color: rgba(17, 17, 17, 0.9);
+}
+
+.pager__dots {
+  color: rgba(17, 17, 17, 0.45);
+  font-size: 14px;
+  padding: 0 6px;
+}
+/* =========================================
+   Drawer (mobile/tablet ≤ 979px)
+   - panel full width
+   - media height stabil
+   - prevenire overflow/offset în thumbs (Grid min-width:auto)
+   ========================================= */
+@media (max-width: 979px) {
+  /* pe mobil, media din panel trebuie să aibă o înălțime stabilă,
+     independent de cât text există în drawer */
+  .pdrawer__panel .pdrawer__media {
+    display: block;
+    aspect-ratio: 14 / 10;
+    min-height: clamp(260px, 38vh, 420px);
+  }
+
+  /* copilul doar umple containerul; imaginea e pe .pdrawer__media (background) */
+  .pdrawer__panel .pdrawer__media .media__surface {
+    height: 100%;
+    min-height: 0;
+  }
+
+  /* când imaginea e pe container, copilul trebuie să fie transparent */
+  .pdrawer__panel .pdrawer__media.has-image .media__surface {
+    background: transparent;
+  }
+
+  .pdrawer {
+    overflow-x: hidden;
+  }
+
+  .pdrawer .pdrawer__panel .pdrawer__media {
+    width: 100%;
+  }
+
+  .pdrawer .pdrawer__panel .pdrawer__gallery {
+    width: 100%;
+  }
+
+  /* CRITICAL: în CSS Grid, copilul are implicit min-width:auto și poate forța overflow.
+     min-width:0 permite shrink + overflow-x:auto să funcționeze corect. */
+  .pdrawer .pdrawer__panel .pdrawer__thumbs {
+    min-width: 0;
+  }
+}
+
+.pdrawer__gallery {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0 var(--space-3);
+}
+
+.pdrawer__nav {
+  height: 32px;
+  width: 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: #fff;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 18px;
+}
+
+.pdrawer__nav:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pdrawer__thumbs {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: 2px;
+  scroll-behavior: smooth;
+}
+
+.pdrawer__thumb {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: #f6f6f6;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.pdrawer__thumb.is-active {
+  border-color: rgba(17, 17, 17, 0.38);
 }

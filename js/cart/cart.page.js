@@ -14,16 +14,64 @@
   const formatRON = money.formatRON
     ? money.formatRON
     : (n) => {
-        const v = Number(n);
-        const hasDecimals = Math.abs(v - Math.trunc(v)) > 0;
-        return v.toLocaleString("ro-RO", {
-          minimumFractionDigits: hasDecimals ? 2 : 0,
-          maximumFractionDigits: hasDecimals ? 2 : 0,
-        }) + " lei";
-      };
+      const v = Number(n);
+      const hasDecimals = Math.abs(v - Math.trunc(v)) > 0;
+      return v.toLocaleString("ro-RO", {
+        minimumFractionDigits: hasDecimals ? 2 : 0,
+        maximumFractionDigits: hasDecimals ? 2 : 0,
+      }) + " lei";
+    };
 
   function qs(sel, root) { return (root || document).querySelector(sel); }
   function qsa(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
+
+  function setMontajMode(mode) {
+    const section = qs("[data-montaj-section]");
+    if (!section) return;
+
+    const full = qs("[data-montaj-full]", section);
+    const simple = qs("[data-montaj-simple]", section);
+    const fullFields = qs("[data-product-montaj-fields]", section);
+
+    // default: ascunde tot ce nu e relevant
+    if (full) full.hidden = true;
+    if (simple) simple.hidden = true;
+
+    // IMPORTANT: dacă nu suntem pe FULL, ascundem și fields-urile mochetei (ca să nu rămână deschise)
+    if (fullFields) fullFields.hidden = true;
+
+    if (mode === "full") {
+      if (section) section.hidden = false;
+      if (full) full.hidden = false;
+      return;
+    }
+
+    if (mode === "simple") {
+      if (section) section.hidden = false;
+      if (simple) simple.hidden = false;
+      return;
+    }
+
+    // mode === "none"
+    section.hidden = true;
+  }
+
+  function montajModeForCartItem(it) {
+    if (!it) return "none";
+
+    // Accesorii: nu arătăm deloc
+    if (it.category === "accesorii") return "none";
+
+    // Mochetă: full (ca acum)
+    if (it.category === "mocheta") return "full";
+
+    // Perdele / Draperii / Jordan (intră pe același flow în coș)
+    if (it.category === "perdele" || it.category === "draperii" || (it.config && it.config.kind === "perdele_draperii")) {
+      return "simple";
+    }
+
+    return "none";
+  }
 
   function escapeHTML(str) {
     return String(str)
@@ -94,37 +142,57 @@
     return `${formatRON(p.total)} (estimativ)`;
   }
 
-function renderList(items) {
-  const list = qs("[data-cart-list]");
-  if (!list) return;
+  function renderList(items) {
+    const list = qs("[data-cart-list]");
+    if (!list) return;
 
-  list.innerHTML = items
-    .map((it) => {
-      const title = (it && it.title) || (it && it.display && it.display.title) || "Produs";
-      const subtitle = (it && it.display && it.display.subtitle) || (it && it.subtype ? it.subtype : "");
-      const details = itemConfigLines(it);
-      const price = itemPriceText(it);
-      const mont = it && it.montage && it.montage.requested ? "Montaj: Solicitat" : "";
+    // NEW: pentru auto “Poziție 1/2/3” când lipsește labelul
+    const posCounters = { perdele: 0, draperii: 0 };
 
-      const isAcc = it && it.category === "accesorii";
-      const isAccSimple = isAcc && it.config && it.config.kind === "simple";
-      const isAccUnderlay = isAcc && it.config && it.config.kind === "underlay";
+    list.innerHTML = items
 
-      const qtyVal = isAccSimple ? (it.config.qty || 1) : 1;
+      .map((it) => {
+        const title = (it && it.title) || (it && it.display && it.display.title) || "Produs";
+        const subtitle = (it && it.display && it.display.subtitle) || (it && it.subtype ? it.subtype : "");
+        const details = itemConfigLines(it);
+        const price = itemPriceText(it);
+        const mont = it && it.montage && it.montage.requested ? "Montaj: Solicitat" : "";
+        const isAcc = it && it.category === "accesorii";
+        const isAccSimple = isAcc && it.config && it.config.kind === "simple";
+        const isAccUnderlay = isAcc && it.config && it.config.kind === "underlay";
+        const isMocheta = it && it.category === "mocheta";
 
-      return `
+        // NEW: Perdele/Draperii configurable
+        const isFabricConfig = !!(it && it.config && it.config.kind === "perdele_draperii");
+
+        // qty only for accesorii simple
+        const qtyVal = isAccSimple ? (it.config.qty || 1) : 1;
+
+
+        return `
         <li class="cart-item">
           <div class="cart-item__top">
-            <div>
-              <p class="cart-item__title">${escapeHTML(title)}</p>
-              ${subtitle ? `<p class="cart-item__subtitle">${escapeHTML(subtitle)}</p>` : ""}
-            </div>
+           <div>
+             <p class="cart-item__title">${escapeHTML(title)}</p>
+             ${subtitle ? `<p class="cart-item__subtitle">${escapeHTML(subtitle)}</p>` : ""}
+
+            ${isFabricConfig
+            ? (() => {
+              const cat = it.category === "draperii" ? "draperii" : "perdele";
+              const raw = (it.config && it.config.positionLabel) ? String(it.config.positionLabel).trim() : "";
+              const label = raw ? raw : `Poziție ${++posCounters[cat]}`;
+              return `<p class="cart-item__subtitle">Poziție: ${escapeHTML(label)}</p>`;
+            })()
+            : ""
+          }  
+         </div>
+
 
             <div class="cart-item__actions">
-              ${isAccUnderlay
-                ? `<button class="cart-item__edit" type="button" data-edit-line="${escapeHTML(it.lineId)}" aria-label="Editează">Editează</button>`
-                : ""
-              }
+              ${(isAccUnderlay || isMocheta || isFabricConfig)
+            ? `<button class="cart-item__edit" type="button" data-edit-line="${escapeHTML(it.lineId)}" aria-label="Editează">Editează</button>`
+            : ""
+          }
 
               <button class="cart-item__remove" type="button" aria-label="Șterge produs" data-remove-line="${escapeHTML(it.lineId)}">
                 ✕
@@ -132,22 +200,20 @@ function renderList(items) {
             </div>
           </div>
 
-          ${
-            details.length
-              ? `<ul class="cart-item__details">${details.map((d) => `<li>${escapeHTML(d)}</li>`).join("")}</ul>`
-              : ""
+          ${details.length
+            ? `<ul class="cart-item__details">${details.map((d) => `<li>${escapeHTML(d)}</li>`).join("")}</ul>`
+            : ""
           }
 
-          ${
-            isAccSimple
-              ? `
+          ${isAccSimple
+            ? `
                 <div class="cart-item__qty" aria-label="Cantitate">
                   <button type="button" class="cart-item__qty-btn" data-qty-dec="${escapeHTML(it.lineId)}" aria-label="Scade">−</button>
                   <span class="cart-item__qty-val" data-qty-val="${escapeHTML(it.lineId)}">${escapeHTML(String(qtyVal))}</span>
                   <button type="button" class="cart-item__qty-btn" data-qty-inc="${escapeHTML(it.lineId)}" aria-label="Crește">+</button>
                 </div>
               `
-              : ""
+            : ""
           }
 
           <div class="cart-item__meta">
@@ -156,25 +222,25 @@ function renderList(items) {
           </div>
         </li>
       `;
-    })
-    .join("");
-}
-
-
-function setEmpty(isEmpty) {
-  const empty = qs("[data-cart-empty]");
-  const grid = qs("[data-cart-grid]");
-
-  if (!empty || !grid) return;
-
-  if (isEmpty) {
-    empty.hidden = false;
-    grid.hidden = true;
-  } else {
-    empty.hidden = true;
-    grid.hidden = false;
+      })
+      .join("");
   }
-}
+
+
+  function setEmpty(isEmpty) {
+    const empty = qs("[data-cart-empty]");
+    const grid = qs("[data-cart-grid]");
+
+    if (!empty || !grid) return;
+
+    if (isEmpty) {
+      empty.hidden = false;
+      grid.hidden = true;
+    } else {
+      empty.hidden = true;
+      grid.hidden = false;
+    }
+  }
 
 
   function setMeta(count) {
@@ -274,121 +340,169 @@ function setEmpty(isEmpty) {
     update();
   }
 
-function bindListActions() {
-  const list = qs("[data-cart-list]");
-  if (!list) return;
+  function bindListActions() {
+    const list = qs("[data-cart-list]");
+    if (!list) return;
 
-  list.addEventListener("click", (e) => {
-    // 1) REMOVE
-    const removeBtn = e.target.closest("[data-remove-line]");
-    if (removeBtn) {
-      const id = removeBtn.getAttribute("data-remove-line");
-      if (id && store && typeof store.removeItem === "function") {
-        store.removeItem(id);
-      }
-      return;
-    }
-
-    // 2) QTY INC (accesorii simple)
-    const incBtn = e.target.closest("[data-qty-inc]");
-    if (incBtn) {
-      const id = incBtn.getAttribute("data-qty-inc");
-      if (!id || !store || typeof store.getState !== "function" || typeof store.updateItem !== "function") return;
-
-      const st = store.getState();
-      const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === id) : null;
-      if (!it || it.category !== "accesorii" || !it.config || it.config.kind !== "simple") return;
-
-      const unitPrice =
-        (it.config && typeof it.config.pricePerUnit === "number" && it.config.pricePerUnit) ||
-        (it.pricing && typeof it.pricing.unitPrice === "number" && it.pricing.unitPrice) ||
-        0;
-
-      const unit =
-        (it.config && it.config.unit) ||
-        (it.pricing && it.pricing.unitLabel) ||
-        "buc";
-
-      const qty = Math.max(1, (it.config.qty || 1) + 1);
-      const total = Math.round(qty * unitPrice * 100) / 100;
-
-      // update item: păstrăm restul câmpurilor, actualizăm doar config/pricing/display
-      const patch = {
-        config: Object.assign({}, it.config, { qty, unit, pricePerUnit: unitPrice }),
-        pricing: Object.assign({}, it.pricing, { quantity: qty, total, unitLabel: unit, unitPrice }),
-        display: it.display ? Object.assign({}, it.display) : undefined
-      };
-
-      if (patch.display && Array.isArray(patch.display.details)) {
-        const rest = patch.display.details.filter((d) => !String(d).toLowerCase().startsWith("cantitate:"));
-        patch.display.details = [`Cantitate: ${qty} ${unit}`, ...rest];
+    list.addEventListener("click", (e) => {
+      // 1) REMOVE
+      const removeBtn = e.target.closest("[data-remove-line]");
+      if (removeBtn) {
+        const id = removeBtn.getAttribute("data-remove-line");
+        if (id && store && typeof store.removeItem === "function") {
+          store.removeItem(id);
+        }
+        return;
       }
 
-      store.updateItem(id, patch);
-      return;
-    }
+      // 2) QTY INC (accesorii simple)
+      const incBtn = e.target.closest("[data-qty-inc]");
+      if (incBtn) {
+        const id = incBtn.getAttribute("data-qty-inc");
+        if (!id || !store || typeof store.getState !== "function" || typeof store.updateItem !== "function") return;
 
-    // 3) QTY DEC (accesorii simple)
-    const decBtn = e.target.closest("[data-qty-dec]");
-    if (decBtn) {
-      const id = decBtn.getAttribute("data-qty-dec");
-      if (!id || !store || typeof store.getState !== "function" || typeof store.updateItem !== "function") return;
+        const st = store.getState();
+        const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === id) : null;
+        if (!it || it.category !== "accesorii" || !it.config || it.config.kind !== "simple") return;
 
-      const st = store.getState();
-      const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === id) : null;
-      if (!it || it.category !== "accesorii" || !it.config || it.config.kind !== "simple") return;
+        const unitPrice =
+          (it.config && typeof it.config.pricePerUnit === "number" && it.config.pricePerUnit) ||
+          (it.pricing && typeof it.pricing.unitPrice === "number" && it.pricing.unitPrice) ||
+          0;
 
-      const unitPrice =
-        (it.config && typeof it.config.pricePerUnit === "number" && it.config.pricePerUnit) ||
-        (it.pricing && typeof it.pricing.unitPrice === "number" && it.pricing.unitPrice) ||
-        0;
+        const unit =
+          (it.config && it.config.unit) ||
+          (it.pricing && it.pricing.unitLabel) ||
+          "buc";
 
-      const unit =
-        (it.config && it.config.unit) ||
-        (it.pricing && it.pricing.unitLabel) ||
-        "buc";
+        const qty = Math.max(1, (it.config.qty || 1) + 1);
+        const total = Math.round(qty * unitPrice * 100) / 100;
 
-      const qty = Math.max(1, (it.config.qty || 1) - 1);
-      const total = Math.round(qty * unitPrice * 100) / 100;
+        // update item: păstrăm restul câmpurilor, actualizăm doar config/pricing/display
+        const patch = {
+          config: Object.assign({}, it.config, { qty, unit, pricePerUnit: unitPrice }),
+          pricing: Object.assign({}, it.pricing, { quantity: qty, total, unitLabel: unit, unitPrice }),
+          display: it.display ? Object.assign({}, it.display) : undefined
+        };
 
-      const patch = {
-        config: Object.assign({}, it.config, { qty, unit, pricePerUnit: unitPrice }),
-        pricing: Object.assign({}, it.pricing, { quantity: qty, total, unitLabel: unit, unitPrice }),
-        display: it.display ? Object.assign({}, it.display) : undefined
-      };
+        if (patch.display && Array.isArray(patch.display.details)) {
+          const rest = patch.display.details.filter((d) => !String(d).toLowerCase().startsWith("cantitate:"));
+          patch.display.details = [`Cantitate: ${qty} ${unit}`, ...rest];
+        }
 
-      if (patch.display && Array.isArray(patch.display.details)) {
-        const rest = patch.display.details.filter((d) => !String(d).toLowerCase().startsWith("cantitate:"));
-        patch.display.details = [`Cantitate: ${qty} ${unit}`, ...rest];
+        store.updateItem(id, patch);
+        return;
       }
 
-      store.updateItem(id, patch);
-      return;
-    }
+      // 3) QTY DEC (accesorii simple)
+      const decBtn = e.target.closest("[data-qty-dec]");
+      if (decBtn) {
+        const id = decBtn.getAttribute("data-qty-dec");
+        if (!id || !store || typeof store.getState !== "function" || typeof store.updateItem !== "function") return;
 
-    // 4) EDIT (underlay accesorii) -> deschide drawer cu lineId
-    const editBtn = e.target.closest("[data-edit-line]");
-    if (editBtn) {
-      const id = editBtn.getAttribute("data-edit-line");
-      if (!id || !store || typeof store.getState !== "function") return;
+        const st = store.getState();
+        const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === id) : null;
+        if (!it || it.category !== "accesorii" || !it.config || it.config.kind !== "simple") return;
 
-      const st = store.getState();
-      const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === id) : null;
-      if (!it || it.category !== "accesorii") return;
+        const unitPrice =
+          (it.config && typeof it.config.pricePerUnit === "number" && it.config.pricePerUnit) ||
+          (it.pricing && typeof it.pricing.unitPrice === "number" && it.pricing.unitPrice) ||
+          0;
 
-      const listProducts =
-        (window.ELOGY && window.ELOGY.data && window.ELOGY.data.accesoriiProducts)
-          ? window.ELOGY.data.accesoriiProducts
-          : [];
+        const unit =
+          (it.config && it.config.unit) ||
+          (it.pricing && it.pricing.unitLabel) ||
+          "buc";
 
-      const product = listProducts.find((p) => p.id === it.productId);
-      if (!product) return;
+        const qty = Math.max(1, (it.config.qty || 1) - 1);
+        const total = Math.round(qty * unitPrice * 100) / 100;
 
-      window.dispatchEvent(new CustomEvent("elogy:productselect", { detail: { product, lineId: id } }));
-      return;
-    }
-  });
-}
+        const patch = {
+          config: Object.assign({}, it.config, { qty, unit, pricePerUnit: unitPrice }),
+          pricing: Object.assign({}, it.pricing, { quantity: qty, total, unitLabel: unit, unitPrice }),
+          display: it.display ? Object.assign({}, it.display) : undefined
+        };
+
+        if (patch.display && Array.isArray(patch.display.details)) {
+          const rest = patch.display.details.filter((d) => !String(d).toLowerCase().startsWith("cantitate:"));
+          patch.display.details = [`Cantitate: ${qty} ${unit}`, ...rest];
+        }
+
+        store.updateItem(id, patch);
+        return;
+      }
+
+      // 4) EDIT (accesorii underlay + mocheta) -> deschide drawer cu lineId
+      const editBtn = e.target.closest("[data-edit-line]");
+      if (editBtn) {
+        const id = editBtn.getAttribute("data-edit-line");
+        if (!id || !store || typeof store.getState !== "function") return;
+
+        const st = store.getState();
+        const it = st && Array.isArray(st.items) ? st.items.find((x) => x && x.lineId === id) : null;
+        if (!it) return;
+        // Etapa M1: setează UI-ul de montaj în drawer în funcție de produsul editat
+        setMontajMode(montajModeForCartItem(it));
+
+        // accesorii (existing behavior)
+        if (it.category === "accesorii") {
+          const listProducts =
+            (window.ELOGY && window.ELOGY.data && window.ELOGY.data.accesoriiProducts)
+              ? window.ELOGY.data.accesoriiProducts
+              : [];
+
+          const product = listProducts.find((p) => p.id === it.productId);
+          if (!product) return;
+
+          window.dispatchEvent(new CustomEvent("elogy:productselect", { detail: { product, lineId: id } }));
+          return;
+        }
+
+        // mocheta (NEW)
+        if (it.category === "mocheta") {
+          const listProducts =
+            (window.ELOGY && window.ELOGY.data && window.ELOGY.data.mochetaProducts)
+              ? window.ELOGY.data.mochetaProducts
+              : [];
+
+          const found = listProducts.find((p) => p.id === it.productId);
+          if (!found) return;
+
+          // add a lightweight category hint so drawer can ignore accesorii events
+          const product = Object.assign({ category: "mocheta" }, found);
+
+          window.dispatchEvent(new CustomEvent("elogy:productselect", { detail: { product, lineId: id } }));
+          return;
+        }
+
+        // perdele / draperii (NEW)
+        if (it.category === "perdele" || it.category === "draperii" || (it.config && it.config.kind === "perdele_draperii")) {
+          const data = (window.ELOGY && window.ELOGY.data) ? window.ELOGY.data : {};
+
+          const listProducts =
+            it.category === "draperii"
+              ? (data.draperiiProducts || [])
+              : (data.perdeleProducts || []);
+
+          let product = listProducts.find((p) => p.id === it.productId);
+
+          // fallback pentru Jordan (dacă nu e în array)
+          if (!product && data.jordanProduct && data.jordanProduct.id === it.productId) {
+            product = { ...data.jordanProduct, category: it.category, type: "fabric" };
+          }
+
+          if (!product) return;
+
+          // IMPORTANT: drawer-ul Perdele/Draperii ascultă pe document
+          document.dispatchEvent(new CustomEvent("elogy:productselect", { detail: { product, lineId: id } }));
+          return;
+        }
+
+
+      }
+
+    });
+  }
 
 
   function bindForm(itemsGetter) {
@@ -442,22 +556,22 @@ function bindListActions() {
 
     bindForm(() => latestItems);
 
-store.subscribe((state) => {
-  const items = state && Array.isArray(state.items) ? state.items : [];
-  latestItems = items;
+    store.subscribe((state) => {
+      const items = state && Array.isArray(state.items) ? state.items : [];
+      latestItems = items;
 
-  const isEmpty = items.length === 0;
+      const isEmpty = items.length === 0;
 
-  // IMPORTANT: întâi randăm conținutul
-  if (!isEmpty) {
-    renderList(items);
-    setMeta(items.length);
-    setSubtotal(items);
-  }
+      // IMPORTANT: întâi randăm conținutul
+      if (!isEmpty) {
+        renderList(items);
+        setMeta(items.length);
+        setSubtotal(items);
+      }
 
-  // abia apoi togglăm empty/grid
-  setEmpty(isEmpty);
-});
+      // abia apoi togglăm empty/grid
+      setEmpty(isEmpty);
+    });
 
   }
 

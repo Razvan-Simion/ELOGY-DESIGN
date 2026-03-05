@@ -124,7 +124,7 @@
 
                     <div class="draperii-hero__actions">
                         <a class="btn btn--primary" href="contact.html">Programează o discuție</a>
-                        <a class="btn btn--secondary" href="#optiuni">Vezi opțiunile</a>
+                        <a class="btn btn--secondary" href="#catalog-draperii">Catalog draperii</a>
                     </div>
                 </div>
 
@@ -134,6 +134,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- =========================================================
          3) De ce draperii (obligatoriu)
@@ -345,6 +346,25 @@
         </section>
 
         <!-- =========================================================
+                            Catalog Draperii (MVP)
+                        ========================================================= -->
+        <section class="section" id="catalog-draperii" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Catalog Draperii</h2>
+                    <p class="catalog__intro">
+                        Selectezi materialul și îl configurezi (cantitate + cusut). Prețurile sunt estimative și se
+                        confirmă
+                        după verificare.
+                    </p>
+                </div>
+
+                <div class="catalog__grid" data-fabric-grid data-fabric-category="draperii"></div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
          7) Showroom (scurt) (obligatoriu)
          ========================================================= -->
         <section class="showroom section" aria-label="Showroom" data-animate>
@@ -469,11 +489,114 @@
         </div>
     </footer>
 
-    <!-- JS global (hamburger + fade-in) -->
+
+    <!-- =========================================================
+                 PRODUCT DRAWER (Perdele / Draperii) – scoped
+                 ========================================================= -->
+    <div class="pdrawer" data-product-drawer hidden>
+        <div class="pdrawer__backdrop" data-product-drawer-close>
+            <div class="pdrawer__backdrop-media" data-pdrawer-backdrop-media>
+                <div class="pdrawer__media media media--gradient media--grad-1" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+
+                <div class="pdrawer__gallery" data-pdrawer-gallery hidden>
+                    <button class="pdrawer__nav" type="button" data-pdrawer-prev
+                        aria-label="Imagine anterioară">‹</button>
+                    <div class="pdrawer__thumbs" data-pdrawer-thumbs></div>
+                    <button class="pdrawer__nav" type="button" data-pdrawer-next
+                        aria-label="Imagine următoare">›</button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="pdrawer__panel" role="dialog" aria-modal="true" aria-label="Configurare produs" tabindex="-1"
+            data-product-drawer-panel>
+            <header class="pdrawer__head">
+                <div class="pdrawer__head-text">
+                    <p class="pdrawer__eyebrow" data-product-drawer-type></p>
+                    <h3 class="pdrawer__title" data-product-drawer-title>Produs</h3>
+                </div>
+
+                <button class="pdrawer__close" type="button" data-product-drawer-close aria-label="Închide">✕</button>
+            </header>
+
+            <div class="pdrawer__body">
+                <div class="pdrawer__media media media--gradient media--grad-1" aria-hidden="true">
+                    <div class="media__surface"></div>
+                </div>
+
+                <div class="pdrawer__gallery" data-pdrawer-gallery hidden>
+                    <button class="pdrawer__nav" type="button" data-pdrawer-prev
+                        aria-label="Imagine anterioară">‹</button>
+                    <div class="pdrawer__thumbs" data-pdrawer-thumbs></div>
+                    <button class="pdrawer__nav" type="button" data-pdrawer-next
+                        aria-label="Imagine următoare">›</button>
+                </div>
+
+                <p class="pdrawer__desc" data-product-drawer-desc></p>
+
+                <section class="pdrawer__section" aria-label="Configurare">
+                    <h4 class="pdrawer__section-title">Configurator</h4>
+                    <div class="pdrawer__fields" data-product-drawer-fields></div>
+                </section>
+                <section class="pdrawer__section" aria-label="Montaj" data-montaj-section>
+                    <h4 class="pdrawer__section-title">Montaj</h4>
+
+                    <div data-montaj-simple>
+                        <label class="check">
+                            <input class="check__input" type="checkbox" data-simple-montaj-curtains />
+                            <span class="check__box" aria-hidden="true"></span>
+                            <span class="check__label">Doresc montaj perdele/draperii</span>
+                        </label>
+                        <p class="field__hint">
+                            Costul montajului nu este inclus și va fi stabilit ulterior, în urma evaluării.
+                        </p>
+
+                        <label class="check" style="margin-top:10px;">
+                            <input class="check__input" type="checkbox" data-simple-montaj-rail />
+                            <span class="check__box" aria-hidden="true"></span>
+                            <span class="check__label">Doresc montaj cale de rulare</span>
+                        </label>
+                        <p class="field__hint">
+                            Costul montajului nu este inclus și va fi stabilit ulterior, în urma evaluării.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+            <footer class="pdrawer__foot">
+                <div class="pdrawer__totals">
+                    <p class="pdrawer__price" data-product-drawer-price>—</p>
+                    <p class="pdrawer__sub" data-product-drawer-sub></p>
+                </div>
+
+                <button class="btn btn--primary pdrawer__cta" type="button" data-product-add-to-cart disabled>
+                    Adaugă în coș
+                </button>
+
+                <p class="pdrawer__note">Prețurile sunt estimative și se confirmă după verificare.</p>
+            </footer>
+        </aside>
+    </div>
+
     <script src="js/main.js" defer></script>
+
     <script src="js/store/storage.js" defer></script>
     <script src="js/store/cart.store.js" defer></script>
+    <script src="js/utils/money.js" defer></script>
+
     <script src="js/cart/cart.badge.js" defer></script>
+
+    <script src="js/data/draperii.products.js" defer></script>
+    <script src="js/data/jordan.product.js" defer></script>
+    <script src="js/data/accesorii.products.js" defer></script>
+    <script src="js/catalog/perdele-draperii.catalog.js" defer></script>
+
+
+    <script src="js/drawer/perdele-draperii.drawer.js" defer></script>
+
 </body>
 
 </html>

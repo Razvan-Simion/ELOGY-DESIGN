@@ -133,7 +133,7 @@
 
                     <div class="accesorii-hero__actions">
                         <a href="contact.html" class="btn btn--primary">Programează o discuție</a>
-                        <a href="#catalog-accesorii" class="btn btn--secondary">Vezi accesoriile disponibile</a>
+                        <a href="#catalog-accesorii" class="btn btn--secondary">Catalog accesorii</a>
                     </div>
                 </div>
 
@@ -142,6 +142,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- =========================================================
          De ce contează accesoriile
@@ -225,76 +226,6 @@
             </div>
         </section>
 
-
-        <!-- =========================================================
-            Catalog accesorii
-        ========================================================= -->
-
-        <section class="section" id="catalog-accesorii" data-animate>
-            <div class="container">
-                <div class="section__head">
-                    <h2 class="section__title">Catalog Accesorii</h2>
-                    <p class="catalog__intro">
-                        Selectezi accesoriile potrivite și trimiți o cerere de ofertă. Prețurile sunt estimative și se
-                        confirmă
-                        după verificare.
-                    </p>
-                </div>
-
-                <div class="catalog-filters" aria-label="Filtre accesorii">
-                    <p class="catalog-filters__label">Pentru</p>
-                    <div class="catalog-filters__chips" role="group" aria-label="Pentru">
-                        <button class="catalog-chip is-active" type="button" data-acc-applies="all"
-                            aria-checked="true">Toate</button>
-                        <button class="catalog-chip" type="button" data-acc-applies="mocheta"
-                            aria-checked="false">Mochetă</button>
-                        <button class="catalog-chip" type="button" data-acc-applies="perdele"
-                            aria-checked="false">Perdele</button>
-                        <button class="catalog-chip" type="button" data-acc-applies="draperii"
-                            aria-checked="false">Draperii</button>
-                        <button class="catalog-chip" type="button" data-acc-applies="universal"
-                            aria-checked="false">Universal</button>
-                    </div>
-                </div>
-
-                <div class="catalog-filters" aria-label="Tip">
-                    <p class="catalog-filters__label">Tip</p>
-                    <div class="catalog-filters__chips" role="group" aria-label="Tip">
-                        <button class="catalog-chip is-active" type="button" data-acc-type="all"
-                            aria-checked="true">Toate</button>
-                        <button class="catalog-chip" type="button" data-acc-type="underlay"
-                            aria-checked="false">Underlay</button>
-                        <button class="catalog-chip" type="button" data-acc-type="plinte"
-                            aria-checked="false">Plinte</button>
-                        <button class="catalog-chip" type="button" data-acc-type="adezivi"
-                            aria-checked="false">Adezivi</button>
-                        <button class="catalog-chip" type="button" data-acc-type="sine_kit" aria-checked="false">Șine
-                            (kit)</button>
-                        <button class="catalog-chip" type="button" data-acc-type="galerie_bara"
-                            aria-checked="false">Galerie
-                            (bară)</button>
-                        <button class="catalog-chip" type="button" data-acc-type="galerie_accesorii"
-                            aria-checked="false">Accesorii galerie</button>
-                    </div>
-                </div>
-
-                <p class="catalog__meta" data-acc-meta>—</p>
-
-                <div class="catalog__grid" data-acc-grid></div>
-
-                <div class="catalog__empty" data-acc-empty hidden>
-                    <p class="catalog__empty-title">Nu există produse pentru selecția curentă.</p>
-                    <p class="catalog__empty-text">Încearcă „Toate” sau schimbă filtrele.</p>
-                </div>
-
-                <noscript>
-                    <p class="catalog__noscript">Pentru a vedea catalogul, activează JavaScript în browser.</p>
-                </noscript>
-            </div>
-        </section>
-
-
-
         <!-- =========================================================
          Accesorii în funcție de stil
          ========================================================= -->
@@ -359,6 +290,74 @@
                         <p>Valuri, cădere, lungime — accesoriile influențează direct look-ul final.</p>
                     </article>
                 </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================================
+        Catalog accesorii
+        ========================================================= -->
+
+        <section class="section" id="catalog-accesorii" data-animate>
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="section__title">Catalog Accesorii</h2>
+                    <p class="catalog__intro">
+                        Selectezi accesoriile potrivite și trimiți o cerere de ofertă. Prețurile sunt estimative și se
+                        confirmă
+                        după verificare.
+                    </p>
+                </div>
+
+                <div class="catalog-filters" aria-label="Filtre accesorii">
+                    <p class="catalog-filters__label">Pentru</p>
+                    <div class="catalog-filters__chips" role="group" aria-label="Pentru">
+                        <button class="catalog-chip is-active" type="button" data-acc-applies="all"
+                            aria-checked="true">Toate</button>
+                        <button class="catalog-chip" type="button" data-acc-applies="mocheta"
+                            aria-checked="false">Mochetă</button>
+                        <button class="catalog-chip" type="button" data-acc-applies="perdele"
+                            aria-checked="false">Perdele</button>
+                        <button class="catalog-chip" type="button" data-acc-applies="draperii"
+                            aria-checked="false">Draperii</button>
+                        <button class="catalog-chip" type="button" data-acc-applies="universal"
+                            aria-checked="false">Universal</button>
+                    </div>
+                </div>
+
+                <div class="catalog-filters" aria-label="Tip">
+                    <p class="catalog-filters__label">Tip</p>
+                    <div class="catalog-filters__chips" role="group" aria-label="Tip">
+                        <button class="catalog-chip is-active" type="button" data-acc-type="all"
+                            aria-checked="true">Toate</button>
+                        <button class="catalog-chip" type="button" data-acc-type="underlay"
+                            aria-checked="false">Underlay</button>
+                        <button class="catalog-chip" type="button" data-acc-type="plinte"
+                            aria-checked="false">Plinte</button>
+                        <button class="catalog-chip" type="button" data-acc-type="adezivi"
+                            aria-checked="false">Adezivi</button>
+                        <button class="catalog-chip" type="button" data-acc-type="sine_kit" aria-checked="false">Șine
+                            (kit)</button>
+                        <button class="catalog-chip" type="button" data-acc-type="galerie_bara"
+                            aria-checked="false">Galerie
+                            (bară)</button>
+                        <button class="catalog-chip" type="button" data-acc-type="galerie_accesorii"
+                            aria-checked="false">Accesorii galerie</button>
+                    </div>
+                </div>
+
+                <p class="catalog__meta" data-acc-meta>—</p>
+
+                <div class="catalog__grid" data-acc-grid></div>
+
+                <div class="catalog__empty" data-acc-empty hidden>
+                    <p class="catalog__empty-title">Nu există produse pentru selecția curentă.</p>
+                    <p class="catalog__empty-text">Încearcă „Toate” sau schimbă filtrele.</p>
+                </div>
+
+                <noscript>
+                    <p class="catalog__noscript">Pentru a vedea catalogul, activează JavaScript în browser.</p>
+                </noscript>
             </div>
         </section>
 

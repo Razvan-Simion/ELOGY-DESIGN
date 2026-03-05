@@ -28,6 +28,17 @@
     return Math.round(v * 100) / 100;
   }
 
+
+  // Underlay: clamp strict (min 0.5, step 0.01, fallback 0.5)
+  function normalizeUnderlayLength(v) {
+    let n = Number(v);
+    if (!Number.isFinite(n)) n = 0.5;
+    if (n < 0.5) n = 0.5;
+    return Math.round(n * 100) / 100; // step 0.01 (2 decimals)
+  }
+
+
+
   // DOM refs (shared contract)
   const drawer = () => qs("[data-product-drawer]");
   const panel = () => qs("[data-product-drawer-panel]");
@@ -114,12 +125,13 @@
 
   function calcUnderlay(p, lengthM) {
     const widthM = 1.37;
-    const safeLen = Math.max(0, clampNum(lengthM));
+    const safeLen = normalizeUnderlayLength(lengthM);
     const areaMp = round2(widthM * safeLen);
     const unitPrice = clampNum(p.pricing && p.pricing.value);
     const total = round2(areaMp * unitPrice);
     return { unitLabel: "mp", unitPrice, quantity: areaMp, total, meta: { widthM, lengthM: safeLen, areaMp } };
   }
+
 
   function calcSimple(p, qty) {
     const q = Math.max(1, Math.round(clampNum(qty)));
@@ -147,7 +159,19 @@
 
     const onUpdate = () => updateTotals(p);
 
-    if (len) len.addEventListener("input", () => { cfg.lengthM = clampNum(len.value); onUpdate(); });
+       if (len) {
+      // keep typing UX the same, but calculations/validation are normalized
+      len.addEventListener("input", () => { cfg.lengthM = clampNum(len.value); onUpdate(); });
+
+      // on blur, normalize and reflect back in the input
+      len.addEventListener("blur", () => {
+        const v = normalizeUnderlayLength(len.value);
+        cfg.lengthM = v;
+        len.value = v.toFixed(2);
+        onUpdate();
+      });
+    }
+
     if (qty) qty.addEventListener("input", () => { cfg.qty = clampNum(qty.value); onUpdate(); });
   }
 
@@ -161,7 +185,7 @@
 
   function isValid(p) {
     if (!p) return false;
-    if (isUnderlay(p)) return clampNum(cfg.lengthM) >= 0.5;
+    if (isUnderlay(p)) return normalizeUnderlayLength(cfg.lengthM) >= 0.5;
     return clampNum(cfg.qty) >= 1;
   }
 
@@ -271,8 +295,11 @@
     if (!it || it.productId !== product.id) return;
 
     if (it.config && it.config.kind === "underlay") {
-      cfg.lengthM = typeof it.config.lengthM === "number" ? it.config.lengthM : 0.5;
+      cfg.lengthM = normalizeUnderlayLength(
+        (it.config && typeof it.config.lengthM === "number") ? it.config.lengthM : 0.5
+      );
     } else if (it.config && it.config.kind === "simple") {
+
       cfg.qty = typeof it.config.qty === "number" ? it.config.qty : 1;
     }
   }

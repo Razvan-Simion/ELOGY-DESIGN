@@ -125,7 +125,7 @@
 
           <div class="mocheta-hero__actions">
             <a class="btn btn--primary" href="contact.html">Programează o discuție</a>
-            <a class="btn btn--secondary" href="#catalog">Vezi catalogul</a>
+            <a class="btn btn--secondary" href="#catalog">Catalog mocheta</a>
           </div>
         </div>
 
@@ -206,87 +206,6 @@
         </div>
       </div>
     </section>
-
-    <!-- =========================================================
-     CATALOG MOCHEȚĂ (NOU) – integrat în pagină
-     - Tabs + filtru destinație + grid produse
-     - Configuratorul/drawer vine la pasul 3
-     ========================================================= -->
-    <section class="catalog section" id="catalog" aria-label="Catalog mochetă" data-animate>
-      <div class="container">
-        <div class="section__head">
-          <h2 class="section__title">Catalog mochetă</h2>
-          <p class="catalog__intro">
-            Selectezi produsul, îl configurezi, îl adaugi în coș și trimiți o cerere de ofertă. Prețurile sunt
-            estimative și
-            se confirmă după verificare.
-          </p>
-        </div>
-
-        <!-- Tabs -->
-        <div class="catalog-tabs" role="tablist" aria-label="Tip produs">
-          <button class="catalog-tabs__btn is-active" type="button" role="tab" aria-selected="true"
-            data-catalog-tab="all">
-            Toate
-          </button>
-          <button class="catalog-tabs__btn" type="button" role="tab" aria-selected="false" data-catalog-tab="rola">
-            Rolă
-          </button>
-          <button class="catalog-tabs__btn" type="button" role="tab" aria-selected="false" data-catalog-tab="traversa">
-            Traverse
-          </button>
-        </div>
-
-        <!-- Destination chips (single-select) -->
-        <div class="catalog-filters" aria-label="Filtru destinație">
-          <div class="catalog-filters__label">Destinație:</div>
-          <div class="catalog-filters__chips" role="radiogroup" aria-label="Destinație">
-            <button class="catalog-chip is-active" type="button" role="radio" aria-checked="true"
-              data-catalog-destination="all">
-              Toate
-            </button>
-            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
-              data-catalog-destination="domestic">
-              Trafic domestic
-            </button>
-            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
-              data-catalog-destination="intens">
-              Trafic intens
-            </button>
-            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
-              data-catalog-destination="horeca">
-              HoReCa / evenimente
-            </button>
-            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
-              data-catalog-destination="exterior">
-              Exterior
-            </button>
-            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
-              data-catalog-destination="birouri">
-              Birouri
-            </button>
-          </div>
-        </div>
-
-        <!-- Results -->
-        <p class="catalog__meta" data-catalog-meta></p>
-
-        <div class="catalog__grid" data-catalog-grid></div>
-
-        <div class="catalog__empty" data-catalog-empty hidden>
-          <p class="catalog__empty-title">Nu există produse pentru selecția curentă.</p>
-          <p class="catalog__empty-text">Încearcă „Toate” sau schimbă destinația.</p>
-        </div>
-
-
-        <noscript>
-          <p class="catalog__noscript">
-            Pentru a vedea catalogul și filtrele, activează JavaScript în browser.
-          </p>
-        </noscript>
-      </div>
-    </section>
-
 
     <!-- =========================================================
          4) Unde se potrivește (obligatoriu)
@@ -427,8 +346,89 @@
     </section>
 
     <!-- =========================================================
-         7) Showroom (obligatoriu)
-         ========================================================= -->
+                         CATALOG MOCHEȚĂ (NOU) – integrat în pagină
+                         - Tabs + filtru destinație + grid produse
+                         - Configuratorul/drawer vine la pasul 3
+                         ========================================================= -->
+    <section class="catalog section" id="catalog" aria-label="Catalog mochetă" data-animate>
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">Catalog mochetă</h2>
+          <p class="catalog__intro">
+            Selectezi produsul, îl configurezi, îl adaugi în coș și trimiți o cerere de ofertă. Prețurile sunt
+            estimative și
+            se confirmă după verificare.
+          </p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="catalog-tabs" role="tablist" aria-label="Tip produs">
+          <button class="catalog-tabs__btn is-active" type="button" role="tab" aria-selected="true"
+            data-catalog-tab="all">
+            Toate
+          </button>
+          <button class="catalog-tabs__btn" type="button" role="tab" aria-selected="false" data-catalog-tab="rola">
+            Rolă
+          </button>
+          <button class="catalog-tabs__btn" type="button" role="tab" aria-selected="false" data-catalog-tab="traversa">
+            Traverse
+          </button>
+        </div>
+
+        <!-- Destination chips (single-select) -->
+        <div class="catalog-filters" aria-label="Filtru destinație">
+          <div class="catalog-filters__label">Destinație:</div>
+          <div class="catalog-filters__chips" role="radiogroup" aria-label="Destinație">
+            <button class="catalog-chip is-active" type="button" role="radio" aria-checked="true"
+              data-catalog-destination="all">
+              Toate
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="domestic">
+              Trafic domestic
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="intens">
+              Trafic intens
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="horeca">
+              HoReCa / evenimente
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="exterior">
+              Exterior
+            </button>
+            <button class="catalog-chip" type="button" role="radio" aria-checked="false"
+              data-catalog-destination="birouri">
+              Birouri
+            </button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <p class="catalog__meta" data-catalog-meta></p>
+
+        <div class="catalog__grid" data-catalog-grid></div>
+
+        <div class="catalog__empty" data-catalog-empty hidden>
+          <p class="catalog__empty-title">Nu există produse pentru selecția curentă.</p>
+          <p class="catalog__empty-text">Încearcă „Toate” sau schimbă destinația.</p>
+        </div>
+
+
+        <noscript>
+          <p class="catalog__noscript">
+            Pentru a vedea catalogul și filtrele, activează JavaScript în browser.
+          </p>
+        </noscript>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+             7) Showroom (obligatoriu)
+             ========================================================= -->
     <section class="showroom section" aria-label="Showroom" data-animate>
       <div class="container showroom__inner">
         <div class="showroom__content">
@@ -445,10 +445,11 @@
       </div>
     </section>
 
+
     <!-- =========================================================
-         8) FAQ (obligatoriu) - minim 4–5 întrebări
-         - folosim <details> (fără JS), conținut placeholder
-         ========================================================= -->
+             8) FAQ (obligatoriu) - minim 4–5 întrebări
+             - folosim <details> (fără JS), conținut placeholder
+             ========================================================= -->
     <section class="faq section" aria-label="Întrebări frecvente" data-animate>
       <div class="container">
         <div class="section__head">
@@ -499,6 +500,9 @@
         </div>
       </div>
     </section>
+
+
+
 
     <!-- =========================================================
          9) CTA final (obligatoriu)
