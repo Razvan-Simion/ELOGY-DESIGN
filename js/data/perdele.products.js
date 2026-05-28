@@ -59,9 +59,9 @@
       type: "fabric",
       title: "Brioni 01 Crem – Colecția Scandi",
       descriptionShort: "Perdeaua Brioni are o țesătură densă și un model mărunt, discret, fiind ideală pentru un decor minimalist. O alegere simplă și elegantă, ușor de integrat în orice interior.",
-      images: ["images/per_Brioni_crem_01/1.jpg",
-        "images/per_Brioni_crem_01/2.jpg",
-        "images/per_Brioni_crem_01/detail.jpg"
+      images: ["images/per_brioni_crem_01/brioni_crem_01_1.jpg",
+        "images/per_brioni_crem_01/brioni_crem_01_2.jpg",
+        "images/per_brioni_crem_01/brioni_crem_01_3.jpg"
       ],
       pricing: { unit: "ml", value: 64.03, currency: "RON" },
       series: "brioni",
@@ -78,9 +78,9 @@
       type: "fabric",
       title: "Figuera 01 Bej – Colecția Scandi",
       descriptionShort: "Perdeaua Figuera este transparentă, cu o textură delicată și un model minimalist, ce permite pătrunderea luminii naturale și adaugă un plus de eleganță oricărui decor.",
-      images: ["images/per_Figuera_bej_01/1.jpg",
-        "images/per_Figuera_bej_01/2.jpg",
-        "images/per_Figuera_bej_01/detail.jpg"
+      images: ["images/per_figuera_bej_01/figuera_bej_01_1.jpg",
+        "images/per_figuera_bej_01/figuera_bej_01_2.jpg",
+        "images/per_figuera_bej_01/figuera_bej_01_3.jpg"
       ],
       pricing: { unit: "ml", value: 72.75, currency: "RON" },
       series: "figuera",
@@ -97,14 +97,14 @@
       type: "fabric",
       title: "Figuera 02 Crem – Colecția Scandi",
       descriptionShort: "Perdeaua Figuera este transparentă, cu o textură delicată și un model minimalist, ce permite pătrunderea luminii naturale și adaugă un plus de eleganță oricărui decor.",
-      images: ["images/per_Figuera_crem_02/1.jpg",
-        "images/per_Figuera_crem_02/2.jpg",
-        "images/per_Figuera_crem_02/detail.jpg"
+      images: ["images/per_figuera_crem_02/figuera_crem_02_1.jpg",
+        "images/per_figuera_crem_02/figuera_crem_02_2.jpg",
+        "images/per_figuera_crem_02/figuera_crem_02_3.jpg"
       ],
       pricing: { unit: "ml", value: 72.75, currency: "RON" },
       series: "figuera",
       collection: "scandi",
-      color: "bej",
+      color: "crem",
       specs: { fabricHeightM: 3.35, color: "Crem", composition: "Poliester" },
       flags: { sheer: true, blackout: false },
       status: "active",
@@ -116,10 +116,10 @@
       type: "fabric",
       title: "Rosada Crem T08 – Colecția Monograma",
       descriptionShort: "Perdeaua Rosada se remarcă prin broderia abstractă 3D, aplicată pe țesătură, oferind un accent modern și elegant. Disponibilă în nuanțe de crem și bej, este ușor de integrat atât în amenajări minimaliste, cât și în decoruri sofisticate.",
-      images: ["images/per_Rosada_crem_T08/1.jpg",
-        "images/per_Rosada_crem_T08/2.jpg",
-        "images/per_Rosada_crem_T08/3.jpg",
-        "images/per_Rosada_crem_T08/4.jpg"
+      images: ["images/per_rosada_crem_T08/per_rosada_crem_T08_1.jpg",
+        "images/per_rosada_crem_T08/per_rosada_crem_T08_2.jpg",
+        "images/per_rosada_crem_T08/per_rosada_crem_T08_3.jpg",
+        "images/per_rosada_crem_T08/per_rosada_crem_T08_4.jpg"
       ],
       pricing: { unit: "ml", value: 133.37, currency: "RON" },
       series: "rosada",
@@ -136,10 +136,10 @@
       type: "fabric",
       title: "Rosada Bej T02 – Colecția Monograma",
       descriptionShort: "Perdeaua Rosada se remarcă prin broderia abstractă 3D, aplicată pe țesătură, oferind un accent modern și elegant. Disponibilă în nuanțe de crem și bej, este ușor de integrat atât în amenajări minimaliste, cât și în decoruri sofisticate.",
-      images: ["images/per_Rosada_bej_T02/1.jpg",
-        "images/per_Rosada_bej_T02/2.jpg",
-        "images/per_Rosada_bej_T02/3.jpg",
-        "images/per_Rosada_bej_T02/4.jpg"
+      images: ["images/per_rosada_bej_T02/1.jpg",
+        "images/per_rosada_bej_T02/2.jpg",
+        "images/per_rosada_bej_T02/3.jpg",
+        "images/per_rosada_bej_T02/4.jpg"
       ],
       pricing: { unit: "ml", value: 133.37, currency: "RON" },
       series: "rosada",
@@ -156,10 +156,10 @@
       type: "fabric",
       title: "Laurie Alb 13 – Colecția Basic",
       descriptionShort: "Perdeaua Laurie este simplă, fără model, ușor de asortat cu orice draperie. Țesătura moale, cu finisaj mat și transluciditate medie, oferă intimitate și lasă lumina să pătrundă delicat în încăpere.",
-      images: ["images/per_Laurie_alb_13/1-LAURIE-13.jpg",
-        "images/per_Laurie_alb_13/2-LAURIE-13_1.jpg",
-        "images/per_Laurie_alb_13/3-LAURIE-13_2.jpg",
-        "images/per_Laurie_alb_13/4-LAURIE-13_4.jpg"
+      images: ["images/per_laurie_alb_13/1-LAURIE-13.jpg",
+        "images/per_laurie_alb_13/2-LAURIE-13_1.jpg",
+        "images/per_laurie_alb_13/3-LAURIE-13_2.jpg",
+        "images/per_laurie_alb_13/4-LAURIE-13_4.jpg"
       ],
       pricing: { unit: "ml", value: 50.04, currency: "RON" },
       series: "laurie",
@@ -176,10 +176,10 @@
       type: "fabric",
       title: "Laurie Crem 14 – Colecția Basic",
       descriptionShort: "Perdeaua Laurie este simplă, fără model, ușor de asortat cu orice draperie. Țesătura moale, cu finisaj mat și transluciditate medie, oferă intimitate și lasă lumina să pătrundă delicat în încăpere.",
-      images: ["images/per_Laurie_crem_14/1-LAURIE-14.jpg",
-        "images/per_Laurie_crem_14/2-LAURIE-14_1.jpg",
-        "images/per_Laurie_crem_14/3-LAURIE-14_2.jpg",
-        "images/per_Laurie_crem_14/4-LAURIE-14_4.jpg"
+      images: ["images/per_laurie_crem_14/1-LAURIE-14.jpg",
+        "images/per_laurie_crem_14/2-LAURIE-14_1.jpg",
+        "images/per_laurie_crem_14/3-LAURIE-14_2.jpg",
+        "images/per_laurie_crem_14/4-LAURIE-14_4.jpg"
       ],
       pricing: { unit: "ml", value: 50.04, currency: "RON" },
       series: "laurie",
@@ -196,9 +196,9 @@
       type: "fabric",
       title: "Pavlova Bej C1 – Colecția Riviera",
       descriptionShort: "Perdeaua Pavlova este o perdea elegantă cu textură fină și model discret repetitiv, grad redus de opacitate, lasă lumina să pătrundă delicat în încăpere.",
-      images: ["images/per_Pavlova_bej_C1/1-PAVLOVA-C1_8.jpg",
-        "images/per_Pavlova_bej_C1/2-PAVLOVA-C1.jpg",
-        "images/per_Pavlova_bej_C1/3-PAVLOVA-C1_6.jpg"
+      images: ["images/per_pavlova_bej_C1/1-PAVLOVA-C1_8.jpg",
+        "images/per_pavlova_bej_C1/2-PAVLOVA-C1.jpg",
+        "images/per_pavlova_bej_C1/3-PAVLOVA-C1_6.jpg"
       ],
       pricing: { unit: "ml", value: 77.7, currency: "RON" },
       series: "pavlova",
@@ -215,9 +215,9 @@
       type: "fabric",
       title: "Pavlova Gri C2 – Colecția Riviera",
       descriptionShort: "Perdeaua Pavlova este o perdea elegantă cu textură fină și model discret repetitiv, grad redus de opacitate, lasă lumina să pătrundă delicat în încăpere.",
-      images: ["images/per_Pavlova_gri_C2/1-PAVLOVA-C2_8.jpg",
-        "images/per_Pavlova_gri_C2/2-PAVLOVA-C2.jpg",
-        "images/per_Pavlova_gri_C2/3-PAVLOVA-C2_6.jpg"
+      images: ["images/per_pavlova_gri_C2/1-PAVLOVA-C2_8.jpg",
+        "images/per_pavlova_gri_C2/2-PAVLOVA-C2.jpg",
+        "images/per_pavlova_gri_C2/3-PAVLOVA-C2_6.jpg"
       ],
       pricing: { unit: "ml", value: 77.7, currency: "RON" },
       series: "pavlova",
@@ -234,10 +234,10 @@
       type: "fabric",
       title: "Mirabela Alb 01 – Colecția Basic",
       descriptionShort: "Perdeaua Mirabela este simplă, fără model, ușor de asortat cu orice draperie. Țesătura moale, cu finisaj mat și transluciditate medie, oferă intimitate și permite luminii naturale să lumineze delicat încăperea, contribuind la un decor aerisit și luminos.",
-      images: ["images/per_Mirabela_alb_01/1-MIRABELA-01.jpg",
-        "images/per_Mirabela_alb_01/2-MIRABELA-01_alb.jpg",
-        "images/per_Mirabela_alb_01/3-MIRABELA-01_9.jpg",
-        "images/per_Mirabela_alb_01/4-MIRABELA-01_6.jpg"
+      images: ["images/per_mirabela_alb_01/1-MIRABELA-01.jpg",
+        "images/per_mirabela_alb_01/2-MIRABELA-01_alb.jpg",
+        "images/per_mirabela_alb_01/3-MIRABELA-01_9.jpg",
+        "images/per_mirabela_alb_01/4-MIRABELA-01_6.jpg"
       ],
       pricing: { unit: "ml", value: 58.95, currency: "RON" },
       series: "mirabela",
@@ -254,10 +254,10 @@
       type: "fabric",
       title: "Mirabela Crem 02 – Colecția Basic",
       descriptionShort: "Perdeaua Mirabela este simplă, fără model, ușor de asortat cu orice draperie. Țesătura moale, cu finisaj mat și transluciditate medie, oferă intimitate și permite luminii naturale să lumineze delicat încăperea, contribuind la un decor aerisit și luminos.",
-      images: ["images/per_Mirabela_Crem_02/1-MIRABELA-02.jpg",
-        "images/per_Mirabela_Crem_02/2-MIRABELA-02_8.jpg",
-        "images/per_Mirabela_Crem_02/3-MIRABELA-02_9.jpg",
-        "images/per_Mirabela_Crem_02/4-MIRABELA-02_6.jpg"
+      images: ["images/per_mirabela_crem_02/1-MIRABELA-02.jpg",
+        "images/per_mirabela_crem_02/2-MIRABELA-02_8.jpg",
+        "images/per_mirabela_crem_02/3-MIRABELA-02_9.jpg",
+        "images/per_mirabela_crem_02/4-MIRABELA-02_6.jpg"
       ],
       pricing: { unit: "ml", value: 58.95, currency: "RON" },
       series: "mirabela",
@@ -274,9 +274,9 @@
       type: "fabric",
       title: "Nest Crem 01 – Colecția Scandi",
       descriptionShort: "Perdeaua Nest este transparentă, cu o textură tip plasă și un design minimalist de impact. Permite pătrunderea luminii naturale și adaugă un plus de rafinament și eleganță oricărui decor.",
-      images: ["images/per_Nest_Crem_01/1-NEST-01.jpg",
-        "images/per_Nest_Crem_01/2-NEST-01_1.jpg",
-        "images/per_Nest_Crem_01/3-NEST-01_3.jpg"
+      images: ["images/per_nest_crem_01/1-NEST-01.jpg",
+        "images/per_nest_crem_01/2-NEST-01_1.jpg",
+        "images/per_nest_crem_01/3-NEST-01_3.jpg"
       ],
       pricing: { unit: "ml", value: 58.55, currency: "RON" },
       series: "nest",
@@ -293,9 +293,9 @@
       type: "fabric",
       title: "Hydra Crem 01 – Colecția Monograma",
       descriptionShort: "Perdeaua Hydra este realizată din voile delicat, cu un model abstract format din linii ondulate și forme rotunjite. Designul inspirat din conturul frunzelor adaugă textură și un plus de eleganță oricărui tip de amenajare.",
-      images: ["images/per_Hydra_Crem_01/1-HYDRA-01.jpg",
-        "images/per_Hydra_Crem_01/2-HYDRA-01_1.jpg",
-        "images/per_Hydra_Crem_01/3-HYDRA-01_3.jpg"
+      images: ["images/per_hydra_crem_01/1-HYDRA-01.jpg",
+        "images/per_hydra_crem_01/2-HYDRA-01_1.jpg",
+        "images/per_hydra_crem_01/3-HYDRA-01_3.jpg"
       ],
       pricing: { unit: "ml", value: 50.84, currency: "RON" },
       series: "hydra",
@@ -312,10 +312,10 @@
       type: "fabric",
       title: "Marmor Alb 01 – Colecția Jade",
       descriptionShort: "Perdeaua Marmor este delicată, cu o țesătură moale și un model discret cu accente aurii inspirate din texturi minerale. O alegere elegantă pentru interioare sofisticate, poate fi asortată cu succes cu draperia din catifea Dakka.",
-      images: ["images/per_Marmor_alb_01/1-MARMOR-01_7.jpg",
-        "images/per_Marmor_alb_01/2-MARMOR-01_8.jpg",
-        "images/per_Marmor_alb_01/3-MARMOR-01.jpg",
-        "images/per_Marmor_alb_01/4-MARMOR-01_9.jpg"
+      images: ["images/per_marmor_alb_01/1-MARMOR-01_7.jpg",
+        "images/per_marmor_alb_01/2-MARMOR-01_8.jpg",
+        "images/per_marmor_alb_01/3-MARMOR-01.jpg",
+        "images/per_marmor_alb_01/4-MARMOR-01_9.jpg"
       ],
       pricing: { unit: "ml", value: 70.17, currency: "RON" },
       series: "marmor",
@@ -332,9 +332,9 @@
       type: "fabric",
       title: "Kobe Alb C1 – Colecția Jade",
       descriptionShort: "Perdeaua Kobe impresionează prin aspectul său strălucitor și designul elegant, care adaugă luminozitate încăperii. Țesătura tip plasă, decorată cu buline delicate și o bordură inferioară cu inserții verticale, oferă un plus de rafinament, fiind ideală pentru amenajări sofisticate și elegante.",
-      images: ["images/per_Kobe_alb_01/1-KOBE-C1_8.jpg",
-        "images/per_Kobe_alb_01/2-KOBE-C1.jpg",
-        "images/per_Kobe_alb_01/3-KOBE-C1_6.jpg"
+      images: ["images/per_kobe_alb_01/1-KOBE-C1_8.jpg",
+        "images/per_kobe_alb_01/2-KOBE-C1.jpg",
+        "images/per_kobe_alb_01/3-KOBE-C1_6.jpg"
       ],
       pricing: { unit: "ml", value: 75.2, currency: "RON" },
       series: "kobe",
@@ -351,9 +351,9 @@
       type: "fabric",
       title: "Carila Crem 01 – Colecția Monograma",
       descriptionShort: "Perdeaua Carila îmbină armonios stilul clasic cu cel modern, prin broderia florală ușor abstractă aplicată pe o țesătură fină. O alegere rafinată, ideală pentru completarea elegantă a oricărui interior.",
-      images: ["images/per_Carila_crem_01/1-CARILA-01.jpg",
-        "images/per_Carila_crem_01/2-CARILA-01_1.jpg",
-        "images/per_Carila_crem_01/3-CARILA-01_3.jpg"
+      images: ["images/per_carila_crem_01/1-CARILA-01.jpg",
+        "images/per_carila_crem_01/2-CARILA-01_1.jpg",
+        "images/per_carila_crem_01/3-CARILA-01_3.jpg"
       ],
       pricing: { unit: "ml", value: 75.07, currency: "RON" },
       series: "carila",

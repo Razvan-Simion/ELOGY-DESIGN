@@ -1,5 +1,5 @@
 /* =========================================
-   ELOGY – Accesorii catalog UI
+   ELOGY - Accesorii catalog UI
    - chips single-select: "Pentru" + "Tip"
    - AND filter
    - empty state hidden implicit în HTML
@@ -16,13 +16,13 @@
   const formatRON = (NS.money && NS.money.formatRON)
     ? NS.money.formatRON
     : (n) => {
-        const v = Number(n);
-        const hasDecimals = Math.abs(v - Math.trunc(v)) > 0;
-        return v.toLocaleString("ro-RO", {
-          minimumFractionDigits: hasDecimals ? 2 : 0,
-          maximumFractionDigits: hasDecimals ? 2 : 0
-        }) + " lei";
-      };
+      const v = Number(n);
+      const hasDecimals = Math.abs(v - Math.trunc(v)) > 0;
+      return v.toLocaleString("ro-RO", {
+        minimumFractionDigits: hasDecimals ? 2 : 0,
+        maximumFractionDigits: hasDecimals ? 2 : 0
+      }) + " lei";
+    };
 
   function qs(sel, root) { return (root || document).querySelector(sel); }
   function qsa(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }

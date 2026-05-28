@@ -400,6 +400,34 @@ a {
   background: transparent;
 }
 
+.service__media--consultanta .media__surface {
+  background-image: url("../images/home/services/service-consultanta.webp");
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+}
+
+.service__media--masuratori .media__surface {
+  background-image: url("../images/home/services/service-masuratori.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.service__media--produse .media__surface {
+  background-image: url("../images/home/services/service-produse-la-comanda.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.showroom__media--image .media__surface {
+  background-image: url("../images/home/showroom/showroom-home.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Variante per secțiune/card (opțional) */
 .card--perdele .media__surface {
   background: var(--grad-2);
@@ -439,17 +467,23 @@ a {
   align-items: center;
 }
 
+.hero__content {
+  max-width: 620px;
+}
+
 .hero__title {
   margin: 0 0 var(--space-3);
   font-size: 34px;
   font-weight: var(--fw-semi);
-  letter-spacing: -0.4px;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
 }
 
 .hero__subtitle {
   margin: 0 0 var(--space-5);
   color: var(--color-muted);
   font-size: 15px;
+  line-height: 1.6;
 }
 
 .hero__actions {
@@ -458,23 +492,50 @@ a {
   gap: var(--space-3);
 }
 
+.hero__media {
+  min-height: 360px;
+  border-radius: 32px;
+}
+
+.hero__media--image {
+  background-image: url("../images/home/hero-elogy-design.webp");
+  background-size: cover;
+  background-position: 78% center;
+  background-repeat: no-repeat;
+}
+
 .hero__media .media__surface {
-  min-height: 260px;
+  min-height: 360px;
+  background: transparent;
 }
 
 @media (min-width: 900px) {
   .hero__inner {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: var(--space-7);
+    grid-template-columns: 1fr 1.6fr;
+    gap: 72px;
+    min-height: 68vh;
   }
+
   .hero__title {
-    font-size: 44px;
+    font-size: clamp(38px, 5vw, 48px);
   }
+
   .hero__subtitle {
     font-size: 16px;
   }
-}
 
+  .hero__media {
+    height: 460px;
+    width: 100%;
+    border-radius: 36px;
+    overflow: hidden;
+  }
+
+  .hero__media .media__surface {
+    height: 100%;
+    min-height: unset;
+  }
+}
 /* =========================================
    3) Cards main
    ========================================= */
@@ -494,13 +555,43 @@ a {
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: scale(1.03);
   border-color: rgba(17, 17, 17, 0.16);
 }
 
 .card__media {
   margin-bottom: var(--space-4);
+  aspect-ratio: 4 / 3;
 }
+
+.card__media--mocheta {
+  background-image: url("../images/home/cards/mocheta-card.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card__media--perdele {
+  background-image: url("../images/home/cards/card-perdele.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card__media--draperii {
+  background-image: url("../images/home/cards/card-draperii.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card__media--montaj {
+  background-image: url("../images/home/cards/card-montaj.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .card__title {
   margin: 0;
   font-weight: var(--fw-semi);
@@ -953,7 +1044,7 @@ a {
   border: 1px solid rgba(17, 17, 17, 0.12);
   background: #f6f6f6;
   background-size: cover;
-  background-position: center;
+  background-position: 72% center;
   cursor: pointer;
 }
 
